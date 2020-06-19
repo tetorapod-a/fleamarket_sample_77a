@@ -43,7 +43,6 @@ Things you may want to cover:
 - has_many :likes, dependent: :destroy
 - has_many :like_items, through: :like, source: :item, dependent: :destroy
 - has_many :sns_credentials, dependent: :destroy
-- has_many :purchase dependent: :destroy
 
 ## addressテーブル
 |Column|Type|Option|
@@ -83,7 +82,6 @@ Things you may want to cover:
 - has_many :comments, dependent: :destroy
 - has_many :like, dependent: :destroy
 - has_many :images, dependent: :destroy
-- has_many :purchase, dependent: :destroy
 - belongs_to :buyer, class_name: 'User', foreign_key: 'buyer_id'
 - belongs_to :seller, class_name: 'User', foreign_key: 'seller_id'
 
@@ -127,7 +125,7 @@ Things you may want to cover:
 |------|----|------|
 |user_id|integer|null:false|
 |customer_id|string|null:false|
-|card_id|string|null:false|
+|card_id|references|null:false,foreign_key:true|
 ### Association
 - belongs_to :user
 
