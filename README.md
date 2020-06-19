@@ -68,13 +68,12 @@ Things you may want to cover:
 |name|string|null:false|
 |detail|text|null:false|
 |price|string|null:false|
-|status|string|null:false|
-|postage|string|null:false|
-|shipping_day|string|null:false|
-|shipping_method|string|null:false|
-|shipping_area|string|null:false|
+|status_id(active_hash)|integer|null:false|
+|postage_id(active_hash)|integer|null:false|
+|shipping_day_id(active_hash)|integer|null:false|
+|shipping_method_id(active_hash)|integer|null:false|
+|prefecture_id(active_hash)|integer|null:false|
 |brand|string||
-|sale_status|integer|null:false|
 |category_id|references|null:false,foreign_key:true|
 |buyer_id|references|foreign_key :true|
 |seller_id|references|null:false, foreign_key :true|
@@ -99,7 +98,7 @@ Things you may want to cover:
 ## imageテーブル
 |Column|Type|Option|
 |------|----|------|
-|image|text||
+|image|text|null:false|
 |item_id|references|null:false,foreign_key:true|
 ### Association
 - belongs_to :item
