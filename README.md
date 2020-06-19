@@ -53,7 +53,7 @@ Things you may want to cover:
 |last_name|string|null:false|
 |last_name_kana|string|null:false|
 |postal_code|string|null:false|
-|prefecture|string|null:false|
+|prefecture_id(active_hash)|integer|null:false|
 |city|string|null:false|
 |house_number|string|null:false|
 |apartment|string||
