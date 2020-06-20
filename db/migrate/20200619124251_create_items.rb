@@ -14,10 +14,10 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.references :buyer                 
       t.references :seller,                 null: false
       t.timestamps
-
+    end
       add_index :items, :name
 
       # t.integer :status_id(active_hash)
-    end
+    
   end
 end
