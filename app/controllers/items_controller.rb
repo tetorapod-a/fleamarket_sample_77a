@@ -21,4 +21,8 @@ class ItemsController < ApplicationController
   def destroy
   end
 
+  
+  def confirm
+  end
+
 end
