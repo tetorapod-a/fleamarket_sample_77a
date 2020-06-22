@@ -1,0 +1,599 @@
+// Place all the styles related to the items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+* {
+  box-sizing: border-box;
+}
+.wrapper{
+  background-color:rgb(248, 246, 246);
+  height: 100%;
+  width: 100vw;
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+
+  .main-product{
+    background-color:white;
+    margin: 0px 370px 0px 370px;
+    overflow: scroll;
+    font-size: 14px;
+    line-height: 1.4em;
+
+    .main-product-header{
+      text-align: center;
+      .main-product-header-logo{
+        background-color:rgb(248, 246, 246);
+        height: 150px;
+        padding: 40px 140px 40px 140px;
+    }
+
+  }
+    .product-listing-part{
+      text-align: left;
+      margin-top: 40px;
+      border-bottom: solid 1px #eee;
+      padding-bottom: 40px;
+
+      .product-listing1{
+        display: flex;
+        margin-left: 40px;
+        .exhibition-image{
+          color: black;
+          font-size: 14px;
+          padding-bottom: 20px;
+          font-weight: bold;
+      }
+      .exhibition-image-required{
+          background-color: red;
+          color:white;
+          font-size: 14px;
+          width: 40px;
+          height: 20px;
+          padding-left: 5px;
+          justify-content: space-between;
+          margin-left: 10px;
+        }
+      }
+
+      .product-listing2{
+        .exhibition-image-required-comments{
+          background-color: white;
+          color: black;
+          font-size: 12px;
+          padding-bottom: 25px;
+          margin-left: 40px;
+        }
+      }
+    }
+
+      .upload-space{
+        background-color:rgb(248, 246, 246);
+        height: 140px;
+        width: 620px;
+        text-align: center;
+        margin-right: 40px;
+        margin-left: 40px;
+
+
+        
+          .icon{
+            padding-top: 15px;
+            .new_image{
+              .form_mask{
+                .form_mask1{
+                  .imeges{
+                    // display: none;
+                  }
+                }
+              }
+            }
+          }
+          .icon-comment{
+            text-align: center;
+            color: black;
+            font-size: 12px;
+          }
+      }
+
+
+      .product-listing3{
+        text-align: left;
+        margin-left: 40px;
+        .product-name1{
+          display: flex;
+          .product-name2{
+            color: black;
+            font-size: 14px;
+            padding-bottom: 30px;
+            margin-top: 50px;
+            font-weight: bold;
+          }
+        }
+        .product-name-required{
+          background-color: red;
+          color:white;
+          font-size: 14px;
+          width: 40px;
+          height: 20px;
+          padding-left: 5px;
+          justify-content: space-between;
+          margin-left: 10px;
+          margin-top: 50px;
+        }
+
+        .input-form{
+          background-color: white;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          height: 48px;
+          width: 620px;
+
+          .input-form-comment{
+            margin-top: 15px;
+            margin-left: 15px;
+            color:rgb(163, 161, 161);
+            font-size: 14px;
+
+          }
+        }
+      }
+
+      .product-description{
+        border-bottom: solid 1px #eee;
+        padding-bottom: 70px;
+        .product-description1{
+          display: flex;
+          .product-description2{
+            color: black;
+            font-size: 14px;
+            padding-bottom: 30px;
+            margin-top: 50px;
+            margin-left: 40px;
+            font-weight: bold;
+          }
+          .product-description-required{
+            background-color: red;
+            color:white;
+            font-size: 14px;
+            width: 40px;
+            height: 20px;
+            padding-left: 5px;
+            justify-content: space-between;
+            margin-left: 10px;
+            margin-top: 50px;
+          }
+        }
+
+        .input-form{
+          background-color: white;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          height: 96px;
+          width: 620px;
+          margin-left: 40px;
+
+
+          .input-form-comment{
+            margin-top: 15px;
+            margin-left: 15px;
+            color:rgb(163, 161, 161);
+            font-size: 14px;
+
+            }
+        }
+      }
+    
+
+    .product-details-part{
+      text-align: left;
+      color: rgb(163, 161, 161);
+      margin-top: 40px;
+
+      p1{
+        display: block;
+        margin-left: 40px;
+      }
+      
+      .product-details{
+        display: flex;
+        .product-details1{
+          color: black;
+          font-size: 14px;
+          padding-bottom: 30px;
+          margin-top: 30px;
+          margin-left: 40px;
+          font-weight: bold;
+        }
+
+        .product-details-required{
+          background-color: red;
+          color:white;
+          font-size: 14px;
+          width: 40px;
+          height: 20px;
+          padding-left: 5px;
+          justify-content: space-between;
+          margin-left: 10px;
+          margin-top: 30px;
+        }
+      }
+
+      .input-form{
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        height: 48px;
+        width: 620px;
+        margin-left: 40px;
+      }
+      
+      .input-form-comment{
+        margin-top: 15px;
+        margin-left: 15px;
+        color:black;
+        font-size: 14px;
+      }
+
+      .brand-category{
+        .brand{
+        display: flex;
+          .brand1{
+            color: black;
+            font-size: 14px;
+            padding-bottom: 30px;
+            margin-top: 60px;
+            margin-left: 40px;
+            font-weight: bold;
+          }
+          .brand-required{
+            background-color:rgb(202, 199, 199);
+            color:white;
+            font-size: 14px;
+            width: 40px;
+            height: 20px;
+            padding-left: 5px;
+            justify-content: space-between;
+            margin-left: 10px;
+            margin-top: 60px;
+          }
+        }
+        .input-form{
+          background-color: white;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          height: 48px;
+          width: 620px;
+          margin-left: 40px;
+
+          .input-form-comment{
+            margin-top: 15px;
+            margin-left: 15px;
+            color:rgb(163, 161, 161);
+            font-size: 14px;
+          }
+        }
+      }
+  
+      .product-status-category{
+        border-bottom: solid 1px #eee;
+        padding-bottom: 40px;
+        .product-status{
+          display: flex;
+          .product-status1{
+            color: black;
+            font-size: 14px;
+            padding-bottom: 30px;
+            margin-top: 60px;
+            margin-left: 40px;
+            font-weight: bold;
+          }
+          .product-status-required{
+            background-color: red;
+            color:white;
+            font-size: 14px;
+            width: 40px;
+            height: 20px;
+            padding-left: 5px;
+            justify-content: space-between;
+            margin-left: 10px;
+            margin-top: 60px;
+            font-weight: bold;
+          }
+        }
+        .input-form{
+          background-color: white;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          height: 48px;
+          width: 620px;
+          margin-left: 40px;
+
+          .input-form-comment{
+            margin-top: 15px;
+            margin-left: 15px;
+            color:black;
+            font-size: 14px;
+          }
+        }
+      }
+    } 
+  
+
+    .Regarding-delivery{
+      text-align: left;
+      margin-top: 40px;
+      margin-left: 40px;
+      color: rgb(163, 161, 161);
+
+      .shipping-fee-burden-category{
+        .shipping-fee-burden{
+          display: flex;
+          .shipping-fee-burden1{
+            color: black;
+            font-size: 14px;
+            padding-bottom: 30px;
+            margin-top: 30px;
+            font-weight: bold;
+          }
+          .shipping-fee-burden-required{
+            background-color: red;
+            color:white;
+            font-size: 14px;
+            width: 40px;
+            height: 20px;
+            padding-left: 5px;
+            justify-content: space-between;
+            margin-left: 10px;
+            margin-top: 30px;
+          }
+        }
+
+        .input-form{
+          background-color: white;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          height: 48px;
+          width: 620px;
+
+          .input-form-comment{
+            margin-top: 15px;
+            margin-left: 15px;
+            color:black;
+            font-size: 14px;
+          }
+        } 
+      }
+    
+      .shipping-region-category{
+        .shipping-region{
+          display: flex;
+          .shipping-region1{
+            color: black;
+            font-size: 14px;
+            padding-bottom: 30px;
+            margin-top: 30px;
+            font-weight: bold;
+          }
+          .shipping-region-required{
+            background-color: red;
+            color:white;
+            font-size: 14px;
+            width: 40px;
+            height: 20px;
+            padding-left: 5px;
+            justify-content: space-between;
+            margin-left: 10px;
+            margin-top: 30px;
+          }
+        }
+
+        .input-form{
+          background-color: white;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          height: 48px;
+          width: 620px;
+
+
+          .input-form-comment {
+            margin-top: 15px;
+            margin-left: 15px;
+            color:black;
+            font-size: 14px;
+          }
+        }
+      }
+
+
+      .days-until-shipping-category{
+        .days-until-shipping{
+          display: flex;
+          .days-until-shipping1{
+            color: black;
+            font-size: 14px;
+            padding-bottom: 30px;
+            margin-top: 30px;
+            font-weight: bold;
+          }
+          }
+          .days-until-shipping-required{
+            background-color: red;
+            color:white;
+            font-size: 14px;
+            width: 40px;
+            height: 20px;
+            padding-left: 5px;
+            justify-content: space-between;
+            margin-left: 10px;
+            margin-top: 30px;
+          }
+        }
+        .input-form{
+          background-color: white;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          height: 48px;
+          width: 620px;
+
+          .input-form-comment {
+            margin-top: 15px;
+            margin-left: 15px;
+            color:black;
+            font-size: 14px;
+          }
+        }
+    }
+  }
+  
+
+    .price-part{
+      text-align: left;
+      margin-top: 60px;
+      margin-left: 40px;
+      .price{
+        color: rgb(163, 161, 161);
+      }
+  
+      .selling-price-category{
+        .selling-price{
+          display: flex;
+          .selling-price1{
+            color: black;
+            font-size: 14px;
+            padding-bottom: 30px;
+            margin-top: 30px;
+            font-weight: bold;
+          }
+          .selling-price-required{
+            background-color: red;
+            color:white;
+            font-size: 14px;
+            width: 40px;
+            height: 20px;
+            padding-left: 5px;
+            justify-content: space-between;
+            margin-left: 10px;
+            margin-top: 30px;
+          }
+
+          .input-form{
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            height: 48px;
+            width: 280px;
+            margin-top: 20px;
+            margin-left: 230px;
+
+            .input-form-comment{
+            margin-top: 15px;
+            margin-left: 15px;
+            color:black;
+            font-size: 14px;
+            }
+          }
+
+        }
+        .choice1{
+          color: black;
+          font-size: 14px;
+          padding-bottom: 30px;
+          margin-top: 30px;
+          margin-right: 40px;
+          border-bottom: solid 1px #eee;
+          padding-bottom: 30px;
+        }
+
+        .choice2{
+          color: black;
+          font-size: 14px;
+          padding-bottom: 30px;
+          margin-top: 30px;
+        }
+      }
+    }
+  
+    .btn{
+      .sell{
+        .sell-comment{
+          text-align: center;
+          font-size: 16px;
+          color: white;
+          font-weight: bold;
+          background-color:#3CCACE;
+          border-radius: 4px;
+          height: 48px;
+          width: 280px;
+          margin-left: 210px;
+          border: none;
+          cursor: pointer;
+        }
+      }
+
+      .save-draft{
+        .save-draft-comment{
+          text-align: center;
+          font-size: 16px;
+          color: black;
+          font-weight: bold;
+          background-color: #ccc;
+          border-radius: 4px;
+          height: 48px;
+          width: 280px;
+          margin-left: 210px;
+          margin-top: 25px;
+          border: none;
+          cursor: pointer;
+        }
+      }
+
+      .return{
+        text-align: center;
+        font-size: 16px;
+        color: rgb(133, 195, 245);
+        padding-top: 16px;
+        
+        a{
+          text-decoration: none;
+        }
+      }
+    }
+
+    .terms{
+      color: black;
+      font-size: 12px;
+      padding-bottom: 5px;
+      margin: 30px 40px 0px 40px;
+      text-align: center;
+    }
+
+
+  .main-product-footer{
+    .main-product-footer-logo1{
+      background-color:rgb(248, 246, 246);
+      font-size: 12px;
+      display: flex;
+      justify-content: center;
+      padding-bottom: 20px;
+
+      p{
+        margin: 10px;
+      }
+      
+    }
+    .main-product-footer-logo2{
+      background-color:rgb(248, 246, 246);
+      padding: 20px 140px 0px 140px;
+      text-align: center;
+    }
+
+    .main-product-footer-logo3{
+      background-color:rgb(248, 246, 246);
+      color: black;
+      font-size: 12px;
+      text-align: center;
+      padding-bottom: 40px;
+      padding-bottom: 30px;
+    }
+  }
+}

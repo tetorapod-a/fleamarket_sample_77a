@@ -1,0 +1,173 @@
+.wrapper
+  .main-product
+    .main-product-header
+      .main-product-header-logo
+        = link_to image_tag('/assets/logo/logo.png', alt: 'text', height: '60', width: '200', class: 'icon'), root_path
+
+    .product-listing-part
+      .product-listing1
+        .exhibition-image
+          %p 出品画像 
+        .exhibition-image-required
+          %p 必須
+      .product-listing2
+        .exhibition-image-required-comments
+          %p 最大10枚までアップロードできます
+        .upload-space
+          .icon
+            -# = link_to image_tag('/assets/icon/icon_camera.png', alt: 'text', height: '42', width: '17', class: 'icon'), root_path
+            = form_with url:"root_path", class: 'new_image' do |form|
+              .form_mask
+                = form.label :image, class: 'form_mask1' do
+                  = icon('fas', 'camera' ,class: 'icon')
+                  = form.file_field :image, class: 'images'
+
+          .icon-comment
+            %p ドラッグアンドドロップ
+            %p またはクリックしてファイルをアップロード
+
+
+  
+    .product-listing3
+      .product-name1
+        .product-name2
+          %p 商品名 
+        .product-name-required
+          %p 必須
+      .input-form
+        .input-form-comment
+          %p 40文字まで
+          -# = f.text_field :content, class: 'input-form-comment', placeholder: ' 40文字まで' 
+
+
+    .product-description
+      .product-description1
+        .product-description2
+          %p 商品の説明
+        .product-description-required
+          %p 必須
+      .input-form
+        .input-form-comment
+          %p 商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）
+          %p 例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。
+          -# = f.text_field :content, class: 'input-form-comment', placeholder: ' 商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など） 例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。' 
+  
+    .product-details-part
+      %p1 商品の詳細
+      .product-details
+        .product-details1
+          %p カテゴリー 
+          =form_with url:'#' do |form|
+            = form.select :category, ["選択してください","レディース","メンズ","ベビー・キッズ","インテリア・住まい・小物","本・音楽・ゲーム","おもちゃ・ホビー・グッズ","コスメ・香水・美容","家電・スマホ・カメラ","スポーツ・レジャー","ハンドメイド","チケット","自動車・オートバイ"]
+        .product-details-required
+          %p 必須
+      .input-form
+        .input-form-comment
+          %p 選択してください
+  
+  
+      .brand-category
+        .brand
+          .brand1
+            %p ブランド 
+          .brand-required
+            %p 任意
+        .input-form
+          .input-form-comment
+            %p 例）シャネル
+            -# = f.text_field :content, class: 'input-form-comment', placeholder: '例）シャネル' 
+  
+      .product-status-category
+        .product-status
+          .product-status1
+            %p 商品の状態 
+          .product-status-required
+            %p 必須
+        .input-form
+          .input-form-comment
+            %p 選択してください
+  
+  
+    .Regarding-delivery
+      %p 配送について
+      -# = link_to  
+      -# 配送についてのナビリンクを貼る
+  
+      .shipping-fee-burden-category
+        .shipping-fee-burden
+          .shipping-fee-burden1
+            %p 配送料の負担 
+          .shipping-fee-burden-required
+            %p 必須
+        .input-form
+          .input-form-comment
+            %p 選択してください
+  
+  
+      .shipping-region-category
+        .shipping-region
+          .shipping-region1
+            %p 発送元の地域
+          .shipping-region-required
+            %p 必須
+        .input-form
+          .input-form-comment 
+            %p 選択してください
+  
+  
+  
+      .days-until-shipping-category
+        .days-until-shipping
+          .days-until-shipping1
+            %p 発送までの日数
+          .days-until-shipping-required
+            %p 必須
+        .input-form
+          .input-form-comment 
+            %p 選択してください
+  
+  
+    .price-part
+      .price
+        %p 価格 (¥300〜9,999,999）
+        -# = link_to  
+        -# 価格の決め方ガイドのリンク貼る
+  
+      .selling-price-category
+        .selling-price
+          .selling-price1
+            %p 販売価格 
+          .selling-price-required
+            %p 必須
+          .input-form
+            %p ¥
+            .input-form-comment 
+        .choice1
+          %p 販売手数料（10%）
+        .choice2 
+          %p 販売利益
+  
+    .btn
+      .sell
+        = button_tag "出品する", class: 'sell-comment'
+      .save-draft
+        = button_tag "下書きに保存" , class: 'save-draft-comment'
+      .return
+        =link_to"もどる", root_path
+        
+    .terms
+      %p 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+
+
+
+
+  .main-product-footer
+    .main-product-footer-logo1
+      %p プライバシーポリシー
+      %p フリマ利用規約      
+      %p 特定商取引に関する表記
+    
+    .main-product-footer-logo2
+      = link_to image_tag('/assets/logo/logo-white.png', alt: 'text', height: '40', width: '140', class: 'icon'), root_path
+    .main-product-footer-logo3
+      %p © FURIMA,Inc.
