@@ -57,14 +57,12 @@
       .product-details
         .product-details1
           %p カテゴリー 
-          =form_with url:'#' do |form|
-            = form.select :category, ["選択してください","レディース","メンズ","ベビー・キッズ","インテリア・住まい・小物","本・音楽・ゲーム","おもちゃ・ホビー・グッズ","コスメ・香水・美容","家電・スマホ・カメラ","スポーツ・レジャー","ハンドメイド","チケット","自動車・オートバイ"]
         .product-details-required
           %p 必須
       .input-form
         .input-form-comment
-          %p 選択してください
-  
+          =form_with url:'#' do |form|
+            = form.select :category, ["選択してください","レディース","メンズ","ベビー・キッズ","インテリア・住まい・小物","本・音楽・ゲーム","おもちゃ・ホビー・グッズ","コスメ・香水・美容","家電・スマホ・カメラ","スポーツ・レジャー","ハンドメイド","チケット","自動車・オートバイ"]
   
       .brand-category
         .brand
@@ -85,7 +83,8 @@
             %p 必須
         .input-form
           .input-form-comment
-            %p 選択してください
+            =form_with url:'#' do |form|
+              = form.select :category, ["選択してください","新品、未使用","未使用に近い","目立った傷や汚れなし","やや傷や汚れあり","傷や汚れあり","全体的に状態が悪い"]
   
   
     .Regarding-delivery
@@ -101,7 +100,8 @@
             %p 必須
         .input-form
           .input-form-comment
-            %p 選択してください
+            =form_with url:'#' do |form|
+              = form.select :category, ["選択してください","送料込み(出品者負担)","着払い(購入者負担)"]
   
   
       .shipping-region-category
@@ -112,7 +112,8 @@
             %p 必須
         .input-form
           .input-form-comment 
-            %p 選択してください
+            =form_with url:'#' do |form|
+            = form.select :category, ["選択してください","レディース","メンズ","ベビー・キッズ","インテリア・住まい・小物","本・音楽・ゲーム","おもちゃ・ホビー・グッズ","コスメ・香水・美容","家電・スマホ・カメラ","スポーツ・レジャー","ハンドメイド","チケット","自動車・オートバイ"]
   
   
   

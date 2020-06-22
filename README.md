@@ -138,3 +138,4 @@ Things you may want to cover:
 |provider|string||
 ### Association
 - belongs_to :user
+
