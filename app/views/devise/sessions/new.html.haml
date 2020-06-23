@@ -1,17 +1,71 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+-# %h2 Log in
+-# = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+-#   .field
+-#     = f.label :email
+-#     %br/
+-#     = f.email_field :email, autofocus: true, autocomplete: "email"
+-#   .field
+-#     = f.label :password
+-#     %br/
+-#     = f.password_field :password, autocomplete: "current-password"
+-#   - if devise_mapping.rememberable?
+-#     .field
+-#       = f.check_box :remember_me
+-#       = f.label :remember_me
+-#   .actions
+-#     = f.submit "Log in"
+-# = render "devise/shared/links"
+
+-# ログインページ
+
+-# ヘッダー
+.wrapper
+  .main-product
+    .main-product-header
+      .main-product-header-logo
+        = link_to image_tag('/assets/logo/logo.png', alt: 'text', height: '60', width: '200', class: 'icon'), root_path
+
+
+
+
+
+    .user-sign__in__title
+      %p.note アカウントをお持ちでない方はこちら
+      = link_to "新規会員登録", new_user_registration_path, class:"blue-btn"
+    .user-sign__up__form
+      .user-sign__up__form__content
+        .new-user_registration
+          -#   .gmail-btn
+          -#     = fa_icon("google")
+          -#     = link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post
+          -#   .facebook-btn
+          -#     = fa_icon("facebook-square")
+          -#     = link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post
+          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            .field
+              %label メールアドレス
+              %br/
+              = f.email_field :email, autofocus: true, autocomplete: "email"
+            .field
+              %label パスワード
+              %br/
+              = f.password_field :password, autocomplete: "current-password", required:"required", class:"input-form"
+            .actions
+              = f.submit "ログイン", class:"red-btn"
+          = render "devise/shared/links"
+          -# = render partial: 'devise/footer'
+
+
+
+
+
+              -# フッター
+    .main-product-footer
+      .main-product-footer-logo1
+        %p プライバシーポリシー
+        %p フリマ利用規約
+        %p 特定商取引に関する表記
+      .main-product-footer-logo2
+        = link_to image_tag('/assets/logo/logo-white.png', alt: 'text', height: '40', width: '140', class: 'icon'), root_path
+      .main-product-footer-logo3
+        %p © FURIMA,Inc.
