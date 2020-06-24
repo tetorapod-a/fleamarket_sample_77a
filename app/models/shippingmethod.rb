@@ -1,4 +1,4 @@
-class Shipping_method < ActiveHash::Base
+class Shippingmethod < ActiveHash::Base
   self.data = [
     {id: 1, name: 'らくらくフリマ便'},
     {id: 2, name: 'ゆうゆうフリマ便'},
