@@ -2,38 +2,35 @@
 
 -# ヘッダー
 .wrapper
-  .main-product
-    .main-product-header
-      .main-product-header-logo
-        = link_to image_tag('/assets/logo/logo.png', alt: 'text', height: '60', width: '200', class: 'icon'), root_path
-          -# パンくず
-          -# - breadcrumb :create_addres
-          -# = breadcrumbs pretext: "会員情報:",separator: " &rsaquo; "
-          -# %nav.progress-bar
-          -#   %ol.clearfix
-            -# %li.active
-            -#   会員情報
-            -#   .progress-status__active
-            -# %li
-            -#   送付先住所入力
-            -#   .progress-status
-            -# %li
-            -#   登録完了
-            -#   .progress-status
-            -# - breadcrumb :user_registration_path
-            -# = breadcrumbs pretext: "会員情報:",separator: " &rsaquo; "
+  .header
+    = link_to image_tag('/assets/logo/logo.png', alt: 'text', height: '60', width: '200', class: 'icon'), root_path
+    .header-logo
+      %nav.progress-bar
+        %ol.clearfix
+          %li.active
+            会員情報
+            .progress-status__active
+          %li.active
+            送付先情報
+            .progress-status__active.progress-status-address
+          %li.active
+            登録完了
+            .progress-status__last.progress-status-final
 
+
+
+
+      -# メイン
     %h2 登録が完了しました
     = link_to "トップへ戻る", root_path
 
-
     -# フッター
-    .main-product-footer
-      .main-product-footer-logo1
-        %p プライバシーポリシー
-        %p フリマ利用規約
-        %p 特定商取引に関する表記
-      .main-product-footer-logo2
-        = link_to image_tag('/assets/logo/logo-white.png', alt: 'text', height: '40', width: '140', class: 'icon'), root_path
-      .main-product-footer-logo3
-        %p © FURIMA,Inc.
+  .main-product-footer
+    .main-product-footer-logo1
+      %p プライバシーポリシー
+      %p フリマ利用規約
+      %p 特定商取引に関する表記
+    .main-product-footer-logo2
+      = link_to image_tag('/assets/logo/logo-white.png', alt: 'text', height: '40', width: '140', class: 'icon'), root_path
+    .main-product-footer-logo3
+      %p © FURIMA,Inc.

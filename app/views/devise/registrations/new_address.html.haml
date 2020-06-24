@@ -2,10 +2,20 @@
 
 -# ヘッダー
 .wrapper
-  .main-product
-    .main-product-header
-      .main-product-header-logo
-        = link_to image_tag('/assets/logo/logo.png', alt: 'text', height: '60', width: '200', class: 'icon'), root_path
+  .header
+    = link_to image_tag('/assets/logo/logo.png', alt: 'text', height: '60', width: '200', class: 'icon'), root_path
+    .header-logo
+      %nav.progress-bar
+        %ol.clearfix
+          %li.active
+            会員情報
+            .progress-status__active
+          %li.active
+            送付先情報
+            .progress-status__active.progress-status-address
+          %li.end
+            登録完了
+            .progress-status__end
 
 
 

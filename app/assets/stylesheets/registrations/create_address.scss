@@ -1,85 +1,32 @@
-// // 新規登録完了画面
-// * {
-//   box-sizing: border-box;
-// }
-// // ヘッダー
-// .wrapper {
-//   background-color:rgb(248, 246, 246);
-//   height: 100%;
-//   width: 100vw;
-//   font-family: “Source Sans Pro”, Helvetica, Arial, “游ゴシック体“, “YuGothic”, “メイリオ“, “Meiryo”, sans-serif;
-//   .main-product {
-//     background-color:white;
-//     margin: 0px 370px 0px 370px;
-//     overflow: scroll;
-//     font-size: 14px;
-//     line-height: 1.4em;
-//     .main-product-header {
-//       text-align: center;
-//       .main-product-header-logo {
-//         background-color:rgb(248, 246, 246);
-//         height: 150px;
-//         padding: 40px 140px 40px 140px;
-//         display: flex;
-//         .clearfix {
-//           display: flex;
-//           justify-content: space-between;
-//         }
-//       }
-//     }
-//   }
+// 新規登録完了画面
 
 
+// ヘッダー
 
+.active {
+  color: #3CCACE;
+}
+.progress-status-final {
+  width: 12px;
+  height: 12px;
+  margin: 8px auto 0;
+  background-color: #3CCACE;
+  border-radius: 50%;
+  &__last {
+    width: 12px;
+    height: 12px;
+    margin: 8px auto 0;
+    border-radius: 50%;
+    background-color: #3CCACE;
+  }
+  &::before {
+    right: 53%;
+    background-color: #3CCACE;
+  }
+  &::after {
+    left: 55%;
+    background-color: #3CCACE;
+  }
+}
 
-
-
-
-//   // メイン
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//   // フッター
-//   .main-product-footer{
-//     .main-product-footer-logo1{
-//       background-color:rgb(248, 246, 246);
-//       font-size: 12px;
-//       display: flex;
-//       justify-content: center;
-//       padding-bottom: 20px;
-//       p{
-//         margin: 10px;
-//       }
-//     }
-//     .main-product-footer-logo2{
-//       background-color:rgb(248, 246, 246);
-//       padding: 20px 140px 0px 140px;
-//       text-align: center;
-//     }
-//     .main-product-footer-logo3{
-//       background-color:rgb(248, 246, 246);
-//       color: black;
-//       font-size: 12px;
-//       text-align: center;
-//       padding-bottom: 40px;
-//       padding-bottom: 30px;
-//     }
-//   }
-// }
+  // メイン

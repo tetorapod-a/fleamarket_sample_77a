@@ -20,53 +20,48 @@
       margin-top: 40px;
     }
     .progress-bar {
-      // width: 100%;
-      // padding: 40px 0 0 44px;
       display: inline-block;
       vertical-align: top;
       padding: 40px 0 0 44px;
       border: 0;
       .clearfix {
-        // display: flex;
-        &__active {
-          width: 12px;
-          height: 12px;
-          margin: 8px auto 0;
-          border-radius: 50%;
-          background-color: #0099e8;
+        .active {
+          color: #3CCACE;
         }
-          li {
-            margin: 0 40px 0 0;
-            position: relative;
-            z-index: 1;
-            display: inline-block;
-            margin-right: 30px;
-            font-size: 12px;
-            color: #888;
-            &.active {
-              font-weight: 600;
-              color: #0099e8;
-            }
-            &.end {
-              .progress-status:after{
-                &:last-of-type
-                {
-                content: none;
-                }
-              }
-            }
-
+        li {
+          margin-right: 10px;
+          position: relative;
+          z-index: 1;
+          display: inline-block;
+          font-size: 12px;
+          color: #888;
           .progress-status {
             width: 12px;
             height: 12px;
             margin: 8px auto 0;
             background-color: #ccc;
             border-radius: 50%;
+            &__active {
+              width: 12px;
+              height: 12px;
+              margin: 8px auto 0;
+              border-radius: 50%;
+              background-color: #3CCACE;
+            }
+            &__end {
+              width: 12px;
+              height: 12px;
+              margin: 8px auto 0;
+              background-color: #ccc;
+              border-radius: 50%;
+            }
             &::before {
-              right: 50%;
+              right: 53%;
+              background-color: #ccc;
             }
             &::after {
-              left: 50%;
+              left: 55%;
+              background-color: #ccc;
             }
             &::before, &::after {
               position: absolute;
@@ -75,44 +70,12 @@
               content: '';
               width: 100%;
               height: 2px;
-              background-color: #ccc;
             }
           }
         }
-        
       }
     }
   }
-  // .progress-bar li.end .progress-status {
-  //   background: #ea352d;
-  // }
-  // .progress-bar li.now .progress-status {
-  //   background: #ea352d;
-  // }
-  // .progress-bar li.end .progress-status:before {
-  //   background: #ea352d;
-  // }
-  // .progress-bar li.end .progress-status:after {
-  //   background: #ea352d;
-  // }
-  // .progress-bar li.now .progress-status:before {
-  //   background: #ea352d;
-  // }
-  // .progress-bar li:last-child .progress-status:after {
-  //   background:#f5f5f5;
-  // }
-  // .progress-bar li:first-child .progress-status:before {
-  //   background:#f5f5f5;
-  // } 
-
-
-
-
-
-
-
-
-
 
 
   // メイン

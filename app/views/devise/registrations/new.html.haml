@@ -1,23 +1,22 @@
 // 新規会員登録画面
--# .main-product
--#   .main-product-header
--# ヘッダー
 
+
+-# ヘッダー
 .wrapper
   .header
-    = link_to image_tag('/assets/logo/logo.png', alt: 'text', height: '60', width: '200', class: 'icon'), root_path
     .header-logo
+      = link_to image_tag('/assets/logo/logo.png', alt: 'text', height: '60', width: '200', class: 'icon'), root_path
       %nav.progress-bar
         %ol.clearfix
           %li.active
             会員情報
             .progress-status__active
-          %li.end
+          %li
             送付先情報
             .progress-status
-          %li
+          %li.end
             登録完了
-            .progress-status
+            .progress-status__end
 
   
 
@@ -93,3 +92,14 @@
             
             .actions
               = f.submit "次へ進む", class:"red-btn"
+
+      -# フッター
+    .main-product-footer
+      .main-product-footer-logo1
+        %p プライバシーポリシー
+        %p フリマ利用規約
+        %p 特定商取引に関する表記
+      .main-product-footer-logo2
+        = link_to image_tag('/assets/logo/logo-white.png', alt: 'text', height: '40', width: '140', class: 'icon'), root_path
+      .main-product-footer-logo3
+        %p © FURIMA,Inc.
