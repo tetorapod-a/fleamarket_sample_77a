@@ -1,9 +1,47 @@
+.put
+  = form_with(model: @item, local: true) do |form|
+    .image
+      = form.fields_for :images do |i|
+        = i.file_field :image
+    .a
+      name
+      = form.text_field :name
+    .b
+      detail
+      = form.text_field :detail
+    .c
+      price
+      = form.text_field :price
+    .d
+      status_id
+      = form.collection_select(:status_id, Status.all, :id, :name, {include_blank: "---"})
+    .rrr
+      postage_id
+      = form.collection_select(:postage_id, Postage.all, :id, :name, {include_blank: "---"})
+    .e
+      shippingday_id
+      = form.collection_select(:shipping_day_id, ShippingDay.all, :id, :name, {include_blank: "---"})
+    .d
+      shipping_method_id
+      = form.collection_select(:shipping_method_id, ShippingMethod.all, :id, :name, {include_blank: "---"})
+    .f
+      prefecture_id
+      = form.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: "---"})
+    .g
+      brand
+      = form.text_field :brand
+    .h
+      categorie_id
+      = form.collection_select(:category_id, Categorie.all, :id, :name, {include_blank: "---"})
+    .i
+      出品
+      = form.submit
+      
 .wrapper
   .main-product
     .main-product-header
       .main-product-header-logo
         = link_to image_tag('/assets/logo/logo.png', alt: 'text', height: '60', width: '200', class: 'icon'), root_path
-
     .product-listing-part
       .product-listing1
         .exhibition-image
@@ -113,7 +151,7 @@
         .input-form
           .input-form-comment 
             =form_with url:'#' do |form|
-            = form.select :category, ["選択してください","レディース","メンズ","ベビー・キッズ","インテリア・住まい・小物","本・音楽・ゲーム","おもちゃ・ホビー・グッズ","コスメ・香水・美容","家電・スマホ・カメラ","スポーツ・レジャー","ハンドメイド","チケット","自動車・オートバイ"]
+              = form.select :category, ["選択してください","レディース","メンズ","ベビー・キッズ","インテリア・住まい・小物","本・音楽・ゲーム","おもちゃ・ホビー・グッズ","コスメ・香水・美容","家電・スマホ・カメラ","スポーツ・レジャー","ハンドメイド","チケット","自動車・オートバイ"]
   
   
   
