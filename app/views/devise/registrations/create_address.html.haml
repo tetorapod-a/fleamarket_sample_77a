@@ -1,2 +1,33 @@
-%h2 登録が完了しました
-= link_to "トップへ戻る", root_path
+-# 新規登録完了画面
+
+-# ヘッダー
+.wrapper
+  .header
+    = link_to image_tag('/assets/logo/logo.png', alt: 'text', height: '60', width: '200', class: 'icon'), root_path
+    .header-logo
+      %nav.progress-bar
+        %ol.clearfix
+          %li.active
+            会員情報
+            .progress-status__active
+          %li.active
+            送付先情報
+            .progress-status__active.progress-status-address.progress-status-address-end
+          %li.end.active
+            登録完了
+            .progress-status__last.progress-status-final
+
+
+  .user-sign
+    .user-sign__forms
+      %h1.user-sign__forms__title 会員登録完了
+      .user-sign__forms__title__contents
+        .user-sign__forms__title__contents__group
+          %p ありがとうございます。
+          %p 会員登録が完了しました。
+          .btn-box
+            .btn
+            = link_to "トップへ戻る", root_path
+
+    -# フッターはここから
+  = render partial: 'layouts/registrations_footer'

@@ -1,17 +1,44 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+-# ログインページ
+
+-# ヘッダー
+.wrapper
+  .main-product
+    .main-product-header
+      .main-product-header-logo
+        = link_to image_tag('/assets/logo/logo.png', alt: 'text', height: '60', width: '200', class: 'icon'), root_path
+
+
+    -# メイン
+  .sign-in
+    .sign-in__forms
+      .sign-in__forms__title
+        %p.note アカウントをお持ちでない方はこちら
+        = link_to "新規会員登録", new_user_registration_path, class:"blue-btn"
+      .sign-in__up__form__contents
+        .sign-in__up__form__contents__content
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+
+          -# .new-user_registration SNSのAPI
+          -#   .gmail-btn
+          -#     = fa_icon("google")
+          -#     = link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post
+          -#   .facebook-btn
+          -#     = fa_icon("facebook-square")
+          -#     = link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post
+
+          .field-email
+            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"登録したメールアドレス", class:"input-form"
+
+          .field-password
+            = f.password_field :password, autocomplete: "current-password", placeholder:"登録したパスワード", required:"required", class:"input-form"
+          -# - if devise_mapping.rememberable? 次回から自動的にログインの機能
+          -#   .field-remember
+          -#     = f.check_box :remember_me
+          -#     = f.label :remember_me
+
+          .actions
+            = f.submit "ログイン", class:"emerald-btn"
+        -# = render "devise/shared/links" パスワードをお忘れの方などのリンク 部分テンプレはshared/_links.html.haml
+
+      -# フッターはここから
+    = render partial: 'layouts/registrations_footer'
