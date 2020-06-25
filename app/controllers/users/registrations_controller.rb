@@ -33,6 +33,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     sign_in(:user, @user)
   end
 
+  # def show
+  # end
 
   protected
 
