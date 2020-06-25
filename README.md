@@ -88,8 +88,8 @@ Things you may want to cover:
 ## categoriesテーブル（gem'ancestry'）
 |Column|Type|Option|
 |------|----|------|
-|name|string|null:false|
-|ancestry|string|null:false|
+|name|string||
+|ancestry|string|index: true|
 ### Association
 - has_many:items
 
@@ -138,3 +138,4 @@ Things you may want to cover:
 |provider|string||
 ### Association
 - belongs_to :user
+

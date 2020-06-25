@@ -84,3 +84,4 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'active_hash'
 gem "gretel"
+gem 'ancestry'
