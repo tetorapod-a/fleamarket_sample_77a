@@ -340,14 +340,15 @@ header {
         }
       }
       &__lists {
-        width: 780px;
+        width: 900px;
         margin: 26px auto;
         display: flex;
-        justify-content: space-around;
+        overflow-x: scroll;
         &__list {
           width: 220px;
           display: inline-block;
           float: left;
+          position: relative;
           a {
             background-color: #fff;
             display: inline-block;
@@ -400,6 +401,30 @@ header {
                   font-size: 10px;
                   text-align: left;
                 }
+              }
+            }
+          }
+          .items-box_photo__sold {
+            width: 220px;
+            height: 150px;
+            border: 60px solid #ea352d ;
+            background-color: #ea352d;
+            display: flex;
+            align-items: center;
+            z-index:100;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.6;
+            &__inner {
+              transform: rotate(-40deg);
+              font-size: 28px;
+              text-align: center;
+              color: #fff;
+              letter-spacing: 2px;
+              font-weight: 600;
+              a{
+                text-decoration: none;
               }
             }
           }
