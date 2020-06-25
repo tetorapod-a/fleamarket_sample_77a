@@ -1,0 +1,224 @@
+%body
+  %header
+    .header-inner
+      .header-inner__main
+        %h1.header-inner__main__icon
+          = link_to "/" do
+            = image_tag 'logo/logo.png'
+        .header-inner__main__box
+          = form_with url: "/" do |form|
+            = form.text_field :key, id:"seach-input", class:"seach-box-input", placeholder:"キーワードから探す"
+            %button{:type => "submit"}
+              .search-icon
+                = image_tag 'icon/icon-search 1.png'
+      .header-inner__nav
+        %ul.lists-left
+          %li.lists-left__first.lists-left__list
+            = link_to "/" do
+              = "カテゴリー"
+          %li.lists-left__list
+            = link_to "/" do
+              = "ブランド"
+        %ul.lists-right
+          %li.lists-right__list
+            = link_to "/" do
+              = "ログイン"
+          %li.lists-right__list
+            = link_to "/" do
+              = "新規会員登録"
+  .breadCrumbs
+    %ul
+      = link_to "/" do
+        = "FURIMA"
+        %i.fa.fa-angle-right
+      = link_to "/" do
+        = "ベビー・キッズ"
+        %i.fa.fa-angle-right
+      = link_to "/" do
+        = "ベビー服(男女兼用)  ~95cm"
+        %i.fa.fa-angle-right
+      = link_to "/" do
+        = "アウター"
+        %i.fa.fa-angle-right
+      %p product3
+  .main
+    .showMain
+      .contentLeftqq
+      .contentRight
+        .topContent
+          .itemBox
+            %h2.itemBox__name product3
+            .itemBox__body
+              %ul
+                %li
+                  = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png'
+                  %ul
+                    %li
+                      = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png'
+                    %li
+                      %img{:height => "75", :src =>"https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/14/a001.png", :width=> "75"}/
+                    %li
+                      %img{:height => "75", :src =>"https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/15/a003.png", :width=> "75"}/
+            .itemBox__price
+              %span
+                ¥30000
+              .itemBox__price__detail
+                %span2
+                  (税込)
+                %span2
+                  送料込み
+            .itemDetail 親譲りの無鉄砲で小供の時か損ばかりしている。小学校に居る時分学校二階から飛び降りて一週間ほど腰を抜かし事がある。なぜそんな無闇をしたと聞く人あるかも知れぬ。別段深い理由でもない。築の二階から首を出していたら、同級生の人が冗談に、いくら威張っても、そこからび降りる事は出来まい。弱虫やーい。と囃たからである。小使に負ぶさって帰って来時、おやじが大きな眼をして二階ぐらいか飛び降りて腰
+            .table
+              %table
+                %tbody
+                  %tr
+                    %th 出品者
+                    %td hoge
+                  %tr
+                    %th カテゴリー
+                    %td
+                      %a{:href => "#"} ベビー・キズ
+                      %br/
+                      %a{:href => "#"} ベビー服(男兼用)  ~95cm
+                      %br/
+                      %a{:href => "#"} アウター
+                  %tr
+                    %th ブランド
+                    %td
+                  %tr
+                    %th 商品のサイズ
+                    %td
+                  %tr
+                    %th 商品の状態
+                    %td 未使用に近い
+                  %tr
+                    %th 配送料の負担
+                    %td 送料込み（出品者負担）
+                  %tr
+                    %th 発送元の地域
+                    %td
+                      %a{:href => "#"} 岩手県
+                  %tr
+                    %th 発送日の目安
+                    %td 4-7日で発送
+            .optionalArea
+              %ul
+                %li#likeBtn.optionalBtn.likeBtn
+                  %i.fa.fa-star
+                  お気に入り 0
+              %ul.optional
+                %li.optionalBtn
+                  %a{:href => "#"}
+                    %i.fa.fa-flag
+                    不適切な商品の通報
+          .commentBox
+            %ul.commentContents
+            %form#new_comment.new_commen{"accept-charset" => "UTF-8", :action=> "#", :method => "post"}
+              %input{:name => "utf8", :type =>"hidden", :value => "✓"}/
+              %input{:name => "authenticity_token",:type => "hidden", :value =>"MQsyz3UXwwwNaZaL6S2a2LGj5sY2EojyTB72g4YZeiZRECQkWZOG14SzJp0P20UDb7hwJO8S68MqP+I1VnvQ=="}/
+              %textarea#comment_body{:name =>"comment[body]", :required =>"required"}
+              %p.noticeMsg
+                相手のことを考え丁寧なコメントを心けましょう。
+                %br/
+                不快な言葉遣いなどは利用制限や退会分となることがあります。
+              %br/
+              %button.commentBtn{:name => "button",:type => "submit"}
+                %i.fa.fa-comment
+                コメントする
+        %ul.links
+          %li
+            %a{:href => "#"}
+              %i.fa.fa-angle-left
+              %span
+              前の商品
+          %li
+            %a{:href => "#"}
+              %span 後ろの商品
+              %i.fa.fa-angle-right
+          
+        .relatedItems
+          = link_to "/" do
+            = "ベビー・キッズをもっと見る"
+          .productLists
+            .productList
+              = link_to "/" do
+                .productList--img
+                  = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG'
+                .productList--body
+                  %h3.name
+                    = "ee"
+                  .details
+                    %ul
+                      %li
+                        = "1000円"
+                      %li
+                        %i.fa.fa-starlikeIcon
+                        = icon("fa", "star")
+                        = "0"
+                    %p
+                      = "(税込)"
+      
+  .appBanner
+    .inner
+      %h2.inner__title
+        = "だれでもかんたん、人生を変えるフリマアプリ"
+      %p.inner__text
+        = "今すぐ無料ダウンロード！"
+      .inner__btn
+        = link_to "/", class:"abtn" do
+          = image_tag 'http://furima.tokyo/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg'
+        = link_to "/", class:"abtn" do
+          = image_tag 'http://furima.tokyo/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg'
+
+
+  .footer
+    %ul.contents
+      %li.contents__content
+        %h2.contents__content__head
+          = "FURIMAについて"
+        %ul
+          %li
+            = link_to "/" do
+              = "会社概要（運営会社）"
+          %li
+            = link_to "/" do
+              = "プライバシーポリシー"
+          %li
+            = link_to "/" do
+              = "FURIMA利用規約"
+          %li
+            = link_to "/" do
+              = "ポイントに関する特約"
+      %li.contents__content
+        %h2.contents__content__head
+          = "FURIMAを見る"
+        %ul
+          %li
+            = link_to "/" do
+              = "カテゴリー一覧"
+          %li
+            = link_to "/" do
+              = "ブランド一覧"
+      %li.contents__content
+        %h2.contents__content__head
+          = "ヘルプ＆ガイド"
+        %ul
+          %li
+            = link_to "/" do
+              = "FURIMAガイド"
+          %li
+            = link_to "/" do
+              = "FURIMAロゴ利用ガイドライン"
+          %li
+            = link_to "/" do
+              = "お知らせ"
+    .footer__logo
+      = link_to "/" do
+        = image_tag 'logo/logo-white.png'
+    %p
+      = "© FURIMA" 
+  = link_to "/" do
+    .pur-btn
+      %span.pur-btn__text
+        = "出品する"
+      = image_tag 'icon/icon_camera.png' 
