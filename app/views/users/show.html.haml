@@ -54,19 +54,29 @@
       .mypage-box__profile
         %pプロフィール 
         .appeal
-          .myprofile__avter
-            %pマイアバターを貼る
-          .myprofile__nickname
-            = @user.nickname
+          .upper
+            .myprofile__avter
+              %pマイアバターを貼る
+            .myprofile__nickname
+              = @user.nickname
           .myprofile__introduce
             = @user.introduce
           
       
         .myprofile__details
-         = @user.introduce
-         = @user.first_name
-         = @user.last_name
-
+            
+        .myprofile__details__list
+          .name
+            %l名前：
+            = @user.first_name
+            = @user.last_name
+            %lフリガナ
+            = @user.first_name_kana
+            = @user.last_name_kana
+            %l生年月日
+            = @user.birthday
+            %le-mail
+            = @user.email
 
         .link_edit
           = link_to "プロフィール編集","#", class: '.link'
@@ -74,7 +84,9 @@
       .mypage-box__identification
         %p送付先情報
         .mypage-box__identification__list
-          = "郵便番号：#{@address.postal_code}"
+          = "郵便番号：郵便#{@address.postal_code}"
+
+
         .link_edit
           = link_to "送付先情報編集","#", class: '.link'
 
