@@ -8,7 +8,7 @@
         .header-inner__main__box
           = form_with url: "/" do |form|
             = form.text_field :key, id:"seach-input", class:"seach-box-input", placeholder:"キーワードから探す"
-            %button{:type => "submit"}
+            %button{type: "submit"}
               .search-icon
                 = image_tag 'icon/icon-search 1.png'
       .header-inner__nav
@@ -40,14 +40,16 @@
       = link_to "/" do
         = "アウター"
         %i.fa.fa-angle-right
-      %p product3
+      %p 
+        = "product3"
   .main
     .showMain
       .contentLeftqq
       .contentRight
         .topContent
           .itemBox
-            %h2.itemBox__name product3
+            %h2.itemBox__name 
+              = "product3"
             .itemBox__body
               %ul
                 %li
@@ -56,84 +58,102 @@
                     %li
                       = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png'
                     %li
-                      %img{:height => "75", :src =>"https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/14/a001.png", :width=> "75"}/
+                      = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/14/a001.png'
                     %li
-                      %img{:height => "75", :src =>"https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/15/a003.png", :width=> "75"}/
+                      = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/15/a003.png'
             .itemBox__price
               %span
-                ¥30000
+                = "¥30000"
               .itemBox__price__detail
                 %span2
-                  (税込)
+                  = "(税込)"
                 %span2
-                  送料込み
-            .itemDetail 親譲りの無鉄砲で小供の時か損ばかりしている。小学校に居る時分学校二階から飛び降りて一週間ほど腰を抜かし事がある。なぜそんな無闇をしたと聞く人あるかも知れぬ。別段深い理由でもない。築の二階から首を出していたら、同級生の人が冗談に、いくら威張っても、そこからび降りる事は出来まい。弱虫やーい。と囃たからである。小使に負ぶさって帰って来時、おやじが大きな眼をして二階ぐらいか飛び降りて腰
+                  = "送料込み"
+            .itemDetail 
+              = "親譲りの無鉄砲で小供の時か損ばかりしている。小学校に居る時分学校二階から飛び降りて一週間ほど腰を抜かし事がある。なぜそんな無闇をしたと聞く人あるかも知れぬ。別段深い理由でもない。築の二階から首を出していたら、同級生の人が冗談に、いくら威張っても、そこからび降りる事は出来まい。弱虫やーい。と囃たからである。小使に負ぶさって帰って来時、おやじが大きな眼をして二階ぐらいか飛び降りて腰"
             .table
               %table
                 %tbody
                   %tr
-                    %th 出品者
-                    %td hoge
+                    %th 
+                      = "出品者"
+                    %td 
+                      = "hoge"
                   %tr
-                    %th カテゴリー
+                    %th 
+                      = "カテゴリー"
                     %td
-                      %a{:href => "#"} ベビー・キズ
+                      = link_to "/" do
+                        = "ベビー・キッズ"
                       %br/
-                      %a{:href => "#"} ベビー服(男兼用)  ~95cm
+                      = link_to "/" do
+                        = "ベビー服(男兼用)  ~95cm"
                       %br/
-                      %a{:href => "#"} アウター
+                      = link_to "/" do
+                        ="アウター"
                   %tr
-                    %th ブランド
+                    %th 
+                      = "ブランド"
                     %td
                   %tr
-                    %th 商品のサイズ
+                    %th 
+                      = "商品のサイズ"
                     %td
                   %tr
-                    %th 商品の状態
-                    %td 未使用に近い
+                    %th 
+                      = "商品の状態"
+                    %td 
+                      = "未使用に近い"
                   %tr
-                    %th 配送料の負担
-                    %td 送料込み（出品者負担）
+                    %th 
+                      = "配送料の負担"
+                    %td 
+                      = "送料込み（出品者負担）"
                   %tr
-                    %th 発送元の地域
+                    %th 
+                      = "発送元の地域"
                     %td
-                      %a{:href => "#"} 岩手県
+                      = link_to "/" do
+                      = "岩手県"
                   %tr
-                    %th 発送日の目安
-                    %td 4-7日で発送
+                    %th 
+                      = "発送日の目安"
+                    %td 
+                      = "4-7日で発送"
             .optionalArea
               %ul
                 %li#likeBtn.optionalBtn.likeBtn
                   %i.fa.fa-star
-                  お気に入り 0
+                    = "お気に入り 0"
               %ul.optional
                 %li.optionalBtn
-                  %a{:href => "#"}
+                  = link_to "/" do
                     %i.fa.fa-flag
-                    不適切な商品の通報
+                      = "不適切な商品の通報"
           .commentBox
             %ul.commentContents
-            %form#new_comment.new_commen{"accept-charset" => "UTF-8", :action=> "#", :method => "post"}
-              %input{:name => "utf8", :type =>"hidden", :value => "✓"}/
-              %input{:name => "authenticity_token",:type => "hidden", :value =>"MQsyz3UXwwwNaZaL6S2a2LGj5sY2EojyTB72g4YZeiZRECQkWZOG14SzJp0P20UDb7hwJO8S68MqP+I1VnvQ=="}/
-              %textarea#comment_body{:name =>"comment[body]", :required =>"required"}
+            %form#new_comment.new_commen{accept-charset: "UTF-8", action: "#", method: "post"}
+              %input{name: "utf8", type: "hidden", value: "✓"}/
+              %input{name: "authenticity_token",type: "hidden", value: "MQsyz3UXwwwNaZaL6S2a2LGj5sY2EojyTB72g4YZeiZRECQkWZOG14SzJp0P20UDb7hwJO8S68MqP+I1VnvQ=="}/
+              %textarea#comment_body{name: "comment[body]", required: "required"}
               %p.noticeMsg
-                相手のことを考え丁寧なコメントを心けましょう。
+                = "相手のことを考え丁寧なコメントを心けましょう。"
                 %br/
-                不快な言葉遣いなどは利用制限や退会分となることがあります。
+                = "不快な言葉遣いなどは利用制限や退会分となることがあります。"
               %br/
-              %button.commentBtn{:name => "button",:type => "submit"}
+              %button.commentBtn{name: "button",type: "submit"}
                 %i.fa.fa-comment
-                コメントする
+                = "コメントする"
         %ul.links
           %li
-            %a{:href => "#"}
+            = link_to "/" do
               %i.fa.fa-angle-left
               %span
-              前の商品
+                = "前の商品"
           %li
-            %a{:href => "#"}
-              %span 後ろの商品
+            = link_to "/" do
+              %span 
+                = "後ろの商品"
               %i.fa.fa-angle-right
           
         .relatedItems
