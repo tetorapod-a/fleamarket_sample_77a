@@ -1,0 +1,63 @@
+
+.wrapper
+  .main-product
+    .main-product-header
+      .main-product-header-logo
+        = link_to image_tag('/assets/logo/logo.png', alt: 'text', height: '60', width: '200', class: 'icon'), root_path
+  
+  .confirm
+    .confirm__top
+      %h2 購入内容の確認
+    .confirm__item
+      .confirm__item__info
+        .confirm__item__info__image
+        .confirm__item__info__name
+          %p ミニ扇風機
+          .price
+            %p1 ¥1,180(税込)
+            %p2 送料込み
+
+    .confirm__price
+      .confirm__price__text
+        %p 支払い金額
+        %p1 ¥1,180
+      .confirm__price__check
+        = check_box_tag :check1
+        = label_tag :check1, "ポイントを使用(所持ポイント:P100)"
+    
+    .confirm__pey
+      .confirm__pey__top
+        %p 支払い方法
+        = link_to '変更する'
+      .confirm__pey__card
+        %p クレジットカード
+        %p ************
+        %p 有効期限 10/24
+        %p1 visa
+
+    .confirm__address
+      .confirm__address__top
+        %p 配送先
+        = link_to '変更する'
+      .confirm__address__detail
+        %p 〒020-2020
+        %p 東京都千代田区千代田1-1
+        %p フリマ 真司
+    .confirm__buy
+      .confirm__buy__text
+        %p
+          郵便局/コンビニ受取をご希望の方は、購入後に取引画面から受取場所を変更をすることが可能です。出品者が発送作業を開始した後は受取場所の変更ができませんので、早めに変更を行ってください。
+      .confirm__buy__submit
+        = button_tag '購入する', class: 'btn'
+  
+  
+  
+  .main-product-footer
+    .main-product-footer-logo1
+      %p プライバシーポリシー
+      %p フリマ利用規約
+      %p 特定商取引に関する表記
+    .main-product-footer-logo2
+      = link_to image_tag('/assets/logo/logo-white.png', alt: 'text', height: '40', width: '140', class: 'icon'), root_path
+    .main-product-footer-logo3
+      %p © FURIMA,Inc.
