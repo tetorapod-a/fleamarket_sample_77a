@@ -3,7 +3,8 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-  
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
   def new
     @user = User.new
   end
@@ -33,8 +34,35 @@ class Users::RegistrationsController < Devise::RegistrationsController
     sign_in(:user, @user)
   end
 
-
   protected
+
+  
+
+
+  private
+
+  def set_user
+    @user = User.find([:id])
+  end
+
+  def user_params
+    params.fetch(:user, {}).permit(:nickname, :email, :first_name, :first_name_kana, :last_name, :last_name_kana, :birthday)
+  end
+  
+  protected
+
+  def update
+    p user_params
+    respond_to do |format|
+      if @user.update_without_current_password(user_params)
+        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.json { render :show, status: :ok, location: @user }
+      else
+        format.html { render :edit }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   # def configure_sign_up_params
   #   devise_parameter_sanitizer.permit(:sign_up, keys:
@@ -86,7 +114,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :nickname, :email, :first_name, :first_name_kana, :last_name, :last_name_kana, :birthday) }
+    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:email, :password, :password_confirmation, :current_password, :nickname, :email, :first_name, :first_name_kana, :last_name, :last_name_kana, :birthday) }
+  end
+
+  
+
+
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params

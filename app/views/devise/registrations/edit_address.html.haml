@@ -1,0 +1,90 @@
+-# 送付先住所情報登録画面
+
+-# ヘッダー
+.wrapper
+  .header
+    = link_to image_tag('/assets/logo/logo.png', alt: 'text', height: '60', width: '200', class: 'icon'), root_path
+    .header-logo
+      %nav.progress-bar
+        %ol.clearfix
+          %li.active
+            会員情報
+            .progress-status__active
+          %li.active
+            送付先情報
+            .progress-status__active.progress-status-address
+          %li.end
+            登録完了
+            .progress-status__end
+
+
+
+    -# メイン
+  .user-sign
+    .user-sign__forms
+      %h1.user-sign__forms__title 商品送付先住所登録
+      = form_for(@address) do |f|
+        = render "devise/shared/error_messages", resource: @address
+        .user-sign__forms__title__contents
+          .user-sign__forms__title__contents__group
+            .field
+              = f.label :送付先名字
+              %span.form-require 必須
+              %br/
+              = f.text_field :first_name
+
+            .field
+              = f.label :送付先名字フリガナ
+              %span.form-require 必須
+              %br/
+              = f.text_field :first_name_kana
+        
+            .field
+              = f.label :送付先名前
+              %span.form-require 必須
+              %br/
+              = f.text_field :last_name
+        
+            .field
+              = f.label :送付先名前フリガナ
+              %span.form-require 必須
+              %br/
+              = f.text_field :last_name_kana
+        
+            .field
+              = f.label :郵便番号
+              %span.form-require 必須
+              %br/
+              = f.text_field :postal_code, placeholder:"1235678", required:"required", class:"input-form"
+        
+            .field
+              = f.label :都道府県
+              %span.form-require 必須
+              %br/
+              = f.text_field :prefectur, placeholder:"東京都", required:"required", class:"input-form"
+              
+            .field
+              = f.label :市区町村
+              %span.form-require 必須
+              %br/
+              = f.text_field :city, placeholder:"渋谷区", required:"required", class:"input-form"
+        
+            .field
+              = f.label :番地
+              %span.form-require 必須
+              %br/
+              = f.text_field :house_number, placeholder:"富ケ谷１丁目", required:"required", class:"input-form"
+        
+            .field
+              = f.label :マンション・ビル名※部屋番号は任意
+              = f.text_field :apartment, placeholder:"〇〇ビル〇〇号室", class:"input-form"
+        
+            .field
+              = f.label :電話番号※任意
+              = f.text_field :phone, placeholder:"09012345678", class:"input-form"
+        
+            .actions
+              = f.submit "会員登録", class:"emerald-btn"
+
+      -# フッターはここから
+    = render partial: 'layouts/registrations_footer'
