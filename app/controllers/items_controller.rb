@@ -5,7 +5,10 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @item.images.new
+    @item.images.build
+  #   10.times do
+  #     @item.images.build
+  # end
   end
 
   def create
@@ -13,6 +16,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path 
     else
+      @item.images.build
       render :new
     end
   end
@@ -24,12 +28,26 @@ class ItemsController < ApplicationController
   end
 
   def update
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @item.destroy
+    redirect_to root_path
   end
 
-  
+  # def item_params
+  #   params.require(:item).permit(:name, :price, images_attributes: [:image, :_destroy, :id])
+  # end
+
+  # def set_item
+  #   @item = Item.find(params[:id])
+  # end  
+
   def confirm
   end
 
