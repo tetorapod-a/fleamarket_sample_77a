@@ -1,88 +1,3 @@
--# .put
--#   = form_with(model: @item, local: true) do |form|
--#     #image-box
--#       #previews
--#         - if @item.persisted?
--#           - @item.images.each_with_index do |image, i|
--#             = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
--#       = form.fields_for :images do |image|
--#         .js-file_group{"data-index" => "#{image.index}"}
--#           = image.file_field :image, class: 'js-file'
--#           -if @item.errors.messages[:name].any?
--#             .error-message
--#             %p 画像がありません
--#           %span.js-remove 削除
--#         - if @item.persisted?
--#           = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
--#       - if @item.persisted?
--#         .js-file_group{"data-index" => "#{@item.images.count}"}
--#           = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
--#           .js-remove 削除
-
--#     .a
--#       name
--#       = form.text_field :name
--#       -if @item.errors.messages[:name].any?
--#         .error-message
--#           %p 40文字以内で必ず入力してください
-
--#     .b
--#       detail
--#       = form.text_field :detail
--#       -if @item.errors.messages[:detail].any?
--#         .error-message
--#           %p 必ず入力してください
-
--#     .c
--#       price
--#       = form.text_field :price
--#       -if @item.errors.messages[:price].any?
--#         .error-message
--#           %p 必ず入力してください
--#     .d
--#       status_id
--#       = form.collection_select(:status_id, Status.all, :id, :name, {include_blank: "---"})
--#       -if @item.errors.messages[:status_id].any?
--#         .error-message
--#           %p 必ず入力してください
--#     .rrr
--#       postage_id
--#       = form.collection_select(:postage_id, Postage.all, :id, :name, {include_blank: "---"})
--#       -if @item.errors.messages[:postage_id].any?
--#         .error-message
--#           %p 必ず入力してください
--#     .e
--#       shipping_day_id
--#       = form.collection_select(:shipping_day_id, ShippingDay.all, :id, :name, {include_blank: "---"})
--#       -if @item.errors.messages[:shipping_day_id].any?
--#         .error-message
--#           %p 必ず入力してください
--#     .d
--#       shipping_method_id
--#       = form.collection_select(:shipping_method_id, ShippingMethod.all, :id, :name, {include_blank: "---"})
--#       -if @item.errors.messages[:shipping_method_id].any?
--#         .error-message
--#           %p 必ず入力してください
--#     .f
--#       prefecture_id
--#       = form.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: "---"})
--#       -if @item.errors.messages[:prefecture_id].any?
--#         .error-message
--#           %p 必ず入力してください
--#     .g
--#       brand
--#       = form.text_field :brand
-
--#     .h
--#       categorie_id
--#       = form.collection_select(:category_id, Categorie.all, :id, :name, {include_blank: "---"})
--#       -if @item.errors.messages[:category_id].any?
--#         .error-message
--#           %p 必ず入力してください
--#     .i
--#       出品
--#       = form.submit
-      
 .wrapper
   = form_with(model: @item, local: true) do |form|
     .main-product
@@ -101,7 +16,6 @@
           .upload-space
             .icon
               .put
-                -# =form_with(model: @item, local: true) do |form|
                 #image-box
                   #previews
                     - if @item.persisted?
@@ -155,8 +69,6 @@
             -if @item.errors.messages[:name].any?
               .error-message
               %p 必ず入力してください
-
-            -# = f.text_field :content, class: 'input-form-comment', placeholder: ' 商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など） 例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。' 
     
       .product-details-part
         %p1 商品の詳細
@@ -199,8 +111,6 @@
     
       .Regarding-delivery
         %p 配送について
-        -# = link_to  
-        -# 配送についてのナビリンクを貼る
     
         .shipping-fee-burden-category
           .shipping-fee-burden
@@ -245,8 +155,6 @@
       .price-part
         .price
           %p 価格 (¥300〜9,999,999）
-          -# = link_to  
-          -# 価格の決め方ガイドのリンク貼る
     
         .selling-price-category
           .selling-price
