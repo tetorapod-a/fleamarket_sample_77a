@@ -78,20 +78,21 @@
         
           .icon{
             padding-top: 15px;
-            .new_image{
-              .form_mask{
-                .form_mask1{
-                  .imeges{
-                    // display: none;
-                  }
-                }
+            
+            .put{
+
+              .js-file{
+                display: none;
               }
             }
+
           }
           .icon-comment{
             text-align: center;
             color: black;
             font-size: 12px;
+
+          }
           }
       }
 
@@ -122,18 +123,25 @@
         }
 
         .input-form{
-          background-color: white;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-          height: 48px;
-          width: 620px;
+          // background-color: white;
+          // border: 1px solid #ccc;
+          // border-radius: 4px;
+          // height: 48px;
+          // width: 620px;
 
           .input-form-comment{
-            margin-top: 15px;
-            margin-left: 15px;
-            color:rgb(163, 161, 161);
-            font-size: 14px;
+            // background-color: white;
+            // border: 1px solid #ccc;
+            // border-radius: 4px;
+            .text_field{
+              height: 48px;
+              width: 620px;
+            }
 
+            .error-message{
+              color:red;
+              font-size: 14px;
+            }
           }
         }
       }
@@ -596,4 +604,3 @@
       padding-bottom: 30px;
     }
   }
-}

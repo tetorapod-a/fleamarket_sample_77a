@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @item.images.new
+    @item.images.build
   end
 
   def create
@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path 
     else
+      @item.images.build
       render :new
     end
   end
@@ -30,7 +31,6 @@ class ItemsController < ApplicationController
   def destroy
   end
 
-  
   def confirm
   end
 
