@@ -3,19 +3,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
 
-  def update_without_current_password(params, *options)
-    params.delete(:current_password)
-
-    if params[:password].blank?
-      params.delete(:password)
-      params.delete(:password_confirmation) if params[:password_confirmation].blank?
-    end
-
-    clean_up_passwords
-    update_attributes(params, *options)
-  end
-
-
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :nickname, :email, :first_name, :first_name_kana, :last_name, :last_name_kana, :birthday, presence: true
@@ -25,5 +12,5 @@ class User < ApplicationRecord
   has_one :address
 
 
-
 end
+

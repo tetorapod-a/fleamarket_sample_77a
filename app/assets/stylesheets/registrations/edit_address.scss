@@ -1,43 +1,4 @@
-// 送付先住所入力画面
-
-
-// ヘッダー
-
-.active {
-  color: #3CCACE;
-}
-.progress-status-address {
-  width: 12px;
-  height: 12px;
-  margin: 8px auto 0;
-  background-color: #3CCACE;
-  border-radius: 50%;
-  &__active {
-    width: 12px;
-    height: 12px;
-    margin: 8px auto 0;
-    border-radius: 50%;
-    background-color: #3CCACE;
-  }
-  &::before {
-    right: 53%;
-    background-color: #3CCACE;
-  }
-  &::after {
-    left: 55%;
-    background-color: #ccc;
-  }
-  &::before, &::after {
-    position: absolute;
-    bottom: 5px;
-    z-index: -1;
-    content: '';
-    width: 100%;
-    height: 2px;
-  }
-}
-
-// メイン
+// メイン 送付先住所編集画面
 .user-sign {
   display: block;
   &__forms {
@@ -140,9 +101,8 @@
             cursor: pointer;
             background: #3CCACE;
             color: #fff;
-          }
-        
-        }
+          }  
+      }
     }
   }
 }
