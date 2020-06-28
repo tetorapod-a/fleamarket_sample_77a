@@ -88,7 +88,7 @@
                       = image.file_field :image, class: 'js-file'
                     -if @item.errors.messages[:name].any?
                       .error-message
-                      %p 画像がありません
+                      %p2 画像がありません
                     %span.js-remove 削除
                   - if @item.persisted?
                     = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
@@ -112,7 +112,7 @@
           = form.text_field :name, placeholder: '40文字まで'
           -if @item.errors.messages[:name].any?
             .error-message
-            %p 40字以内で必ず入力してください
+            %p2 40字以内で必ず入力してください
 
 
 
@@ -126,7 +126,7 @@
           = form.text_area :detail, placeholder: '商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。'
           -if @item.errors.messages[:name].any?
             .error-message
-            %p 必ず入力してください
+            %p2 必ず入力してください
 
       .product-details-part
         %p1 商品の詳細
@@ -147,7 +147,7 @@
                     = form.select :category_id, category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
                     -if @item.errors.messages[:name].any?
                       .error-message
-                      %p 必ず入力してください
+                      %p2 必ず入力してください
 
         .brand-category
           .brand
@@ -159,7 +159,7 @@
             = form.text_field :brand
             -if @item.errors.messages[:name].any?
               .error-message
-              %p 必ず入力してください
+              %p2 必ず入力してください
 
         .product-status-category
           .product-status
@@ -171,7 +171,7 @@
             = form.collection_select(:status_id, Status.all, :id, :name, {include_blank: "---"})
             -if @item.errors.messages[:name].any?
               .error-message
-              %p 必ず入力してください
+              %p2 必ず入力してください
 
       .Regarding-delivery
         %p 配送について
@@ -186,7 +186,7 @@
             = form.collection_select(:postage_id, Postage.all, :id, :name, {include_blank: "---"})
             -if @item.errors.messages[:name].any?
               .error-message
-              %p 必ず入力してください
+              %p2 必ず入力してください
 
         .shipping-method
           .shipping-method-top
@@ -198,7 +198,7 @@
             = form.collection_select(:shipping_method_id, ShippingMethod.all, :id, :name, {include_blank: "---"})
             -if @item.errors.messages[:name].any?
               .error-message
-              %p 必ず入力してください
+              %p2 必ず入力してください
 
         .shipping-region-category
           .shipping-region
@@ -210,7 +210,7 @@
             = form.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: "---"})
             -if @item.errors.messages[:name].any?
               .error-message
-              %p 必ず入力してください
+              %p2 必ず入力してください
 
     
     
@@ -224,7 +224,7 @@
             = form.collection_select(:shipping_day_id, ShippingDay.all, :id, :name, {include_blank: "---"})
             -if @item.errors.messages[:name].any?
               .error-message
-              %p 必ず入力してください
+              %p2 必ず入力してください
 
     
       .price-part
@@ -242,7 +242,7 @@
               = form.text_field :price
               -if @item.errors.messages[:name].any?
                 .error-message
-                %p 必ず入力してください
+                %p2 必ず入力してください
 
           .choice1
             %p 販売手数料（10%）
