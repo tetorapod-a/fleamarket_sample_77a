@@ -13,4 +13,15 @@ class Item < ApplicationRecord
   belongs_to_active_hash :postage
   belongs_to_active_hash :shipping_day
   belongs_to_active_hash :shipping_method
+
+  validates :images, presence: true
+  validates :name, length: { maximum: 40 }, presence: true
+  validates :detail, presence: true
+  validates :price, presence: true
+  validates :status_id, presence: true
+  validates :postage_id, presence: true
+  validates :shipping_day_id, presence: true
+  validates :shipping_method_id, presence: true
+  validates :prefecture_id, presence: true
+  validates :category_id, presence: true
 end
