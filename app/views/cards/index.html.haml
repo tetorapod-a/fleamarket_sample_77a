@@ -1,0 +1,287 @@
+%body
+  %header
+    .header-inner
+      .header-inner__main
+        %h1.header-inner__main__icon
+          = link_to "/" do
+            = image_tag 'logo/logo.png'
+        .header-inner__main__box
+          = form_with url: "/" do |form|
+            = form.text_field :key, id:"seach-input", class:"seach-box-input", placeholder:"キーワードから探す"
+            %button{:type => "submit"}
+              .search-icon
+                = image_tag 'icon/icon-search 1.png'
+      .header-inner__nav
+        %ul.lists-left
+          %li.lists-left__first.lists-left__list
+            = link_to "/" do
+              = "カテゴリー"
+          %li.lists-left__list
+            = link_to "/" do
+              = "ブランド"
+        %ul.lists-right
+          %li.lists-right__list
+            = link_to "/" do
+              = "ログアウト"
+
+
+  .main
+    .left-box
+      .my-plof
+        %p プロフィール
+        .left-list
+          = link_to "マイアカウント情報","#", class: '.link'
+        .left-list
+          = link_to "支払い方法の確認","#", class: '.link'
+      .my-business
+        %p マイページメニュー
+        .left-list
+          = link_to "出品する","#", class: '.link'
+        .left-list
+          = link_to "いいね！一覧","#", class: '.link'
+        .left-list
+          = link_to "出品中の商品","#", class: '.link'
+        .left-list
+          = link_to "売却した商品","#", class: '.link'
+        .left-list
+          = link_to "購入した商品","#", class: '.link'
+        .left-list
+          = link_to "ログアウトする","#", class: '.link'
+
+
+    .right-box
+      %p支払い方法の確認
+      .credit-info
+        %pクレジットカードの登録
+        .form-box
+          = form_tag("/payments", method: :post, id: 'charge-form') do
+            %span.charge-errors
+            .register-inner__content
+
+              .form-group
+                %span.registration_font カード番号
+                %span.require-icon 必須
+                %input.number.input-default{maxlength: "16", name: "number", placeholder: "カード番号", type: "text", id: "payment_card_no"}/
+                .card-list
+                  = image_tag 'credit/visa.png', class:"card-png"
+                  = image_tag 'credit/master.png', class:"card-png"
+                  = image_tag 'credit/jcb.png', class:"card-png"
+                  = image_tag 'credit/american.png', class:"card-png"
+                  = image_tag 'credit/diners.png', class:"card-png"
+                  = image_tag 'credit/discover.png', class:"card-png"
+
+
+
+
+
+
+
+
+              .form-group
+                %span.registration_font 有効期限
+                %span.require-icon 必須
+                .expiration_date_box
+                  .expiration_date_box__wrap
+                    %select.exp_month#payment_expiration_date_1i{maxlength: "2", name: "exp_month", type: "text"}
+                      %option{value: "1"}01
+                      %option{value: "2"}02
+                      %option{value: "3"}03
+                      %option{value: "4"}04
+                      %option{value: "5"}05
+                      %option{value: "6"}06
+                      %option{value: "7"}07
+                      %option{value: "8"}08
+                      %option{value: "9"}09
+                      %option{value: "10"}10
+                      %option{value: "11"}11
+                      %option{value: "12"}12
+                    %i.fas.fa-angle-down.payment-select-icon
+                    %text.expiration_date_box__text 月
+
+                .expiration_date_box
+                  .expiration_date_box__wrap
+                    %select.exp_year#payment_expiration_date_2i{maxlength: "4", name: "exp_year", type: "text"}
+                      %option{value: "2019"}19
+                      %option{value: "2020"}20
+                      %option{value: "2021"}21
+                      %option{value: "2022"}22
+                      %option{value: "2023"}23
+                      %option{value: "2024"}24
+                      %option{value: "2025"}25
+                      %option{value: "2026"}26
+                      %option{value: "2027"}27
+                      %option{value: "2028"}28
+                      %option{value: "2029"}29
+                    %i.fas.fa-angle-down.payment-select-icon
+                    %text.expiration_date_box__text 年
+
+              .form-group
+                %span.registration_font セキュリティー番号
+                %span.require-icon 必須
+                %input.cvc.input-default{maxlength: "3", name: "cvc", placeholder: "カード背面もしくは４桁もしくは３桁の番号", type: "text", id: "payment_card_cvc"}
+                .card-indo
+                  カード裏面の番号とは
+              .actions
+                %button.register-member#submit-button{type: "submit"} 登録する
+      -# .mypage-box__profile
+      -#   %pプロフィール 
+      -#   .appeal
+      -#     .upper
+      -#       .myprofile__avter
+      -#         %pマイアバターを貼る
+      -#       .myprofile__nickname
+      -#         = @user.nickname
+      -#     .myprofile__introduce
+      -#       = @user.introduce
+          
+      
+      -#   .myprofile__details
+            
+      -#   .myprofile__details__list
+      -#     .name
+      -#       %l名前：
+      -#       = @user.first_name
+      -#       = @user.last_name
+      -#       %lフリガナ
+      -#       = @user.first_name_kana
+      -#       = @user.last_name_kana
+      -#       %l生年月日
+      -#       = @user.birthday
+      -#       %le-mail
+      -#       = @user.email
+
+      -#   .link_edit
+      -#     = link_to "プロフィール編集","#", class: '.link'
+
+      -# .mypage-box__identification
+      -#   %p送付先情報
+      -#   .mypage-box__identification__list
+      -#     = "郵便番号：郵便#{@address.postal_code}"
+
+
+      -#   .link_edit
+      -#     = link_to "送付先情報編集","#", class: '.link'
+
+        -#   %h1.user-sign__forms__title 商品送付先住所登録
+        -#   = form_for() do |
+        -#     = render "devise/shared/error_messages", resource: @address
+        -#     .user-sign__forms__title__contents
+        -#       .user-sign__forms__title__contents__group
+        -#         .field
+        -#           = f.label :送付先名字
+        -#           %span.form-require 必須
+        -#           %br/
+        -#           = f.text_field :first_name
+        -#         .field
+        -#           = f.label :送付先名字フリガナ
+        -#           %span.form-require 必須
+        -#           %br/
+        -#           = f.text_field :first_name_kana
+        -#         .field
+        -#           = f.label :送付先名前
+        -#           %span.form-require 必須
+        -#           %br/
+        -#           = f.text_field :last_name
+        -#         .field
+        -#           = f.label :送付先名前フリガナ
+        -#           %span.form-require 必須
+        -#           %br/
+        -#           = f.text_field :last_name_kana
+        -#         .field
+        -#           = f.label :郵便番号
+        -#           %span.form-require 必須
+        -#           %br/
+        -#           = f.text_field :postal_code, placeholder:"1235678", required:"required", class:"input-form"
+        -#         .field
+        -#           = f.label :都道府県
+        -#           %span.form-require 必須
+        -#           %br/
+        -#           = f.text_field :prefectur, placeholder:"東京都", required:"required", class:"input-form"
+        -#         .field
+        -#           = f.label :市区町村
+        -#           %span.form-require 必須
+        -#           %br/
+        -#           = f.text_field :city, placeholder:"渋谷区", required:"required", class:"input-form"
+        -#         .field
+        -#           = f.label :番地
+        -#           %span.form-require 必須
+        -#           %br/
+        -#           = f.text_field :house_number, placeholder:"富ケ谷１丁目", required:"required", class:"input-form"
+        -#         .field
+        -#           = f.label :マンション・ビル名※部屋番号は任意
+        -#           = f.text_field :apartment, placeholder:"〇〇ビル〇〇号室", class:"input-form"
+        -#         .field
+        -#           = f.label :電話番号※任意
+        -#           = f.text_field :phone, placeholder:"09012345678", class:"input-form"
+        -#         .actions
+        -#           = f.submit "会員登録", class:"red-btn"
+
+        -#   .form__mask
+        -#     %label.form__mask__image
+        -#       = icon('fa','image',class: 'icon')
+        -#       %input.hidden{type: 'file'}
+        -# %input.form__submit{type: 'submit', value: '更新する'}
+      
+  %aside
+    .inner
+      %h2.inner__title
+        = "だれでもかんたん、人生を変えるフリマアプリ"
+      %p.inner__text
+        = "今すぐ無料ダウンロード！"
+      .inner__btn
+        = link_to "/", class:"abtn" do
+          = image_tag 'http://furima.tokyo/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg'
+        = link_to "/", class:"abtn" do
+          = image_tag 'http://furima.tokyo/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg'
+
+  .footer
+    %ul.contents
+      %li.contents__content
+        %h2.contents__content__head
+          = "FURIMAについて"
+        %ul
+          %li
+            = link_to "/" do
+              = "会社概要（運営会社）"
+          %li
+            = link_to "/" do
+              = "プライバシーポリシー"
+          %li
+            = link_to "/" do
+              = "FURIMA利用規約"
+          %li
+            = link_to "/" do
+              = "ポイントに関する特約"
+      %li.contents__content
+        %h2.contents__content__head
+          = "FURIMAを見る"
+        %ul
+          %li
+            = link_to "/" do
+              = "カテゴリー一覧"
+          %li
+            = link_to "/" do
+              = "ブランド一覧"
+      %li.contents__content
+        %h2.contents__content__head
+          = "ヘルプ＆ガイド"
+        %ul
+          %li
+            = link_to "/" do
+              = "FURIMAガイド"
+          %li
+            = link_to "/" do
+              = "FURIMAロゴ利用ガイドライン"
+          %li
+            = link_to "/" do
+              = "お知らせ"
+    .footer__logo
+      = link_to "/" do
+        = image_tag 'logo/logo-white.png'
+    %p
+      = "© FURIMA" 
+  = link_to "/" do
+    .pur-btn
+      %span.pur-btn__text
+        = "出品する"
+      = image_tag 'icon/icon_camera.png' 
