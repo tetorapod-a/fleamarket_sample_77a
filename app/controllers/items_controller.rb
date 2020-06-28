@@ -7,12 +7,10 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.build
-    
     @category_parent_array = ["---"]
     Categorie.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
     end
-
   end
 
   def create
@@ -37,7 +35,6 @@ class ItemsController < ApplicationController
   def destroy
   end
 
-  
   def confirm
   end
 
