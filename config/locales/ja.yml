@@ -19,11 +19,13 @@ ja:
               confirmation: "が内容とあっていません。"
     attributes:
       user:
+        nickname: "ニックネーム"
         current_password: "現在のパスワード"
         name: 名前
         email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "確認用パスワード"
+        current_password: "現在のパスワード"
         remember_me: "次回から自動的にログイン"
         first_name: "名字"
         first_name_kana: "名字のフリガナ"
@@ -31,6 +33,7 @@ ja:
         last_name_kana: "名前のフリガナ"
         birthday: "生年月日"
       address: 
+        current_password: "現在のパスワード"
         first_name: "名字"
         first_name_kana: "名字のフリガナ"
         last_name: "名前"
@@ -40,6 +43,7 @@ ja:
         city: "市区町村"
         house_number: "番地"
       user:
+        nickname: "ニックネーム"
         current_password: "現在のパスワード"
         name: 名前
         email: "メールアドレス"
@@ -52,8 +56,10 @@ ja:
         last_name_kana: "名前のフリガナ"
         birthday: "生年月日"
     models:
+      nickname: "ニックネーム"
       user: "会員情報"
       address: "商品送付先住所"
+      current_password: "現在のパスワード"
   devise:
     confirmations:
       new:
