@@ -29,7 +29,7 @@
                       -if @item.errors.messages[:name].any?
                         .error-message
                         %p 画像がありません
-                      %span.js-remove 削除
+                      -# %span.js-remove 削除
                     - if @item.persisted?
                       = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
                   - if @item.persisted?
@@ -163,13 +163,19 @@
             .selling-price-required
               %p 必須
             .input-form
-              %p ¥
+              ¥
+              %input#price_calc.price_form-box{placeholder: "例) 300", type: "number"}/
               .input-form-comment 
           .choice1
             %p 販売手数料（10%）
+            .right_bar
+
           .choice2 
             %p 販売利益
-    
+            = form.number_field :price, style: "display: none", id: "price"
+            .right_bar_2
+
+
       .btn
         .sell
           = button_tag "出品する", class: 'sell-comment'
