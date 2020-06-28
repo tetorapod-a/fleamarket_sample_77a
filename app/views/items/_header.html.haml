@@ -1,0 +1,27 @@
+%header
+  .header-inner
+    .header-inner__main
+      %h1.header-inner__main__icon
+        = link_to "/" do
+          = image_tag 'logo/logo.png'
+      .header-inner__main__box
+        = form_with url: "/" do |form|
+          = form.text_field :key, id:"seach-input", class:"seach-box-input", placeholder:"キーワードから探す"
+          %button{type: "submit"}
+            .search-icon
+              = image_tag 'icon/icon-search 1.png'
+    .header-inner__nav
+      %ul.lists-left
+        %li.lists-left__first.lists-left__list
+          = link_to "/" do
+            = "カテゴリー"
+        %li.lists-left__list
+          = link_to "/" do
+            = "ブランド"
+      %ul.lists-right
+        %li.lists-right__list
+          = link_to "/" do
+            = "ログイン"
+        %li.lists-right__list
+          = link_to "/" do
+            = "新規会員登録"

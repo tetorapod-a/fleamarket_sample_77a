@@ -88,6 +88,7 @@
                       .error-message
                       %p2 必ず入力してください
 
+
         .brand-category
           .brand
             .brand1
@@ -99,7 +100,6 @@
             -if @item.errors.messages[:name].any?
               .error-message
               %p2 必ず入力してください
-
         .product-status-category
           .product-status
             .product-status1
@@ -111,7 +111,7 @@
             -if @item.errors.messages[:name].any?
               .error-message
               %p2 必ず入力してください
-
+              
       .Regarding-delivery
         %p 配送について
     
@@ -150,7 +150,6 @@
             -if @item.errors.messages[:name].any?
               .error-message
               %p2 必ず入力してください
-
     
     
         .days-until-shipping-category
@@ -163,9 +162,8 @@
             = form.collection_select(:shipping_day_id, ShippingDay.all, :id, :name, {include_blank: "---"})
             -if @item.errors.messages[:name].any?
               .error-message
-              %p2 必ず入力してください
-
-    
+              %p2 40文字以内で必ず入力してください
+              
       .price-part
         .price
           %p 価格 (¥300〜9,999,999）
@@ -182,7 +180,6 @@
               -if @item.errors.messages[:name].any?
                 .error-message
                 %p2 必ず入力してください
-
           .choice1
             %p 販売手数料（10%）
           .choice2 
@@ -199,9 +196,10 @@
       .terms
         %p 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
 
-
-
-
+  
+  
+  
+  
     .main-product-footer
       .main-product-footer-logo1
         %p プライバシーポリシー
