@@ -1,16 +1,9 @@
 -# 送付先住所情報編集画面
 
--# ヘッダー
+-# ヘッダーはここから
 .wrapper
-  .main-product
-    .main-product-header
-      .main-product-header-logo
-        = link_to image_tag('/assets/logo/logo.png', alt: 'text', height: '60', width: '200', class: 'icon'), root_path
-
-
-
-
-    -# メイン devise外で定義
+  = render 'layouts/simple_headder'
+  
   .user-sign
     .user-sign__forms
       %h1.user-sign__forms__title 商品送付先住所登録
@@ -76,6 +69,6 @@
             .actions
               = f.submit "更新" , class:"emerald-btn"
 
-
+    .main-product-footer
+      = render 'layouts/registrations_footer'
       -# フッターはここから
-    = render partial: 'layouts/registrations_footer'
