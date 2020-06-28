@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, except: [:index, :new, :create]
+  before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
   def index
     @items = Item.includes(:images).order(updated_at: "desc")
   end
@@ -7,6 +7,10 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.build
+    @category_parent_array = ["---"]
+    Categorie.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
   end
 
   def create
@@ -34,11 +38,18 @@ class ItemsController < ApplicationController
   def confirm
   end
 
+  def get_category_children
+    @category_children = Categorie.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  end
+
+  def get_category_grandchildren
+    @category_grandchildren = Categorie.find("#{params[:child_id]}").children
+  end
 
   private
 
     def item_params
-      params.require(:item).permit(:name, :detail, :price, :status_id, :postage_id, :shipping_day_id, :shipping_method_id, :prefecture_id, :brand, :category_id, :buyre_id, :seller_id, images_attributes: [:image, :id]).merge(seller_id: current_user.id)
+      params.require(:item).permit(:name, :detail, :price, :status_id, :postage_id, :shipping_day_id, :shipping_method_id, :prefecture_id, :brand, :category_id, :buyre_id, :seller_id, images_attributes: [:image, :_destroy, :id]).merge(seller_id: current_user.id)
     end
 
     def set_item
