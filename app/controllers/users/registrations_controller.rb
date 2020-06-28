@@ -45,12 +45,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def update
     @user = current_user
-    binding.pry
     if @user.update(account_update_params)
       redirect_to root_path notice: '更新しました'
       sign_in(current_user, bypass: true)
       # (current_user, bypass: true)はdeviceの仕様上パスワードが変更になるとログアウトする仕組みになっている。確認ようで入れているパスワードも編集変更扱いになるので、それを防ぐために記述。
-      binding.pry
     else
       flash.now[:alert] = @user.errors.full_messages
       render :edit and return
