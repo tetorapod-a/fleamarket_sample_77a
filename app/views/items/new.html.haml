@@ -15,8 +15,10 @@
             %p 最大10枚までアップロードできます
           .upload-space
             .icon
+
               #image-box
                 #previews
+
                   - if @item.persisted?
                     - @item.images.each_with_index do |image, i|
                       = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
@@ -175,16 +177,24 @@
             .selling-price-required
               %p 必須
             .input-form
-              %p1 ¥
-              = form.text_field :price
-              -if @item.errors.messages[:name].any?
-                .error-message
-                %p2 必ず入力してください
+
+              ¥
+               = form.number_field :price, id: "price_calc.price_form-box", placeholder: "例) 300"
+               .input-form-comment 
+                -if @item.errors.messages[:name].any?
+             　　 .error-message
+              　　 %p2 必ず入力してください
+              
           .choice1
             %p 販売手数料（10%）
+            .right_bar
+
           .choice2 
             %p 販売利益
-    
+            = form.number_field :price, style: "display: none", id: "price"
+            .right_bar_2
+
+
       .btn
         .sell
           = button_tag "出品する", type: 'submit', class: 'sell-comment'
