@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @address = Address.find(current_user.id)
+    @address = Address.find_by(user_id: current_user.id)
   end  
 
 end

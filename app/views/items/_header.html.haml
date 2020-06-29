@@ -19,9 +19,11 @@
           = link_to "/" do
             = "ブランド"
       %ul.lists-right
-        %li.lists-right__list
-          = link_to "/" do
-            = "ログイン"
-        %li.lists-right__list
-          = link_to "/" do
-            = "新規会員登録"
+        - if user_signed_in?
+          %li.lists-right__list
+            = link_to "マイページ"
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
+        - else
+          %li.lists-right__list
+            = link_to "ログイン", new_user_session_path
+            = link_to "新規会員登録", new_user_registration_path
