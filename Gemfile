@@ -88,3 +88,5 @@ gem 'payjp'
 gem "gretel"
 gem 'ancestry'
 gem 'dotenv-rails'
+gem 'rspec-rails'
+gem 'factory_bot_rails'
