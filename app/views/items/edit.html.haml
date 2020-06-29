@@ -25,7 +25,7 @@
                 = form.fields_for :images do |image|
                   = image.label :image, class: "icon", id: "image-label" do
                     = icon("fas", "camera")
-                    .js-file_group{"data-index" => "#{:image.index}"}
+                    .js-file_group{"data-index" => "#image.index"}
                       = image.file_field :image, class: 'js-file'
                     -if @item.errors.messages[:name].any?
                       .error-message
