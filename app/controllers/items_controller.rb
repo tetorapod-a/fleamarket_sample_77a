@@ -19,6 +19,9 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    @user = User.find(@item.seller_id)
+    @parents = Categorie.where(ancestry:nil)
   end
 
   def edit
