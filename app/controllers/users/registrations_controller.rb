@@ -37,7 +37,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     sign_in(:user, @user)
   end
 
-
   # 会員情報編集画面
   def edit
     @user = current_user
