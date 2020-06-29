@@ -51,21 +51,21 @@
         %pプロフィール 
         .upper            
           .myprofile-nickname
-            = @user.nickname
+            = current_user.nickname
           .myprofile-avter
             = image_tag 'icon/member_photo_noimage_thumb.png'
           .myprofile-introduce
-            = @user.introduce     
+            = current_user.introduce     
       .mypage-box__details
         %p本人情報
         .myprofile__details__list
-          名前　　　：　#{@user.first_name}#{@user.last_name}
+          名前　　　：　#{current_user.first_name}#{current_user.last_name}
           %br
-          フリガナ　：　#{@user.first_name_kana}#{@user.last_name_kana}
+          フリガナ　：　#{current_user.first_name_kana}#{current_user.last_name_kana}
           %br
-          生年月日　：　#{@user.birthday}
+          生年月日　：　#{current_user.birthday}
           %br
-          e-mail　　 ：　#{@user.email}
+          e-mail　　 ：　#{current_user.email}
         .link_edit
           = link_to "プロフィール編集","#", class: '.link'
       .mypage-box__identification
