@@ -3,11 +3,14 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-  
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  # 新規会員登録入力画面
   def new
     @user = User.new
   end
 
+  # 新規会員登録入力フォームの保存とバリデーション
   def create
     @user = User.new(sign_up_params)
     unless @user.valid?
@@ -20,6 +23,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render :new_address
   end
 
+  # 新規送付先住所の保存とバリデーション
   def create_address
     @user = User.new(session["devise.regist_data"]["user"])
     @address = Address.new(address_params)
@@ -33,7 +37,67 @@ class Users::RegistrationsController < Devise::RegistrationsController
     sign_in(:user, @user)
   end
 
+  # 会員情報編集画面
+  def edit
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+    if @user.update(account_update_params)
+      redirect_to root_path notice: '更新しました'
+      sign_in(current_user, bypass: true)
+      # (current_user, bypass: true)はdeviceの仕様上パスワードが変更になるとログアウトする仕組みになっている。確認ようで入れているパスワードも編集変更扱いになるので、それを防ぐために記述。
+    else
+      flash.now[:alert] = @user.errors.full_messages
+      render :edit and return
+    end
+  end
+
+  # 送付先住所編集画面
+  def edit_address
+    @address = current_user.address
+  end
+
+  # 送付先住所編集画面の更新ボタンをクリックした時のバリデーションと保存。
+  def update_address
+    @address = current_user.address
+    if @address.update(address_params)
+      redirect_to root_path notice: '更新しました'
+    else
+      flash.now[:alert] = @address.errors.full_messages
+      render :edit_address
+    end
+  end
+
   protected
+
+  # 新規送付先住所登録にemailとpassword以外の登録を許可するための記述。バリデーションもかけるため。
+  def address_params
+    params.require(:address).permit(:first_name, :first_name_kana, :last_name, :last_name_kana, :postal_code,
+                                    :prefectur, :city, :house_number, :apartment, :phone)
+  end
+
+  protected
+
+  # 会員情報編集画面にemailとpassword以外の編集を許可する記述
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :nickname, :email, :first_name, :first_name_kana, :last_name, :last_name_kana, :birthday) }
+    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:email, :password, :password_confirmation, :current_password, :nickname, :email, :first_name, :first_name_kana, :last_name, :last_name_kana, :birthday) }
+  end
+
+  # 会員情報編集画面の更新ボタンをクリックした時に現在のパスワードの入力だけで更新できる
+  def update_resource(resource, params)
+    resouce.update_without_password(params)
+  end
+
+  # protected
+
+  # def configure_permitted_parameters
+  #   devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:first_name, :first_name_kana, :last_name, :last_name_kana, :postal_code,
+  #           :prefectur, :city, :house_number) }
+  # end
+
 
   # def configure_sign_up_params
   #   devise_parameter_sanitizer.permit(:sign_up, keys:
@@ -46,10 +110,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   :address, :apartment, :phone)
   # end
 
-  def address_params
-    params.require(:address).permit(:first_name, :first_name_kana, :last_name, :last_name_kana, :postal_code,
-                                    :prefectur, :city, :house_number, :apartment, :phone)
-  end
+  
 
   # GET /resource/sign_up
   # def new
@@ -85,7 +146,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
