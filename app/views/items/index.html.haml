@@ -135,7 +135,8 @@
           - @items.each do |item|
             .pickup__box__lists__list
               = link_to "/" do
-                .list__img = image_tag item.images.first.image_url
+                .list__img 
+                  = image_tag item.images.first.image_url
                 .list__body
                   %h3.list__body__name
                     = item.name
