@@ -24,12 +24,29 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item =Item.find(params[:id])
+    @user = User.find(@item.seller_id)
+    @parents = Categorie.where(ancestry: nil)
   end
 
   def edit
+    @item = Item.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def update
+    @item = Item.find(params[:id])
+    @user = User.find(params[:id])
+    if @item.update(item_params)
+      redirect_to item_path notice: '更新しました'
+    else
+      render 'edit'
+    end
+  end
+
+  private
+  def item_params
+    params.require(:item).permit(:title, :image, :text, :price)
   end
 
   def destroy
