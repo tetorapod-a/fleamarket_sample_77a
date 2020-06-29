@@ -6,7 +6,7 @@
 * {
   box-sizing: border-box;
 }
-.wrapper{
+.wrapper1{
   background-color:rgb(248, 246, 246);
   height: 100%;
   width: 100vw;
@@ -130,6 +130,7 @@
             height: 48px;
             width: 100%;
             padding-left: 20px;
+            
           }
         }
       }
@@ -490,12 +491,19 @@
           }
 
           .input-form{
+            display:flex;
             background-color: white;
             margin-top: 20px;
             margin-left: 230px;
             p1 {
               font-size: 16px;
             }
+
+            P{
+              margin-top: 15px;
+              margin-right: 10px;
+            }
+
             #item_price{
               border: 1px solid #ccc;
               border-radius: 4px;
@@ -503,6 +511,15 @@
               width: 280px;
               padding-left: 5px;  
             }
+
+            #price_calc.price_form-box{
+              border: 1px solid #ccc;
+              border-radius: 4px;
+              width: 260px;
+              height: 48px;
+              margin-right: 40px;
+            }
+
           }
 
         }
@@ -526,6 +543,7 @@
     }
   
     .btn{
+      text-align: center;
       .sell{
         .sell-comment{
           text-align: center;

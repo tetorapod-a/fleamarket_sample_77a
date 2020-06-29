@@ -1,4 +1,4 @@
-.wrapper
+.wrapper1
   = form_with(model: @item, local: true) do |form|
     .main-product
       .main-product-header
@@ -178,12 +178,12 @@
               %p 必須
             .input-form
 
-              ¥
-               = form.number_field :price, id: "price_calc.price_form-box", placeholder: "例) 300"
-               .input-form-comment 
+              %P ¥
+              %input#price_calc.price_form-box{placeholder: "例) 300", type: "number"}/
+              .input-form-comment 
                 -if @item.errors.messages[:name].any?
-             　　 .error-message
-              　　 %p2 必ず入力してください
+                  .error-message
+                  %p2 300以上9999999以下で必ず入力してください
               
           .choice1
             %p 販売手数料（10%）
