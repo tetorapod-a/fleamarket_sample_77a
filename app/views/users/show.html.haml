@@ -23,8 +23,6 @@
           %li.lists-right__list
             = link_to "/" do
               = "ログアウト"
-
-
   .main
     .left-box
       .my-plof
@@ -47,109 +45,45 @@
           = link_to "購入した商品","#", class: '.link'
         .left-list
           = link_to "ログアウトする","#", class: '.link'
-
-
     .mypage-box
       %pマイアカウント情報
       .mypage-box__profile
         %pプロフィール 
-        .appeal
-          .upper
-            .myprofile__avter
-              %pマイアバターを貼る
-            .myprofile__nickname
-              = @user.nickname
-          .myprofile__introduce
-            = @user.introduce
-          
-      
-        .myprofile__details
-            
+        .upper            
+          .myprofile-nickname
+            = @user.nickname
+          .myprofile-avter
+            = image_tag 'icon/member_photo_noimage_thumb.png'
+          .myprofile-introduce
+            = @user.introduce     
+      .mypage-box__details
+        %p本人情報
         .myprofile__details__list
-          .name
-            %l名前：
-            = @user.first_name
-            = @user.last_name
-            %lフリガナ
-            = @user.first_name_kana
-            = @user.last_name_kana
-            %l生年月日
-            = @user.birthday
-            %le-mail
-            = @user.email
-
+          名前　　　：　#{@user.first_name}#{@user.last_name}
+          %br
+          フリガナ　：　#{@user.first_name_kana}#{@user.last_name_kana}
+          %br
+          生年月日　：　#{@user.birthday}
+          %br
+          e-mail　　 ：　#{@user.email}
         .link_edit
           = link_to "プロフィール編集","#", class: '.link'
-
       .mypage-box__identification
         %p送付先情報
         .mypage-box__identification__list
-          = "郵便番号：郵便#{@address.postal_code}"
-
-
+          郵便番号　　：　〒#{@address.postal_code}
+          %br
+          送付先住所　：　#{@address.prefectur}#{@address.city}#{@address.house_number}
+          %br
+          マンション等：　#{@address.apartment}
+          %br
+          電話番号　　：　#{@address.phone}
+          %br
+          名前　　　　：　#{@address.first_name}#{@address.last_name}
+          %br
+          フリガナ　　：　#{@address.first_name_kana} #{@address.last_name_kana}
         .link_edit
-          = link_to "送付先情報編集","#", class: '.link'
-
-        -#   %h1.user-sign__forms__title 商品送付先住所登録
-        -#   = form_for() do |
-        -#     = render "devise/shared/error_messages", resource: @address
-        -#     .user-sign__forms__title__contents
-        -#       .user-sign__forms__title__contents__group
-        -#         .field
-        -#           = f.label :送付先名字
-        -#           %span.form-require 必須
-        -#           %br/
-        -#           = f.text_field :first_name
-        -#         .field
-        -#           = f.label :送付先名字フリガナ
-        -#           %span.form-require 必須
-        -#           %br/
-        -#           = f.text_field :first_name_kana
-        -#         .field
-        -#           = f.label :送付先名前
-        -#           %span.form-require 必須
-        -#           %br/
-        -#           = f.text_field :last_name
-        -#         .field
-        -#           = f.label :送付先名前フリガナ
-        -#           %span.form-require 必須
-        -#           %br/
-        -#           = f.text_field :last_name_kana
-        -#         .field
-        -#           = f.label :郵便番号
-        -#           %span.form-require 必須
-        -#           %br/
-        -#           = f.text_field :postal_code, placeholder:"1235678", required:"required", class:"input-form"
-        -#         .field
-        -#           = f.label :都道府県
-        -#           %span.form-require 必須
-        -#           %br/
-        -#           = f.text_field :prefectur, placeholder:"東京都", required:"required", class:"input-form"
-        -#         .field
-        -#           = f.label :市区町村
-        -#           %span.form-require 必須
-        -#           %br/
-        -#           = f.text_field :city, placeholder:"渋谷区", required:"required", class:"input-form"
-        -#         .field
-        -#           = f.label :番地
-        -#           %span.form-require 必須
-        -#           %br/
-        -#           = f.text_field :house_number, placeholder:"富ケ谷１丁目", required:"required", class:"input-form"
-        -#         .field
-        -#           = f.label :マンション・ビル名※部屋番号は任意
-        -#           = f.text_field :apartment, placeholder:"〇〇ビル〇〇号室", class:"input-form"
-        -#         .field
-        -#           = f.label :電話番号※任意
-        -#           = f.text_field :phone, placeholder:"09012345678", class:"input-form"
-        -#         .actions
-        -#           = f.submit "会員登録", class:"red-btn"
-
-        -#   .form__mask
-        -#     %label.form__mask__image
-        -#       = icon('fa','image',class: 'icon')
-        -#       %input.hidden{type: 'file'}
-        -# %input.form__submit{type: 'submit', value: '更新する'}
-      
+          = link_to "送付先情報編集","#", class: '.link'     
   %aside
     .inner
       %h2.inner__title
@@ -161,7 +95,6 @@
           = image_tag 'http://furima.tokyo/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg'
         = link_to "/", class:"abtn" do
           = image_tag 'http://furima.tokyo/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg'
-
   .footer
     %ul.contents
       %li.contents__content
