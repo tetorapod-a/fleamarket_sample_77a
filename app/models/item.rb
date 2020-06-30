@@ -24,5 +24,5 @@ class Item < ApplicationRecord
   validates :shipping_method_id, presence: true
   validates :prefecture_id, presence: true
   validates :category_id, presence: true
-
+  validates :price,numericality: { only_integer: true,greater_than: 300, less_than: 9999999 }
 end
