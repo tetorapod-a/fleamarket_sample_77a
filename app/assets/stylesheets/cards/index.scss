@@ -1,0 +1,251 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+}
+.main{
+  display: flex;
+  height: 100%;
+  background-color:rgb(248, 246, 246);
+
+  .left-box{
+    width: 300px;
+    height: 100%;
+    padding: 20px 40px 0 60px;
+    display: flex;
+    flex-direction: column;
+   
+
+    .my-plof{
+       p{text-align: center;
+       margin-bottom: 15px;
+       }
+      width: 200px;
+      height: 200px;
+
+      .left-list{
+        // height: 14px;
+        padding: 15px 0px 20px 15px;
+        background-color: white;
+        border: solid 1px rgb(248, 246, 246);
+        font-size: 14px;
+      }
+    }
+
+    .my-business{
+      p{
+        text-align: center;
+        margin-bottom: 15px;
+        }
+      width: 200px;
+      height: 600px;
+      display: flex;
+      flex-direction: column;
+
+      .left-list{
+        // height: 14px;
+        padding: 20px 0px 20px 20px;
+        background-color: white;
+        border: solid 1px rgb(248, 246, 246);
+        font-size: 14px;
+      }
+    }
+  }
+
+  .right-box{
+    width: calc(100vw - 300px);
+    height: 100%;
+    padding: 20px 40px 0 0;
+    p{
+      width: auto;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    p1{
+      font-size: 20px;
+      font-weight: bold;
+      width: auto;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    .credit-info{
+      width: auto;
+      height: auto;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      padding: 40px 80px 40px 80px;
+      
+      .form-group{
+        max-width: 340px;
+        margin: 50px auto 50px auto ;
+        .registration_font{
+          font-weight: 600;
+        }
+        .require-icon{
+          background: #ea352d;
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          color: #fff;
+          font-size: 12px;
+          vertical-align: top;
+        }
+        .input-default {
+          margin-top: 10px;
+          height: 48px;
+          width: 340px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+        }
+        .card-list{
+          margin: 15px 0;
+          .card-png{
+            height: 30px;
+            display: inline-block;
+            justify-content: space-evenly;
+
+          }
+
+        }
+        .card-indo{
+          top: -8px;
+          right: 32px;
+          border-width: 0 8px 8px 8px;
+          border-color: #eee ;
+        }
+
+      }
+
+      .form-group{
+        .date-box{
+          display: flex;
+          margin-top: 10px;
+          .expiration_date_box{
+            display: inline-block;
+            width: calc(50% - 2px);
+            &__wrap{            
+              .exp_month#payment_expiration_date_1i{
+                position: relative;
+                width: 80%;
+                z-index: 2;
+                height: 48px;
+                padding: 0 16px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background: 0;
+                font-size: 16px;
+                line-height: 1.5;
+                cursor: pointer;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+              }
+              .payment-select-icon{
+                font-size: 10px;
+                margin: 0 6px 0 -15px;
+                position: relative;
+                top: 3px;
+                pointer-events: none;
+              }
+              .expiration_date_box__text{
+
+              }
+            }
+          }
+          .expiration_date_box{
+            display: inline-block;
+            width: calc(50% - 2px);
+            &__wrap{
+              .exp_year#payment_expiration_date_2i{
+                position: relative;
+                width: 80%;
+                z-index: 2;
+                height: 48px;
+                padding: 0 16px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background: 0;
+                font-size: 16px;
+                line-height: 1.5;
+                cursor: pointer;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+              }
+              .payment-select-icon{
+                font-size: 10px;
+                margin: 0 6px 0 -15px;
+                position: relative;
+                top: 3px;
+                pointer-events: none;
+              }
+            }
+          }
+        }
+      }
+      .form-group{
+        .card-indo{
+          text-align: right;
+          font-size: 12px;
+        }
+      }
+      .actions{
+        width: 100%;
+        text-align: center;
+        .register-member{
+          margin: 0 auto;
+          height: 50px;
+          width: 150px;
+          background-color: #3CCACE;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          color: white;
+          font-size: 14px;
+        }
+      }
+    }
+  }    
+}
+aside {
+  background-image: url(pict/bg-appBanner-pict.jpg);
+  padding: 100px 40px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  .inner {
+    color: #fff;
+    text-align: center;
+    &__title {
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.4;
+    }
+    &__text {
+      font-size: 35px;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    }
+    &__btn {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 20px auto 0;
+      .abtn {
+        margin-right: 10px;
+        img {
+          width: 180px;
+        }
+      }
+    }
+  }
+}
+a {
+  text-decoration: none;
+  color:#000; 
+}
