@@ -11,11 +11,15 @@
   height: 100%;
   width: 100vw;
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
-
+  .wrapper2{
+    display: flex;
+    justify-content: center;
+    form{
+      width: 60%;
+    }
+  }
   .main-product{
     background-color:white;
-    margin: 0px 370px 0px 370px;
-    overflow: scroll;
     font-size: 14px;
     line-height: 1.4em;
 
@@ -33,10 +37,12 @@
       margin-top: 40px;
       border-bottom: solid 1px #eee;
       padding-bottom: 40px;
+      padding-top: 40px;
 
       .product-listing1{
         display: flex;
         margin-left: 40px;
+
         .exhibition-image{
           color: black;
           font-size: 14px;
@@ -69,7 +75,7 @@
       .upload-space{
         background-color:rgb(248, 246, 246);
         height: 140px;
-        width: 620px;
+        width: 90%;
         text-align: center;
         margin-right: 40px;
         margin-left: 40px;
@@ -78,13 +84,17 @@
         
           .icon{
             padding-top: 15px;
+            #previews{
+              display: flex;
+              width: 100%;
+              overflow-x:scroll;
+            }
             .js-file{
               display: none;
             }
             #image-label{
               cursor: pointer;
             }
-
           }
           .icon-comment{
             text-align: center;
@@ -92,7 +102,7 @@
             font-size: 12px;
 
           }
-          }
+        }
       }
 
 
@@ -123,7 +133,8 @@
 
         .input-form{
           background-color: white;
-          width: 620px;
+          width: 100%;
+          padding-right: 40px;
           #item_name {
             border: 1px solid #ccc;
             border-radius: 4px;
@@ -164,14 +175,15 @@
         .input-form{
           background-color: white;
           height: 96px;
-          width: 620px;
-          margin-left: 40px;
+          width: 100%;
+          padding-right: 40px;
+          padding-left: 40px;
           #item_detail {
             background-color: white;
             border: 1px solid #ccc;
             border-radius: 4px;
             height: 96px;
-            width: 620px;
+            width: 100%;
             padding-left: 5px;
             padding-top: 3px;
           }
@@ -217,9 +229,9 @@
 
       .input-form{
         background-color: white;
-        width: 620px;
-        margin-left: 40px;
-      
+        width: 100%;
+        padding-right: 40px;
+        padding-left: 40px;
       
         #parent_category, #child_category, #grandchild_category{
           width: 100%;
@@ -256,13 +268,14 @@
         }
         .input-form{
           background-color: white;
-          
-          margin-left: 40px;
+          width: 100%;
+          padding-right: 40px;
+          padding-left: 40px;
           #item_brand {
             border: 1px solid #ccc;
             border-radius: 4px;
             height: 48px;
-            width: 620px;
+            width: 100%;
             padding: 5px;
           }
         }
@@ -296,12 +309,14 @@
         }
         .input-form{
           background-color: white;
-          margin-left: 40px;
+          width: 100%;
+          padding-right: 40px;
+          padding-left: 40px;
           #item_status_id {
             border: 1px solid #ccc;
             border-radius: 4px;
             height: 48px;
-            width: 620px;
+            width: 100%;
             cursor: pointer;
           }
         }
@@ -340,11 +355,13 @@
 
         .input-form{
           background-color: white;
+          width: 100%;
+          padding-right: 40px;
           #item_postage_id {
             border: 1px solid #ccc;
             border-radius: 4px;
             height: 48px;
-            width: 620px;  
+            width: 100%;  
             cursor: pointer;
           }
         } 
@@ -375,11 +392,13 @@
 
         .input-form{
           background-color: white;
+          width: 100%;
+          padding-right: 40px;
           #item_shipping_method_id {
             border: 1px solid #ccc;
             border-radius: 4px;
             height: 48px;
-            width: 620px;  
+            width: 100%;  
             cursor: pointer;
           }
         } 
@@ -411,11 +430,13 @@
 
         .input-form{
           background-color: white;
+          width: 100%;
+          padding-right: 40px;
           #item_prefecture_id { 
             border: 1px solid #ccc;
             border-radius: 4px;
             height: 48px;
-            width: 620px;  
+            width: 100%;  
             cursor: pointer;
           }
 
@@ -448,11 +469,13 @@
         }
         .input-form{
           background-color: white;
+          width: 100%;
+          padding-right: 40px;
           #item_shipping_day_id {
             border: 1px solid #ccc;
             border-radius: 4px;
             height: 48px;
-            width: 620px;  
+            width: 100%;  
             cursor: pointer;
           }
         }
@@ -473,6 +496,7 @@
           display: flex;
           .selling-price1{
             color: black;
+            width: 60px;
             font-size: 14px;
             padding-bottom: 30px;
             margin-top: 30px;
@@ -491,37 +515,45 @@
           }
 
           .input-form{
-            display:flex;
-            background-color: white;
-            margin-top: 20px;
-            margin-left: 230px;
-            p1 {
-              font-size: 16px;
-            }
-
-            P{
-              margin-top: 15px;
-              margin-right: 10px;
-            }
-
-            #item_price{
-              border: 1px solid #ccc;
-              border-radius: 4px;
-              height: 48px;
-              width: 280px;
-              padding-left: 5px;  
-            }
-
-            #price_calc.price_form-box{
-              border: 1px solid #ccc;
-              border-radius: 4px;
-              width: 260px;
-              height: 48px;
+             // display: block;
+          max-width: 100%; 
+          min-width: 50%;
+          margin-right: 40px;
+          margin:0 0 0 auto;
+            .input-form2{
+              background-color: white;
+              margin-top: 20px;
+            
               margin-right: 40px;
+              p1 {
+                font-size: 16px;
+              }
+  
+                P{
+                  display: flex;
+                  margin-top: 15px;
+                  margin-right: 200px;
+                }
+  
+              #item_price{
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                height: 48px;
+                width: 100%;
+                padding-left: 5px;  
+              }
+  
+              #price_calc.price_form-box{
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                width: 100%;
+                height: 48px;
+                margin-right: 40px;
+              }
             }
-
+            .error-message{
           }
-
+        }
         }
         .choice1{
           color: black;
