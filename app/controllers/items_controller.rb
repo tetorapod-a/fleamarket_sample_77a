@@ -1,7 +1,9 @@
 class ItemsController < ApplicationController
   before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
+
   def index
     @items = Item.includes(:images).order(updated_at: "desc")
+    @item = @items.where(category_id: 131)
   end
 
   def new
@@ -24,12 +26,25 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    @user = User.find(@item.seller_id)
+    @parents = Categorie.where(ancestry:nil)
   end
 
   def edit
   end
 
   def update
+    if @item.update(item_params)
+      redirect_to item_path notice: '更新しました'
+    else
+      render 'edit'
+    end
+  end
+
+  private
+  def item_params
+    params.require(:item).permit(:title, :image, :text, :price)
   end
 
   def destroy
