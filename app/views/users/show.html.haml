@@ -23,6 +23,8 @@
           %li.lists-right__list
             = link_to "/" do
               = "ログアウト"
+      - breadcrumb :mypage
+      = render "layouts/mypage_breadcrumbs"
   .mains
     .left-box
       .my-plof
