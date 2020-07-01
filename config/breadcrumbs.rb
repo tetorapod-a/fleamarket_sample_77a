@@ -9,7 +9,7 @@ end
 
 # マイページ
 crumb :mypage do
-  link "マイページ", user_path
+  link "マイページ", user_path(current_user)
 end  
 
 # 会員情報編集画面
