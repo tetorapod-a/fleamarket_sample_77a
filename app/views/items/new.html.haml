@@ -40,9 +40,9 @@
                     .js-file_group{"data-index": "#{@item.images.count}"}
                       = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
                       .js-remove 削除
-              .icon-comment
-                %p ドラッグアンドドロップ
-                %p またはクリックしてファイルをアップロード
+                  .icon-comment
+                    %p#text ドラッグアンドドロップ
+                    %p#text またはクリックしてファイルをアップロード
 
 
     

@@ -494,11 +494,11 @@
           display: flex;
           .selling-price1{
             color: black;
-            width: 60px;
             font-size: 14px;
             padding-bottom: 30px;
             margin-top: 30px;
             font-weight: bold;
+            
           }
           .selling-price-required{
             background-color: red;
@@ -510,19 +510,20 @@
             justify-content: space-between;
             margin-left: 10px;
             margin-top: 30px;
+            
           }
 
           .input-form{
-             // display: block;
           max-width: 100%; 
-          min-width: 50%;
-          margin-right: 40px;
-          margin:0 0 0 auto;
+          min-width: 30%;
+          margin:0 0 0  auto;
+          
             .input-form2{
               background-color: white;
               margin-top: 20px;
-            
-              margin-right: 40px;
+              margin-right: 50px;
+              
+
               p1 {
                 font-size: 16px;
               }
@@ -537,14 +538,14 @@
                 border: 1px solid #ccc;
                 border-radius: 4px;
                 height: 48px;
-                width: 90%;
+                width: 100%;
                 padding-left: 5px;  
               }
   
               #price_calc.price_form-box{
                 border: 1px solid #ccc;
                 border-radius: 4px;
-                width: 100%;
+                width: 80%;
                 height: 48px;
                 margin-right: 40px;
               }
