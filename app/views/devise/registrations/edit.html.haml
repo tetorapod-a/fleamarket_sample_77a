@@ -3,7 +3,7 @@
 -# ヘッダー
 .wrapper
   = render partial: 'layouts/simple_headder'
-  - breadcrumb :users_edit
+  - breadcrumb :users_edit, @user
   = render "layouts/breadcrumbs"
 
   .user-sign
