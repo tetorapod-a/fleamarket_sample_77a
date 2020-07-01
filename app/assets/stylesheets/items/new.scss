@@ -1,6 +1,17 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.input-form-detail{
+  
+  #item_detail{
+    width: 90%;
+    height: 96px;
+    margin:  0 40px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+}
 
 
 * {
@@ -8,20 +19,13 @@
 }
 .wrapper1{
   background-color:rgb(248, 246, 246);
-  height: 100%;
-  width: 100vw;
+  // height: 100%;
+  // width: 100%;
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
-  .wrapper2{
-    display: flex;
-    justify-content: center;
-    form{
-      width: 60%;
-    }
-  }
-  .main-product{
+  .main-product1{
     background-color:white;
     font-size: 14px;
-    line-height: 1.4em;
+    // line-height: 1.4em;
 
     .main-product-header{
       text-align: center;
@@ -32,6 +36,19 @@
     }
 
   }
+      }
+  
+  
+  .wrapper2{
+    background-color: rgb(248, 246, 246);
+    display: flex;
+    justify-content: center;
+    // margin: 0px 370px 0px 370px;
+    form{
+      // width: 500px;
+      background-color: white;
+      width: 60%;
+    }
     .product-listing-part{
       text-align: left;
       margin-top: 40px;
@@ -103,12 +120,10 @@
 
           }
         }
-      }
-
 
       .product-listing3{
         text-align: left;
-        margin-left: 40px;
+        // margin-left: 40px;
         .product-name1{
           display: flex;
           .product-name2{
@@ -144,53 +159,36 @@
             
           }
         }
-      }
 
-      .product-description{
-        border-bottom: solid 1px #eee;
-        padding-bottom: 70px;
-        .product-description1{
-          display: flex;
-          .product-description2{
-            color: black;
-            font-size: 14px;
-            padding-bottom: 30px;
-            margin-top: 50px;
-            margin-left: 40px;
-            font-weight: bold;
+        .product-description{
+          border-bottom: solid 1px #eee;
+          padding-bottom: 70px;
+          .product-description1{
+            display: flex;
+            .product-description2{
+              color: black;
+              font-size: 14px;
+              padding-bottom: 30px;
+              margin-top: 50px;
+              font-weight: bold;
+            }
+            .product-description-required{
+              background-color: red;
+              color:white;
+              font-size: 14px;
+              width: 40px;
+              height: 20px;
+              padding-left: 5px;
+              justify-content: space-between;
+              margin-left: 10px;
+              margin-top: 50px;
+            }
           }
-          .product-description-required{
-            background-color: red;
-            color:white;
-            font-size: 14px;
-            width: 40px;
-            height: 20px;
-            padding-left: 5px;
-            justify-content: space-between;
-            margin-left: 10px;
-            margin-top: 50px;
-          }
-        }
-
-        .input-form{
-          background-color: white;
-          height: 96px;
-          width: 100%;
-          padding-right: 40px;
-          padding-left: 40px;
-          #item_detail {
-            background-color: white;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            height: 96px;
-            width: 100%;
-            padding-left: 5px;
-            padding-top: 3px;
-          }
-
-            
+          
         }
       }
+
+      
     
 
     .product-details-part{
@@ -227,7 +225,7 @@
         }
       }
 
-      .input-form{
+      .input-form1{
         background-color: white;
         width: 100%;
         padding-right: 40px;
@@ -266,7 +264,7 @@
             margin-top: 60px;
           }
         }
-        .input-form{
+        .input-form1{
           background-color: white;
           width: 100%;
           padding-right: 40px;
@@ -307,7 +305,7 @@
             font-weight: bold;
           }
         }
-        .input-form{
+        .input-form1{
           background-color: white;
           width: 100%;
           padding-right: 40px;
@@ -539,7 +537,7 @@
                 border: 1px solid #ccc;
                 border-radius: 4px;
                 height: 48px;
-                width: 100%;
+                width: 90%;
                 padding-left: 5px;  
               }
   
@@ -662,4 +660,4 @@
     margin-top: 5px;
   }
 }
-
+}
