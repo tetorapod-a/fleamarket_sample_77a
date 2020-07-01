@@ -9,19 +9,19 @@ end
 
 # マイページ
 crumb :mypage do
-  link "マイページ", user_path
+  link "マイページ", user_path(current_user)
 end  
 
 # 会員情報編集画面
 crumb :users_edit do
   link "会員情報編集", users_update_path
-  # parent :mypage
+  parent :mypage
 end  
 
 # 送付先情報編集画面
 crumb :address_user do
   link "送付先情報編集", addresses_update_path
-  # parent :mypage
+  parent :mypage
 end  
 
 
