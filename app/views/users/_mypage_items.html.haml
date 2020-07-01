@@ -1,0 +1,35 @@
+.myheader
+  = render partial: 'items/header'
+
+.mains
+  .left-box
+    = render partial: 'mypage_left'
+  .right-box
+    .right-box__title
+      %h2
+        出品した商品
+    .right-box__tab
+      .left
+        = link_to "出品中", listing_user_path(id: current_user.id)
+      .right
+        = link_to "売却済み", completed_user_path(id: current_user.id)
+    .right-box__contents
+      - if @items
+        - @items.each do |item|
+          .right-box__contents__content
+            = link_to item_path(id: item.id) do
+              .image
+                = image_tag item.images.first.image_url
+              .info
+                .name
+                  = item.name
+                  = icon("fas","angle-double-right")
+                .icons
+                  .like
+                    = icon("far", "heart")
+                    1
+                  .comment
+                    = icon("far", "comment-dots")
+                    3
+.myfooter
+  = render partial: 'items/footer'

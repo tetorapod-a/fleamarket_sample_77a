@@ -40,11 +40,11 @@
         .left-list
           = link_to "いいね！一覧","#", class: '.link'
         .left-list
-          = link_to "出品中の商品","#", class: '.link'
+          = link_to "出品中の商品", listing_user_path(id: current_user.id), class: '.link'
         .left-list
-          = link_to "売却した商品","#", class: '.link'
+          = link_to "売却した商品", completed_user_path(id: current_user.id), class: '.link'
         .left-list
-          = link_to "購入した商品","#", class: '.link'
+          = link_to "購入した商品", purchase_user_path(id: current_user.id), class: '.link'
         .left-list
           = link_to "ログアウトする","#", class: '.link'
     .mypage-box

@@ -12,7 +12,14 @@ Rails.application.routes.draw do
 
   root 'items#index'
 
-  resources :users
+  resources :users do
+    member do
+      get 'listing'
+      get 'completed'
+      get 'purchase'
+      get 'like'
+    end
+  end  
   resources :items do
     collection do 
       get 'get_category_children', defaults: { format: 'json'}
