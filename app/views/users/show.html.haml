@@ -55,7 +55,10 @@
           .myprofile-nickname
             = current_user.nickname
           .myprofile-avter
-            = image_tag 'icon/member_photo_noimage_thumb.png'
+            - if current_user.avter.present?
+              = image_tag current_user.avter_url
+            - else
+              = image_tag 'icon/member_photo_noimage_thumb.png'
           .myprofile-introduce
             = current_user.introduce     
       .mypage-box__details
