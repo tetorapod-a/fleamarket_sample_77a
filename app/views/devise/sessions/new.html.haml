@@ -21,10 +21,8 @@
 
           -# .new-user_registration SNSのAPI
           .gmail-btn
-            -# = fa_icon("google")
             = link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post
           .facebook-btn
-            -# = fa_icon("facebook-square")
             = link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post
 
           .field-email

@@ -1,6 +1,5 @@
 // 新規会員登録画面
 
-
 -# ヘッダー
 .wrapper
   .header
@@ -57,14 +56,7 @@
             %div
               %p#identification 本人確認
               %p.single-text 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-
-            .facebook-btn
-              -# = fa_icon("facebook-square")
-              = link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post
-            .gmail-btn
-              -# = fa_icon("google")
-              = link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post
-
+              
             .field
               = f.label :名字
               %span.form-require 必須
