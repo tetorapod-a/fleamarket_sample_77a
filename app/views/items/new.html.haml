@@ -179,7 +179,8 @@
               .input-form
                 .input-form2
                   %P ¥
-                  %input#price_calc.price_form-box{placeholder: "例) 300", type: "number"}/
+                  -# = form.number_field :price_calc.price_form-box{placeholder: "例) 300", type: "number"}
+                  = form.number_field :price,placeholder: "例) 300", type: "number",class:"price_form-box",id:"item_price_calc"
                   .input-form-comment 
                     -if @item.errors.messages[:name].any?
                       .error-message
@@ -191,7 +192,7 @@
 
             .choice2 
               %p 販売利益
-              = form.number_field :price, style: "display: none", id: "price"
+              -# %input#price, style: "display: none", id: "price"
               .right_bar_2
 
 
@@ -206,7 +207,5 @@
         .terms
           %p 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
   
-  
-  
       .main-product-footer
-        = render 'layouts/registrations_footer'
+        = render partial: 'layouts/registrations_footer'

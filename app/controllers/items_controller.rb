@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path 
     else
-      @item.images.build
+      # @item.images.build
       render :new
     end
   end
@@ -42,10 +42,9 @@ class ItemsController < ApplicationController
     end
   end
 
-  private
-  def item_params
-    params.require(:item).permit(:title, :image, :text, :price)
-  end
+  # def item_params
+  #   params.require(:item).permit(:title, :image, :text, :price)
+  # end
 
   def destroy
   end
