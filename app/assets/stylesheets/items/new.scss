@@ -4,9 +4,8 @@
 .input-form-detail{
   
   #item_detail{
-    width: 90%;
+    width: 100%;
     height: 96px;
-    margin:  0 40px;
     background-color: white;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -19,33 +18,14 @@
 }
 .wrapper1{
   background-color:rgb(248, 246, 246);
-  // height: 100%;
-  // width: 100%;
+
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
-  .main-product1{
-    background-color:white;
-    font-size: 14px;
-    // line-height: 1.4em;
-
-    .main-product-header{
-      text-align: center;
-      .main-product-header-logo{
-        background-color:rgb(248, 246, 246);
-        height: 150px;
-        padding: 40px 140px 40px 140px;
-    }
-
-  }
-      }
-  
   
   .wrapper2{
     background-color: rgb(248, 246, 246);
     display: flex;
     justify-content: center;
-    // margin: 0px 370px 0px 370px;
     form{
-      // width: 500px;
       background-color: white;
       width: 60%;
     }
@@ -123,7 +103,7 @@
 
       .product-listing3{
         text-align: left;
-        // margin-left: 40px;
+        margin-left: 40px;
         .product-name1{
           display: flex;
           .product-name2{
@@ -159,7 +139,7 @@
             
           }
         }
-
+      }
         .product-description{
           border-bottom: solid 1px #eee;
           padding-bottom: 70px;
@@ -171,6 +151,7 @@
               padding-bottom: 30px;
               margin-top: 50px;
               font-weight: bold;
+              margin-left: 40px;
             }
             .product-description-required{
               background-color: red;
@@ -185,10 +166,12 @@
             }
           }
           
+            .input-form-detail{
+              width: 100%;
+              padding-right: 40px;
+              padding-left: 40px;
+            }
         }
-      }
-
-      
     
 
     .product-details-part{
@@ -519,6 +502,7 @@
           margin:0 0 0  auto;
           
             .input-form2{
+              display: flex;
               background-color: white;
               margin-top: 20px;
               margin-right: 50px;
@@ -531,7 +515,7 @@
                 P{
                   display: flex;
                   margin-top: 15px;
-                  margin-right: 200px;
+                  // margin-right: 200px;
                 }
   
               #item_price{

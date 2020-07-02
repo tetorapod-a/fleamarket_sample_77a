@@ -5,26 +5,30 @@
 
 .wrapper1{
   background-color:rgb(248, 246, 246);
-  height: 100%;
-  width: 100vw;
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
 
   .main-product{
     background-color:white;
-    margin: 0px 370px 0px 370px;
-    overflow: scroll;
     font-size: 14px;
-    line-height: 1.4em;
-
+  
     .main-product-header{
       text-align: center;
       .main-product-header-logo{
         background-color:rgb(248, 246, 246);
         height: 150px;
         padding: 40px 140px 40px 140px;
+      }
     }
 
-  }
+  .wrapper2{
+    background-color: rgb(248, 246, 246);
+    display: flex;
+    justify-content: center;
+    form{
+      background-color: white;
+      width: 60%;
+    }
+
     .product-listing-part{
       text-align: left;
       margin-top: 40px;
@@ -34,6 +38,7 @@
       .product-listing1{
         display: flex;
         margin-left: 40px;
+
         .exhibition-image{
           color: black;
           font-size: 14px;
@@ -66,7 +71,7 @@
       .upload-space{
         background-color:rgb(248, 246, 246);
         height: 140px;
-        width: 620px;
+        width: 90%;
         text-align: center;
         margin-right: 40px;
         margin-left: 40px;
@@ -77,11 +82,15 @@
             padding-top: 15px;
             .js-file{
               display: none;
+              width: 100%;
+              overflow-x:scroll;
+            }
+            .js-file{
+              display: none;
             }
             #image-label{
               cursor: pointer;
             }
-
           }
           .icon-comment{
             text-align: center;
@@ -120,7 +129,8 @@
 
         .input-form{
           background-color: white;
-          width: 620px;
+          width: 100%;
+          padding-right: 40px;
           #item_name {
             border: 1px solid #ccc;
             border-radius: 4px;
@@ -130,7 +140,6 @@
             
           }
         }
-      }
 
       .product-description{
         border-bottom: solid 1px #eee;
@@ -142,7 +151,6 @@
             font-size: 14px;
             padding-bottom: 30px;
             margin-top: 50px;
-            margin-left: 40px;
             font-weight: bold;
           }
           .product-description-required{
@@ -157,24 +165,8 @@
             margin-top: 50px;
           }
         }
-
-        .input-form{
-          background-color: white;
-          height: 96px;
-          width: 620px;
-          margin-left: 40px;
-          #item_detail {
-            background-color: white;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            height: 96px;
-            width: 620px;
-            padding-left: 5px;
-            padding-top: 3px;
-          }
-
-            
-        }
+      }
+    }
       }
     
 
@@ -214,9 +206,9 @@
 
       .input-form{
         background-color: white;
-        width: 620px;
-        margin-left: 40px;
-      
+        width: 100%;
+        padding-right: 40px;
+        padding-left: 40px;
       
         #parent_category, #child_category, #grandchild_category{
           width: 100%;
@@ -253,13 +245,14 @@
         }
         .input-form{
           background-color: white;
-          
-          margin-left: 40px;
+          width: 100%;
+          padding-right: 40px;
+          padding-left: 40px;
           #item_brand {
             border: 1px solid #ccc;
             border-radius: 4px;
             height: 48px;
-            width: 620px;
+            width: 100%;
             padding: 5px;
           }
         }
@@ -291,14 +284,16 @@
             font-weight: bold;
           }
         }
-        .input-form{
+        .input-form1{
           background-color: white;
-          margin-left: 40px;
+          width: 100%;
+          padding-right: 40px;
+          padding-left: 40px;
           #item_status_id {
             border: 1px solid #ccc;
             border-radius: 4px;
             height: 48px;
-            width: 620px;
+            width: 100%;
             cursor: pointer;
           }
         }
@@ -337,11 +332,13 @@
 
         .input-form{
           background-color: white;
+          width: 100%;
+          padding-right: 40px;
           #item_postage_id {
             border: 1px solid #ccc;
             border-radius: 4px;
             height: 48px;
-            width: 620px;  
+            width: 100%;  
             cursor: pointer;
           }
         } 
@@ -372,11 +369,13 @@
 
         .input-form{
           background-color: white;
+          width: 100%;
+          padding-right: 40px;
           #item_shipping_method_id {
             border: 1px solid #ccc;
             border-radius: 4px;
             height: 48px;
-            width: 620px;  
+            width: 100%;  
             cursor: pointer;
           }
         } 
@@ -408,11 +407,13 @@
 
         .input-form{
           background-color: white;
+          width: 100%;
+          padding-right: 40px;
           #item_prefecture_id { 
             border: 1px solid #ccc;
             border-radius: 4px;
             height: 48px;
-            width: 620px;  
+            width: 100%;  
             cursor: pointer;
           }
 
@@ -445,11 +446,13 @@
         }
         .input-form{
           background-color: white;
+          width: 100%;
+          padding-right: 40px;
           #item_shipping_day_id {
             border: 1px solid #ccc;
             border-radius: 4px;
             height: 48px;
-            width: 620px;  
+            width: 100%;  
             cursor: pointer;
           }
         }
@@ -488,37 +491,45 @@
           }
 
           .input-form{
-            display:flex;
-            background-color: white;
-            margin-top: 20px;
-            margin-left: 230px;
-            p1 {
-              font-size: 16px;
+            max-width: 100%; 
+            min-width: 30%;
+            margin:0 0 0  auto;
+          
+                   //==============================
+              .input-form2{
+                background-color: white;
+                margin-top: 20px;
+                margin-right: 50px;
+                   //==============================
+
+              p1 {
+                font-size: 16px;
+              }
+
+              P{
+                display: flex;
+                margin-top: 15px;
+              }
+
+              #item_price{
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                height: 48px;
+                width: 100%;
+                padding-left: 5px;  
+              }
+  
+              #price_calc.price_form-box{
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                width: 80%;
+                height: 48px;
+                margin-right: 40px;
+              }
             }
-
-            P{
-              margin-top: 15px;
-              margin-right: 10px;
-            }
-
-            #item_price{
-              border: 1px solid #ccc;
-              border-radius: 4px;
-              height: 48px;
-              width: 280px;
-              padding-left: 5px;  
-            }
-
-            #price_calc.price_form-box{
-              border: 1px solid #ccc;
-              border-radius: 4px;
-              width: 260px;
-              height: 48px;
-              margin-right: 40px;
-            }
-
-          }
-
+            .error-message{
+          }  
+        }
         }
         .choice1{
           color: black;
