@@ -17,13 +17,10 @@
 }
 .wrapper1{
   background-color:rgb(248, 246, 246);
-  // height: 100%;
-  // width: 100%;
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
   .main-product1{
     background-color:white;
     font-size: 14px;
-    // line-height: 1.4em;
 
     .main-product-header{
       text-align: center;
@@ -31,7 +28,18 @@
         background-color:rgb(248, 246, 246);
         height: 150px;
         padding: 40px 140px 40px 140px;
+      }
     }
+
+  .wrapper2{
+    background-color: rgb(248, 246, 246);
+    display: flex;
+    justify-content: center;
+    form{
+      background-color: white;
+      width: 60%;
+    }
+
 
   }
       }
@@ -45,6 +53,7 @@
       background-color: white;
       width: 60%;
     }
+
     .product-listing-part{
       text-align: left;
       margin-top: 40px;
@@ -104,6 +113,11 @@
             }
             .js-file{
               display: none;
+              width: 100%;
+              overflow-x:scroll;
+            }
+            .js-file{
+              display: none;
             }
             #image-label{
               cursor: pointer;
@@ -155,7 +169,6 @@
             
           }
         }
-      }
 
       .product-description{
         border-bottom: solid 1px #eee;
@@ -183,6 +196,8 @@
             margin-top: 50px;
           }
         }
+      }
+    }
       }
       
 
@@ -512,26 +527,27 @@
           }
 
           .input-form{
-          max-width: 100%; 
-          min-width: 30%;
-          margin:0 0 0  auto;
+
+            max-width: 100%; 
+            min-width: 30%;
+            margin:0 0 0  auto;
           
-            .input-form2{
-              background-color: white;
-              margin-top: 20px;
-              margin-right: 50px;
-              
+                   //==============================
+              .input-form2{
+                background-color: white;
+                margin-top: 20px;
+                margin-right: 50px;
+                   //==============================
 
               p1 {
                 font-size: 16px;
               }
-  
-                P{
-                  display: flex;
-                  margin-top: 15px;
-                  margin-right: 200px;
-                }
-  
+
+              P{
+                display: flex;
+                margin-top: 15px;
+              }
+
               #item_price{
                 border: 1px solid #ccc;
                 border-radius: 4px;
@@ -549,7 +565,8 @@
               }
             }
             .error-message{
-          }
+
+          }  
         }
         }
         .choice1{
