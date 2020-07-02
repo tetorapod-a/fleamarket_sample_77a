@@ -1,12 +1,9 @@
 .wrapper1
-  -# = form_with(model: @item, local: true) do |form|
-  .main-product1
-    .main-product-header
-      .main-product-header-logo
-        = link_to image_tag(asset_path("logo/logo.png"), alt: 'text', height: '60', width: '200', class: 'icon'), root_path
+  = render '/layouts/simple_headder.html.haml'
+  
   .wrapper2
     = form_with(model: @item, local: true) do |form|
-      .main-product2
+      .main-product2    
         .product-listing-part
           .product-listing1
             .exhibition-image
@@ -56,21 +53,21 @@
             = form.text_field :name, placeholder: '40文字まで'
             -if @item.errors.messages[:name].any?
               .error-message
-                %p2 40字以内で必ず入力してください
-
-
-
+              %p2 40字以内で必ず入力してください
+  
+  
+  
         .product-description
           .product-description1
             .product-description2
               %p 商品の説明
             .product-description-required
               %p 必須
-          .input-form-detail
+          .input-form
             = form.text_area :detail, placeholder: '商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。'
             -if @item.errors.messages[:name].any?
               .error-message
-                %p2 必ず入力してください
+              %p2 必ず入力してください
 
         .product-details-part
           %p1 商品の詳細
@@ -79,7 +76,7 @@
               %p カテゴリー 
             .product-details-required
               %p 必須
-          .input-form1
+          .input-form
             .input-form-comment
               .listing-form-box
                 .listing-product-detail__category
@@ -100,7 +97,7 @@
                 %p ブランド 
               .brand-required
                 %p 任意
-            .input-form1
+            .input-form
               = form.text_field :brand
               -if @item.errors.messages[:name].any?
                 .error-message
@@ -111,7 +108,7 @@
                 %p 商品の状態 
               .product-status-required
                 %p 必須
-            .input-form1
+            .input-form
               = form.collection_select(:status_id, Status.all, :id, :name, {include_blank: "---"})
               -if @item.errors.messages[:name].any?
                 .error-message
@@ -126,6 +123,7 @@
                 %p 配送料の負担 
               .shipping-fee-burden-required
                 %p 必須
+
             .input-form
               = form.collection_select(:postage_id, Postage.all, :id, :name, {include_blank: "---"})
               -if @item.errors.messages[:name].any?
@@ -155,8 +153,8 @@
               -if @item.errors.messages[:name].any?
                 .error-message
                 %p2 必ず入力してください
-      
-      
+    
+    
           .days-until-shipping-category
             .days-until-shipping
               .days-until-shipping1
@@ -168,7 +166,7 @@
               -if @item.errors.messages[:name].any?
                 .error-message
                 %p2 40文字以内で必ず入力してください
-                
+
         .price-part
           .price
             %p 価格 (¥300〜9,999,999）
@@ -176,22 +174,22 @@
           .selling-price-category
             .selling-price
               .selling-price1
-                %p 販売価格
+                %p 販売価格 
               .selling-price-required
                 %p 必須
               .input-form
-                .input-form2
-                  %P ¥
-                  %input#price_calc.price_form-box{placeholder: "例) 300", type: "number"}/
-                  .input-form-comment 
-                    -if @item.errors.messages[:name].any?
-                      .error-message
-                      %p2 300以上9999999以下で必ず入力してください
+  
+                %P ¥
+                %input#price_calc.price_form-box{placeholder: "例) 300", type: "number"}/
+                .input-form-comment 
+                  -if @item.errors.messages[:name].any?
+                    .error-message
+                    %p2 300以上9999999以下で必ず入力してください
                 
             .choice1
               %p 販売手数料（10%）
               .right_bar
-
+              
             .choice2 
               %p 販売利益
               = form.number_field :price, style: "display: none", id: "price"

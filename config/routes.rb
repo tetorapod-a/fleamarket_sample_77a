@@ -32,7 +32,7 @@ Rails.application.routes.draw do
       get 'update_done' # これを追加
     end
   end
-
+  resources :likes, only: [:create, :destroy]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
