@@ -52,7 +52,7 @@ $(document).on('turbolinks:load', ()=> {
       'display': `none`
     })
   });
-
+});
 
 $(function(){
   $('#price_calc').on('input', function(){
@@ -70,5 +70,3 @@ $(function(){
     }
   })
 })
-
-});
