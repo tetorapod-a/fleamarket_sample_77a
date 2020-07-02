@@ -12,7 +12,15 @@ Rails.application.routes.draw do
 
   root 'items#index'
 
-  resources :users
+  resources :users do
+    member do
+      get 'listing'
+      get 'completed'
+      get 'purchase'
+      get 'like'
+      get 'all_items'
+    end
+  end  
   resources :items do
     resources :comments, only: [:create ,:destroy]
     collection do 
@@ -24,5 +32,10 @@ Rails.application.routes.draw do
   # resources :items do
   #   resources :comments, only: :create
   # end
+  resources :likes, only: [:create, :destroy]
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :cards 
+
 end

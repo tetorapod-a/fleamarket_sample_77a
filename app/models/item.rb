@@ -5,6 +5,7 @@ class Item < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :like, dependent: :destroy
   has_many :images
+  has_many :likes, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
   belongs_to :buyer, class_name: 'User', foreign_key: 'buyer_id', optional: true
   belongs_to :seller, class_name: 'User', foreign_key: 'seller_id'
@@ -24,5 +25,5 @@ class Item < ApplicationRecord
   validates :shipping_method_id, presence: true
   validates :prefecture_id, presence: true
   validates :category_id, presence: true
-
+  validates :price,numericality: { only_integer: true,greater_than: 300, less_than: 9999999 }
 end
