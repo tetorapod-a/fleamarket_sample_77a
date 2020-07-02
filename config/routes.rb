@@ -14,10 +14,15 @@ Rails.application.routes.draw do
 
   resources :users
   resources :items do
+    resources :comments, only: [:create ,:destroy]
     collection do 
       get 'get_category_children', defaults: { format: 'json'}
       get 'get_category_grandchildren', defaults: { format: 'json'}
     end
   end
+
+  # resources :items do
+  #   resources :comments, only: :create
+  # end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
