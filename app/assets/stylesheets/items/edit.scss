@@ -5,12 +5,9 @@
 
 .wrapper1{
   background-color:rgb(248, 246, 246);
-  // height: 100%;
-  // width: 100vw;
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
 
   .main-product{
-      //======================================
     background-color:white;
     font-size: 14px;
   
@@ -22,42 +19,21 @@
         padding: 40px 140px 40px 140px;
       }
     }
-       //=====================================
 
-  //   background-color:white;
-  //   margin: 0px 370px 0px 370px;
-  //   overflow: scroll;
-  //   font-size: 14px;
-  //   line-height: 1.4em;
-
-  //   .main-product-header{
-  //     text-align: center;
-  //     .main-product-header-logo{
-  //       background-color:rgb(248, 246, 246);
-  //       height: 150px;
-  //       padding: 40px 140px 40px 140px;
-  //   }
-
-  // }
-      //=====================================================
   .wrapper2{
     background-color: rgb(248, 246, 246);
     display: flex;
     justify-content: center;
-    // margin: 0px 370px 0px 370px;
     form{
-      // width: 500px;
       background-color: white;
       width: 60%;
     }
-      //=======================================================
 
     .product-listing-part{
       text-align: left;
       margin-top: 40px;
       border-bottom: solid 1px #eee;
       padding-bottom: 40px;
-      // padding-top: 40px;
 
       .product-listing1{
         display: flex;
@@ -128,7 +104,7 @@
 
       .product-listing3{
         text-align: left;
-        // margin-left: 40px;
+        margin-left: 40px;
         .product-name1{
           display: flex;
           .product-name2{
@@ -191,25 +167,6 @@
         }
       }
     }
-
-
-        // .input-form{
-        //   background-color: white;
-        //   height: 96px;
-        //   width: 620px;
-        //   margin-left: 40px;
-        //   #item_detail {
-        //     background-color: white;
-        //     border: 1px solid #ccc;
-        //     border-radius: 4px;
-        //     height: 96px;
-        //     width: 620px;
-        //     padding-left: 5px;
-        //     padding-top: 3px;
-        //   }
-
-            
-        // }
       }
     
 
@@ -552,7 +509,6 @@
               P{
                 display: flex;
                 margin-top: 15px;
-                // margin-right: 200px;
               }
 
               #item_price{
