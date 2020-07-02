@@ -7,14 +7,15 @@ class CommentsController < ApplicationController
     else
       render 'create'
     end
-    # redirect_to "/items/#{comment.item.id}"
-    # redirect_to root_path
   end
 
   def destroy
     comment = Comment.find(params[:id])
-    comment.destroy
-    redirect_to item_path(id: @item.id)
+    if comment.destroy
+      redirect_to item_path(id: @item.id)
+    else
+      render 'create'
+    end
   end
 
   private

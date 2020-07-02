@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-
+  mount_uploader :avter, ImageUploader
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -13,4 +13,5 @@ class User < ApplicationRecord
 
   has_one :credit_card, dependent: :destroy
   has_many :comments
+  has_many :likes, dependent: :destroy
 end

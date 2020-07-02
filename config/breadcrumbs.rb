@@ -1,17 +1,30 @@
-# # ルート
-# crumb :registrations do
-#   link "新規会員登録", new_user_session_path
-# end
+# ルート
+crumb :root do
+  link "トップページ", root_path
+end
 
-# # 会員情報入力ページ
-# crumb :new do
-#   link "新規会員登録", users_sign_up_path
-# end 
+crumb :sign_in do
+  link "ログインページ", users_path
+end 
 
-# # 送付先情報入力ページ
-# crumb :users_registrations_new_address_path do
-#   link "送付先住所登録", users_registrations_new_address_path
-# end  
+# マイページ
+crumb :mypage do
+  link "マイページ", user_path(current_user)
+end  
+
+# 会員情報編集画面
+crumb :users_edit do
+  link "会員情報編集", users_update_path
+  parent :mypage
+end  
+
+# 送付先情報編集画面
+crumb :address_user do
+  link "送付先情報編集", addresses_update_path
+  parent :mypage
+end  
+
+
 
 # crumb :mypage do
 #   link "登録完了", users_registrations_create_addres_path
