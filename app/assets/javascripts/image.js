@@ -52,7 +52,7 @@ $(document).on('turbolinks:load', ()=> {
       'display': `none`
     })
   });
-});
+
 
 $(function(){
   $('#item_price_calc').on('input', function(){
@@ -71,3 +71,5 @@ $(function(){
     }
   })
 })
+
+});

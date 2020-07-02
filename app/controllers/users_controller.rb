@@ -22,4 +22,9 @@ class UsersController < ApplicationController
   def like
   end
 
+  def all_items
+    @user = User.find(params[:id])
+    @items = Item.includes(:images).where(seller_id: @user.id)
+  end
+
 end

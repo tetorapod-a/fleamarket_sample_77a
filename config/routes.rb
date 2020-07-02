@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       get 'completed'
       get 'purchase'
       get 'like'
+      get 'all_items'
     end
   end  
   resources :items do
