@@ -59,7 +59,6 @@ $(function(){
     var data = $('#item_price_calc').val(); 
     var profit = Math.round(data * 0.9)
     var fee = (data - profit)
-    console.log(fee)
     $('.right_bar').html(fee)
     $('.right_bar').prepend('¥')
     $('.right_bar_2').html(profit)
