@@ -45,7 +45,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def update
     @user = current_user
     if @user.update(account_update_params)
-      redirect_to root_path notice: '更新しました'
+      redirect_to user_path(current_user), notice: '更新しました'
       sign_in(current_user, bypass: true)
       # (current_user, bypass: true)はdeviceの仕様上パスワードが変更になるとログアウトする仕組みになっている。確認ようで入れているパスワードも編集変更扱いになるので、それを防ぐために記述。
     else
@@ -82,8 +82,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # 会員情報編集画面にemailとpassword以外の編集を許可する記述
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :nickname, :email, :first_name, :first_name_kana, :last_name, :last_name_kana, :birthday) }
-    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:email, :password, :password_confirmation, :current_password, :nickname, :email, :first_name, :first_name_kana, :last_name, :last_name_kana, :birthday) }
+    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :nickname, :email, :first_name, :first_name_kana, :last_name, :last_name_kana, :birthday, :introduce, :avter) }
+    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:email, :password, :password_confirmation, :current_password, :nickname, :email, :first_name, :first_name_kana, :last_name, :last_name_kana, :birthday, :introduce, :avter) }
   end
 
   # 会員情報編集画面の更新ボタンをクリックした時に現在のパスワードの入力だけで更新できる

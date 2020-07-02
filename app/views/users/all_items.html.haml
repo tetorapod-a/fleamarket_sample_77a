@@ -1,0 +1,37 @@
+.all__items
+  .all__items__header
+    = render partial: 'items/header'
+
+  .all__items__body
+    .user__box
+      .user__box__avatar
+        - if @user.avter.present?
+          = image_tag @user.avter_url
+        - else
+          .noimage
+            %p no image
+      .user__box__info
+        .user__box__info__name
+          = @user.nickname
+        .user__box__info__count
+          = "出品数:  #{@items.count}"
+    .items__box
+      .items__box__title
+        この出品者の商品
+      .items__box__contents
+        - @items.each do |item|
+          .items__box__contents__content
+            = link_to item_path(id: item.id) do
+              .image
+                = image_tag item.images.first.image_url
+              .info
+                .name
+                  = item.name
+                .price
+                  = "¥#{item.price}"
+              - if item.buyer_id.present?
+                .items-box_photo__sold
+                  .items-box_photo__sold__inner
+                    SOLD
+  .all__items__footer
+    = render partial: 'items/footer'
