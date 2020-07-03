@@ -29,7 +29,7 @@ Rails.application.routes.draw do
       get 'post_done'
       get 'delete_done'
       get 'detail_search'
-      get 'update_done' # これを追加
+      get 'update_done' 
     end
   end
   resources :likes, only: [:create, :destroy]
