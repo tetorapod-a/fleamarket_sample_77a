@@ -33,4 +33,6 @@ Rails.application.routes.draw do
 
   resources :cards 
 
+  resources :categories, only: [:new, :show]
+
 end

@@ -14,8 +14,14 @@
       .header-inner__nav
         %ul.lists-left
           %li.lists-left__first.lists-left__list
-            = link_to "/" do
-              = "カテゴリー"
+            %p5 カテゴリーから探す
+            .category
+              .category_list
+                .parents_list
+                  - @parents.each do |parent|
+                    = link_to "#{parent.name}", category_path(parent), class: "parent_category",id: "#{parent.id}"
+                .children_list
+                .grand_children_list              
           %li.lists-left__list
             = link_to "/" do
               = "ブランド"
