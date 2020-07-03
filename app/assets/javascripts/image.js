@@ -55,8 +55,8 @@ $(document).on('turbolinks:load', ()=> {
 
 
 $(function(){
-  $('#price_calc').on('input', function(){
-    var data = $('#price_calc').val(); 
+  $('#item_price_calc').on('input', function(){
+    var data = $('#item_price_calc').val(); 
     var profit = Math.round(data * 0.9)
     var fee = (data - profit)
     $('.right_bar').html(fee)
