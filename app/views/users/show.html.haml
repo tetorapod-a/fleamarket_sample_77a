@@ -32,7 +32,8 @@
         .left-list
           = link_to "マイアカウント情報","#", class: '.link'
         .left-list
-          = link_to "支払い方法の確認","#", class: '.link'
+          = link_to new_card_path, class: '.link' do
+            = "支払い方法の確認"
       .my-business
         %p マイページメニュー
         .left-list

@@ -11,5 +11,5 @@ class User < ApplicationRecord
   validates_format_of :first_name_kana, :last_name_kana, :with => /\A[ァ-ヶー－]+\z/, :message => "は全角カタカナで入力してください"
   has_one :address
 
-  has_one :credit_card, dependent: :destroy
+  has_one :cards, dependent: :destroy
 end
