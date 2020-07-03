@@ -10,8 +10,8 @@ class CategoriesController < ApplicationController
   end
 
   def show
-  @items = @category.set_items
-  @items = @items.order("created_at DESC")
+    @items = @category.set_items
+    @items = @items.order("created_at DESC")
   end
 
   private

@@ -6,8 +6,7 @@
     .category__box
     .items__box
       .items__box__title
-        %p1
-          ="#{@category.name}の商品一覧"
+        = "#{@category.name}の商品一覧"
         .count
           = "出品数:#{@items.count}"
         .sold__btn
