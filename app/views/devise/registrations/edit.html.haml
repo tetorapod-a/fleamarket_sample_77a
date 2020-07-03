@@ -2,11 +2,14 @@
 
 -# ヘッダー
 .wrapper
-  = render partial: 'layouts/simple_headder'
+
+  = render '/layouts/simple_headder.html.haml'
+
   - breadcrumb :users_edit
   = render "layouts/breadcrumbs"
 
   .user-sign
+
     .user-sign__forms
       %h1.user-sign__forms__title 会員情報編集
       = form_for(resource, as: resource_name, url: users_update_path, html: { method: :patch }) do |f|
