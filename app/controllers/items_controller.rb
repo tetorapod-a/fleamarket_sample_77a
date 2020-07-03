@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
 
   def index
-    @items = Item.includes(:images).order(updated_at: "desc")
+    @items = Item.includes(:images).order(created_at: "desc")
     @item = @items.where(category_id: 131)
   end
 
@@ -20,7 +20,6 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path 
     else
-      @item.images.build
       render :new
     end
   end
@@ -45,6 +44,12 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    @item = Item.find(params[:id])
+    if @item.destroy
+      redirect_to root_path notice: '出品を取り消しました'
+    else
+      redirect_to item_path
+    end
   end
 
   def confirm

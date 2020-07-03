@@ -27,8 +27,20 @@ Rails.application.routes.draw do
       get 'get_category_children', defaults: { format: 'json'}
       get 'get_category_grandchildren', defaults: { format: 'json'}
     end
+    resources :purchase, only: :index do
+      collection do
+        post 'pay', to: 'purchase#pay'
+      end
+    end
   end
   resources :likes, only: [:create, :destroy]
 
-  resources :cards 
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :cards, only: [:new, :show, :destroy] do
+    collection do
+      post 'pay', to: 'cards#pay'
+    end
+  end
+
 end

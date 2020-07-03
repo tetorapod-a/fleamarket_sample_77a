@@ -1,0 +1,44 @@
+.show {
+  font-weight: bold;
+  text-align: center;
+  // border: 1px solid #3CCACE;
+  margin-top: 20px;
+  .credit_card__list {
+    margin: 5px 0;
+    &__title {
+      font-size: 18px;
+    }
+    &__frame{
+      padding-top: 50px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 550px;
+      .credit_card_info {
+        display: flex;
+        padding: 25px;
+        border: 1px solid #3CCACE;
+        border-radius: 10px;
+        &__brand{
+          padding-right: 20px;
+        }
+        &__numbers {
+          font-size: 20px;
+        }
+      }
+      .destroy__function {
+        padding: 20px;
+        .destroy__function__link {
+          background-color: #3CCACE;
+          width: 150px;
+          border: 1px solid #3CCACE;
+          border-radius: 10px;
+          padding-top: 7px;
+          padding-bottom: 7px;
+          color: white;
+        }
+      }
+    }
+  }
+}

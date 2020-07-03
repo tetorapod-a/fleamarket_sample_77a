@@ -201,7 +201,7 @@
           .save-draft
             = button_tag "下書きに保存" , class: 'save-draft-comment'
           .delete
-            = button_tag "出品を取消す" , class: 'delete-comment'
+            = link_to "出品を取り消す" , item_path , method: :delete, data: {confirm: "出品を取り消しますか？"}
           .return
             = link_to"もどる", root_path
         .terms
