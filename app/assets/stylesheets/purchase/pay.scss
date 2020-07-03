@@ -1,0 +1,29 @@
+.pay {
+  width: 700px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 100px;
+  padding: 20px;
+  background-color: rgb(241, 241, 241);
+  border: 1px solid rgb(241, 241, 241);
+  border-radius: 10px;
+  .pay_details {
+    font-size: 20px;
+  }
+  .purchased__links {
+    margin-top: 30px;
+    &__TopPage {
+      background-color: #3CCACE;
+      width: 150px;
+      border: 1px solid #3CCACE;
+      border-radius: 10px;
+      padding-top: 7px;
+      padding-bottom: 7px;
+      margin: 0 auto;
+      a {
+        color: white;
+        font-weight: bold;
+      }
+    }
+  }
+}

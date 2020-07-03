@@ -60,7 +60,7 @@
               - if user_signed_in? && current_user.id == @item.seller_id
                 = link_to "商品を編集する", root_path
               - elsif user_signed_in? && current_user.id != @item.seller_id
-                = link_to "購入画面に進む", root_path
+                = link_to "購入画面に進む", item_purchase_index_path(@item.id), method: :get
               - else
                 = link_to "ログインして下さい", new_user_session_path
             .itemDetail 
