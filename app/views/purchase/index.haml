@@ -1,4 +1,3 @@
-
 .wrapper
   = render '/layouts/simple_headder.html.haml'
 
@@ -8,16 +7,20 @@
     .confirm__item
       .confirm__item__info
         .confirm__item__info__image
+          = image_tag @item.images[0].image.url
         .confirm__item__info__name
-          %p ミニ扇風機
+          %p 
+            = @item.name
           .price
-            %p1 ¥1,180(税込)
-            %p2 送料込み
+            %p1 
+              = "¥" + @item.price
+            %p2 (税込) 送料込み
 
     .confirm__price
       .confirm__price__text
         %p 支払い金額
-        %p1 ¥1,180
+        %p1 
+          = "¥" + @item.price
       .confirm__price__check
         = check_box_tag :check1
         = label_tag :check1, "ポイントを使用(所持ポイント:P100)"
@@ -28,24 +31,20 @@
         = link_to '変更する'
       .confirm__pey__card
         %p クレジットカード
-        %p ************
-        %p 有効期限 10/24
-        %p1 visa
+        %p 
+          = "**** **** **** " + @customer_card.last4
+        %p 
+          = "有効期限 " + @exp_month + " / " + @exp_year
+        %p1 
+          = image_tag "credit/#{@card_src}", class: "credit_card_info__brand__img", alt: @card_brand
 
-    .confirm__address
-      .confirm__address__top
-        %p 配送先
-        = link_to '変更する'
-      .confirm__address__detail
-        %p 〒020-2020
-        %p 東京都千代田区千代田1-1
-        %p フリマ 真司
     .confirm__buy
       .confirm__buy__text
         %p
           郵便局/コンビニ受取をご希望の方は、購入後に取引画面から受取場所を変更をすることが可能です。出品者が発送作業を開始した後は受取場所の変更ができませんので、早めに変更を行ってください。
       .confirm__buy__submit
-        = button_tag '購入する', class: 'btn'
+        = form_tag(action: :pay, method: :post) do
+          %button 購入する
   
   
   
