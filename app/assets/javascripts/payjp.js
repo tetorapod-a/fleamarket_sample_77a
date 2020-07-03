@@ -12,7 +12,6 @@ document.addEventListener(
           exp_month: $('#exp_month').val(),
           exp_year: $('#exp_year').val(),
         }; 
-        console.log
         Payjp.createToken(card, (status, response) => {
           if (status === 200) { 
             $("#card_number").removeAttr("name");
