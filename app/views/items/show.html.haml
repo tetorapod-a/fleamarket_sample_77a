@@ -161,8 +161,8 @@
                   %p 
                     = "※※※ コメントの投稿には新規登録/ログインが必要です ※※※"
           .message-container
-            %div.contentt
-              %div.itiran
+            .contentt
+              .itiran
                 = "コメント一覧"
               - if @comments
                 - @comments.each do |comment|
@@ -173,22 +173,22 @@
                         = link_to all_items_user_path(id: comment.user.id) do
                           = image_tag comment.user.avter_url
                     - if comment.user.id == @user.id
-                      %div.user-seller
+                      .user-seller
                         = link_to all_items_user_path(id: @user.id) do
                           = "出品者"
-                      %div.message-body
-                        %div.text
+                      .message-body
+                        .text
                           = comment.text
-                        %div.icons
+                        .icons
                           .left_left
                             = icon("fa", "clock") 
                             %time(datetime="#{comment.created_at}")= time_ago_in_words(comment.created_at)
                     - else
-                      %div.message-body
-                        %div.text
+                      .message-body
+                        .text
                           = comment.text
-                        %div.icons
-                          = link_to "/items/#{@item.id}/comments/#{comment.id}" , method: :delete do
+                        .icons
+                          = link_to item_comment_path(comment.item.id,comment.id), method: :delete do
                             = icon("fa", "trash-alt")
                           .left_left
                             = icon("fa", "clock") 

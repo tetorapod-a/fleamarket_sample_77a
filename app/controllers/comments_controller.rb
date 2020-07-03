@@ -1,18 +1,18 @@
 class CommentsController < ApplicationController
-  before_action :set_item
+  before_action :set_item, except: :destroy
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-      redirect_to item_path(id: @item.id)
+      redirect_to item_path(@item)
     else
       render 'create'
     end
   end
 
   def destroy
-    comment = Comment.find(params[:id])
-    if comment.destroy
-      redirect_to item_path(id: @item.id)
+    @comment = Comment.find(params[:id])
+    if @comment.destroy
+      redirect_to item_path(@comment.item.id)
     else
       render 'create'
     end
