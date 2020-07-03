@@ -4,12 +4,16 @@ $(document).on('turbolinks:load', ()=> {
                     <input class="js-file" type="file"
                     name="item[images_attributes][${num}][image]"
                     id="item_images_attributes_${num}_image"><br>
-                    <div class="js-remove">削除</div>
                   </div>`;
     return html;
   }
   const buildImg = (index, url)=> {
-    const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
+    const html = `
+    <div class="preview" data-index="${index}">
+    <image src="${url}" width="100px" height="100px">
+    <div class="js-remove">削除</div>
+    </div>
+    `;
     return html;
   }
 
@@ -34,22 +38,25 @@ $(document).on('turbolinks:load', ()=> {
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
     }
   });
-
+// ================== 削除ボタン押した時 ===========================================
   $('#image-box').on('click', '.js-remove', function() {
-    const targetIndex = $(this).parent().data('index');
+    const targetIndex = $(this).parent().data('index'); //削除したい番号
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
     if (hiddenCheck) hiddenCheck.prop('checked', true);
-
+    const fileinput =$(`#item_images_attributes_${targetIndex}_image`);
     $(this).parent().remove();
     $(`img[data-index="${targetIndex}"]`).remove();
-
+    fileinput.remove();
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
+    $(`input[data-index= "${targetIndex}"]`).css({
+      'display': `none`
+    })
   });
-});
+
 
 $(function(){
-  $('#price_calc').on('input', function(){
-    var data = $('#price_calc').val(); 
+  $('#item_price_calc').on('input', function(){
+    var data = $('#item_price_calc').val(); 
     var profit = Math.round(data * 0.9)
     var fee = (data - profit)
     $('.right_bar').html(fee)
@@ -63,3 +70,5 @@ $(function(){
     }
   })
 })
+
+});

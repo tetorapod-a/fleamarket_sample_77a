@@ -22,7 +22,7 @@
         %ul.lists-right
         - if user_signed_in?
           %li.lists-right__list
-            = link_to "マイページ"
+            = link_to "マイページ", user_path(current_user)
             = link_to "ログアウト", destroy_user_session_path, method: :delete
         - else
           %li.lists-right__list

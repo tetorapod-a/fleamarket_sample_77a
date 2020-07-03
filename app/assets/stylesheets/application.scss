@@ -2,6 +2,9 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "users/show";
+@import "users/mypage_items";
+@import "users/purchase";
+@import "users/all_items";
 @import "items/index";
 @import "registrations/new";
 @import "registrations/new_address";
@@ -16,3 +19,4 @@
 @import "cards/show";
 @import "purchase/index";
 @import "purchase/pay";
+@import "items/simple_headder"

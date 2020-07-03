@@ -20,7 +20,6 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path 
     else
-      @item.images.build
       render :new
     end
   end
@@ -42,12 +41,13 @@ class ItemsController < ApplicationController
     end
   end
 
-  private
-  def item_params
-    params.require(:item).permit(:title, :image, :text, :price)
-  end
-
   def destroy
+    @item = Item.find(params[:id])
+    if @item.destroy
+      redirect_to root_path notice: '出品を取り消しました'
+    else
+      redirect_to item_path
+    end
   end
 
   def confirm

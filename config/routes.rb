@@ -12,7 +12,15 @@ Rails.application.routes.draw do
 
   root 'items#index'
 
-  resources :users
+  resources :users do
+    member do
+      get 'listing'
+      get 'completed'
+      get 'purchase'
+      get 'like'
+      get 'all_items'
+    end
+  end  
   resources :items do
     collection do 
       get 'get_category_children', defaults: { format: 'json'}
@@ -24,7 +32,7 @@ Rails.application.routes.draw do
       end
     end
   end
-
+  resources :likes, only: [:create, :destroy]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
