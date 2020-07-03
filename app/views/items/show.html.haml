@@ -169,12 +169,12 @@
                   %li.clearfix
                     .name_name
                       %strong
-                        = link_to comment.user.nickname, "/users/#{comment.user_id}"
-                        = link_to "/" do
-                          = image_tag 'https://storage.nana-music.com/picture/8185189-f0af7b17-c149-46c2-b8cf-f600d0bc97dd-large.png'
+                        = link_to comment.user.nickname, all_items_user_path(id: comment.user.id)
+                        = link_to all_items_user_path(id: comment.user.id) do
+                          = image_tag comment.user.avter_url
                     - if comment.user.id == @user.id
                       %div.user-seller
-                        = link_to "/" do
+                        = link_to all_items_user_path(id: @user.id) do
                           = "出品者"
                       %div.message-body
                         %div.text
