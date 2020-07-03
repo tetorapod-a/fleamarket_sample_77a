@@ -3,8 +3,11 @@ class CardsController < ApplicationController
   before_action :set_card, except: :new
   
   def new
-    @card = Card.where(user_id: current_user.id)
-    redirect_to card_path(current_user.id) if @card.exists?
+    if Card.where(user_id: current_user.id).exists?
+      redirect_to card_path(current_user.id)
+    else
+      @card = Card.new
+    end
   end
 
   def pay
