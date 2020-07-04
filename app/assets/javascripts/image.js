@@ -26,7 +26,6 @@ $(function(){
       // ファイルのブラウザ上でのURLを取得する
       const file = e.target.files[0];
       const blobUrl = window.URL.createObjectURL(file);
-      console.log(blobUrl)
 
       // 該当indexを持つimgタグがあれば取得して変数imgに入れる(画像変更の処理)
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
@@ -55,12 +54,9 @@ $(function(){
 
 // ================== 削除ボタン押した時 ===========================================
   $('#image-box').on('click', '.js-remove', function() {
-    console.log((".preview").length)
     const targetIndex = $(this).prev().data('index'); //削除したい番号 $(this).parent().data('index')
-    console.log(targetIndex)
     // 該当indexを振られているチェックボックスを取得する
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
-    console.log(hiddenCheck)
     // もしチェックボックスが存在すればチェックを入れる
     if (hiddenCheck) hiddenCheck.prop('checked', true);
     const fileinput =$(`#item_images_attributes_${targetIndex}_image`);
