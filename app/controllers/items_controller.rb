@@ -29,6 +29,8 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @user = User.find(@item.seller_id)
     @parents = Categorie.where(ancestry:nil)
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
   end
 
   def edit
