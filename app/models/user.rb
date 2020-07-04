@@ -13,4 +13,11 @@ class User < ApplicationRecord
 
   has_one :credit_card, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :likes, through: :likes, source: :item
+
+  def already_liked?(item)
+    likes.exists?(item_id: item.id)
+  end
+
+
 end

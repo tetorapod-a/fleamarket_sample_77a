@@ -135,8 +135,12 @@
             .optionalArea
               %ul
                 %li#likeBtn.optionalBtn.likeBtn
-                  %i.fa.fa-star
-                    = "お気に入り 0"
+                  -# %i.fa.fa-star
+                  -#   = "お気に入り 0"
+                  %ul#likeBtn
+                    = render partial: 'likes/like', locals: { item: @item}
+
+
 
               %ul.optional
                 %li.optionalBtn
