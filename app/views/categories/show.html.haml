@@ -1,0 +1,31 @@
+.all__items__category
+  .all__items__category__header
+    = render partial: 'items/header'
+
+  .all__items__category__body
+    .category__box
+    .items__box
+      .items__box__title
+        = "#{@category.name}の商品一覧"
+        .count
+          = "出品数:#{@items.count}"
+        .sold__btn
+          = icon("fas", "check")
+          = button_tag "出品中のみ表示"
+      .items__box__contents
+        - @items.each do |item|
+          .items__box__contents__content
+            = link_to item_path(id: item.id) do
+              .image
+                = image_tag item.images.first.image_url
+              .info
+                .name
+                  = item.name
+                .price
+                  = "¥#{item.price}"
+              - if item.buyer_id.present?
+                .items-box_photo__sold
+                  .items-box_photo__sold__inner
+                    SOLD
+  .all__items__category__footer
+    = render partial: 'items/footer'
