@@ -33,8 +33,6 @@ Rails.application.routes.draw do
         post 'pay', to: 'purchase#pay'
       end
     end
-  end
-  resources :likes, only: [:create, :destroy]
 
     resources :likes, only: [:index,:create, :destroy]
   end
