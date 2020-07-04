@@ -3,7 +3,6 @@ class LikesController < ApplicationController
 
   def index
     @likes = Like.where(user_id: current_user.id)
-    # binding.pry
   end
 
   def create
@@ -15,7 +14,6 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    # binding.pry
     @like = Like.find_by(
       user_id: current_user.id,
       item_id: @item.id
