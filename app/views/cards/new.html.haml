@@ -27,14 +27,14 @@
       .credit-info
         %p1クレジットカードの登録
         .form-box
-          = form_tag("/payments", method: :post, id: 'charge-form') do
+          = form_tag(pay_cards_path, method: :post, id: "charge-form", name: "inputForm") do
             %span.charge-errors
             .register-inner__content
 
               .form-group
                 %span.registration_font カード番号
                 %span.require-icon 必須
-                %input.number.input-default{maxlength: "16", name: "number", placeholder: "カード番号", type: "text", id: "payment_card_no"}/
+                = text_field_tag "number", "", class: "input-default", id: "card_number", name: "card-number", placeholder: "カード番号", type: "text" ,maxlength: "16"
                 .card-list
                   = image_tag 'credit/visa.png', class:"card-png"
                   = image_tag 'credit/master.png', class:"card-png"
@@ -49,7 +49,7 @@
                 .date-box
                   .expiration_date_box
                     .expiration_date_box__wrap
-                      %select.exp_month#payment_expiration_date_1i{maxlength: "2", name: "exp_month", type: "text"}
+                      %select{maxlength: "2", class: "exp_month", type: "text", id: "exp_month"}
                         %option{value: "1"}01
                         %option{value: "2"}02
                         %option{value: "3"}03
@@ -67,7 +67,7 @@
 
                   .expiration_date_box
                     .expiration_date_box__wrap
-                      %select.exp_year#payment_expiration_date_2i{maxlength: "4", name: "exp_year", type: "text"}
+                      %select{maxlength: "4", id: "exp_year", class: "exp_year", type: "text"}
                         %option{value: "2019"}19
                         %option{value: "2020"}20
                         %option{value: "2021"}21
@@ -84,11 +84,12 @@
               .form-group
                 %span.registration_font セキュリティー番号
                 %span.require-icon 必須
-                %input.cvc.input-default{maxlength: "3", name: "cvc", placeholder: "カード背面もしくは４桁もしくは３桁の番号", type: "text", id: "payment_card_cvc"}
+                = text_field_tag "cvc", "", class: 'input-default', id: "cvc", name: "cvc-number", placeholder: "カード背面4桁もしくは３桁の番号", type: "text", maxlength: "4"
                 .card-indo
                   カード裏面の番号とは
               .actions
-                %button.register-member#submit-button{type: "submit"} 登録する
+                #card_token
+                = submit_tag "登録する", class: "register-member", id: "token_submit"
   %aside
     .inner
       %h2.inner__title

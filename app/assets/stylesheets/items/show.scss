@@ -94,17 +94,19 @@ body {
               display: block;
               margin-top: 16px;
               background: #3CCACE;
-              font-size: 14px;
+              font-size: 24px;
               color: #fff;
               line-height: 56px;
               text-align: center;
               font-weight: 600;
+              margin-bottom: 16px
             }
           }
           .itemDetail {
             line-height: 1.5;
             font-size: 18px;
             margin-bottom: 30px;
+            white-space:pre-wrap;
           }
           .table {
             margin-bottom: 20px;
@@ -150,7 +152,7 @@ body {
             ul {
               margin: 10px 0 0;
               display: flex;
-              .likeBtn {
+              .optionalBtn.none,.optionalBtn.already {
                 margin-right: auto;
                 padding: 6px 10px;
                 border-radius: 40px;
@@ -207,6 +209,61 @@ body {
               width: 60%;
               font-size: 18px;
               border-radius: 100px;
+            }
+          }
+        }
+        .message-container {
+          .contentt {
+            padding: 24px 7.5%;
+            background: #fff;
+            .itiran {
+              font-size: 25px;
+              margin-bottom: 20px;
+              text-align: center
+            }
+            .clearfix {
+              list-style: none;
+              .name_name {
+                img {
+                  width: 40px;
+                  height: 40px;
+                  float: left;
+                }
+              }
+              .user-seller {
+                margin: 8px 0 0;
+                padding: 4px;
+                background: #eef0f4;
+                color: #000;
+                width: 44px;
+                a {
+                  font-size: 12px;
+                }
+              }
+              .message-body {
+                position: relative;
+                padding: 16px;
+                background: #eef0f4;
+                border-radius: 15px;
+                line-height: 1.5;
+                word-break: break-all;
+                margin-bottom: 15px;
+                margin-top: 15px;
+                .icons {
+                  margin: 8px 0 0;
+                  a {
+                    font-size: 15px;
+                    float: right;
+                    color: #AAAAAA;
+                  }
+                  time {
+                    font-size: 14px;
+                  }
+                  .left_left {
+                    color: #AAAAAA;
+                  }
+                }
+              }
             }
           }
         }
