@@ -10,7 +10,6 @@ class ItemsController < ApplicationController
     if user_signed_in?
       @item = Item.new
       @item.images.build
-      @category_parent_array = ["---"]   
     else
      redirect_to user_session_path
     end
