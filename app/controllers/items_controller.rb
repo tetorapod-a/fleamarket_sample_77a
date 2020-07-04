@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
+  before_action :category_parent_array, only: [:new, :create, :edit]
 
   def index
     @items = Item.includes(:images).order(created_at: "desc")
@@ -19,7 +20,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to root_path 
+      redirect_to root_path
     else
       render :new
     end
@@ -57,20 +58,25 @@ class ItemsController < ApplicationController
   end
 
   def get_category_children
-    @category_children = Categorie.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+    @category_children = Categorie.where('ancestry = ?', "#{params[:parent_name]}")
   end
 
   def get_category_grandchildren
-    @category_grandchildren = Categorie.find("#{params[:child_id]}").children
+    @category_grandchildren = Categorie.where('ancestry LIKE ?', "%/#{params[:child_id]}")
   end
 
   private
 
-    def item_params
-      params.require(:item).permit(:name, :detail, :price, :status_id, :postage_id, :shipping_day_id, :shipping_method_id, :prefecture_id, :brand, :category_id, :buyre_id, :seller_id, images_attributes: [:image, :_destroy, :id]).merge(seller_id: current_user.id)
-    end
+  def item_params
+    params.require(:item).permit(:name, :detail, :price, :status_id, :postage_id, :shipping_day_id, :shipping_method_id, :prefecture_id, :brand, :category_id, :buyre_id, :seller_id, images_attributes: [:image, :_destroy, :id]).merge(seller_id: current_user.id)
+  end
 
-    def set_item
-      @item = Item.find(params[:id])
-    end
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
+  def category_parent_array
+    @category_parent_array = Categorie.where(ancestry: nil) 
+  end
+
 end
