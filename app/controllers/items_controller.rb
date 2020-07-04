@@ -39,6 +39,12 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    @item = Item.find(params[:id])
+    if @item.destroy
+      redirect_to root_path notice: ‘出品を取り消しました’
+    else
+      redirect_to item_path
+    end
   end
 
   def confirm
