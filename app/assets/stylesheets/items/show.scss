@@ -152,7 +152,7 @@ body {
             ul {
               margin: 10px 0 0;
               display: flex;
-              .likeBtn {
+              .optionalBtn.none,.optionalBtn.already {
                 margin-right: auto;
                 padding: 6px 10px;
                 border-radius: 40px;
