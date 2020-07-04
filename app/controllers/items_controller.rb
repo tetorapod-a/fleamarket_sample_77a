@@ -8,11 +8,11 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new
-    @item.images.build
-    @category_parent_array = ["---"]
-    Categorie.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
+    if user_signed_in?
+      @item = Item.new
+      @item.images.build
+    else
+     redirect_to user_session_path
     end
   end
 
