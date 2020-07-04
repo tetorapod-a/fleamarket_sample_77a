@@ -10,10 +10,7 @@ class ItemsController < ApplicationController
     if user_signed_in?
       @item = Item.new
       @item.images.build
-      @category_parent_array = ["---"]
-      Categorie.where(ancestry: nil).each do |parent|
-        @category_parent_array << parent.name
-      end
+      @category_parent_array = ["---"]   
     else
      redirect_to user_session_path
     end
