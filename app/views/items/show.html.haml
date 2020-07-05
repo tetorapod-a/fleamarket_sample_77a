@@ -136,7 +136,10 @@
               %ul
                 %li#likeBtn.optionalBtn.likeBtn
                   %ul#likeBtn
-                    = render partial: 'likes/like', locals: { item: @item}
+                    - if user_signed_in?
+                      = render partial: 'likes/like', locals: { item: @item}
+                    - else
+                      = "いいね：#{@item.liking_users.count}"
 
 
 
