@@ -1,6 +1,3 @@
-.test
-  - current_user.like_items.each do |item|
-    = item.name
 .myheader
   = render partial: 'items/header'
 
@@ -33,11 +30,5 @@
                     .comment
                       = icon("far", "comment-dots")
                       = item.comments.count
-
 .myfooter
   = render partial: 'items/footer'
-
-:css
-  .left-box {
-    margin-left: 150px;
-  }
