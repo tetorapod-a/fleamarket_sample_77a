@@ -29,7 +29,7 @@ Rails.application.routes.draw do
       get 'search'
       get 'post_done'
       get 'delete_done'
-      get 'detail_search'
+      get 'detail_search1'
       get 'update_done' 
     end
 
@@ -41,6 +41,10 @@ Rails.application.routes.draw do
 
     resources :likes, only: [:index,:create, :destroy]
   end
+
+
+  resources :searches, only: :index
+
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

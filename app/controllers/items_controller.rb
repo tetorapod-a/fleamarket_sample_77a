@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
       @item = Item.new
       @item.images.build
     else
-     redirect_to user_session_path
+      redirect_to user_session_path
     end
   end
 
