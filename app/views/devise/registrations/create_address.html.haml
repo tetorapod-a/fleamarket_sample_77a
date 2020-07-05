@@ -3,7 +3,7 @@
 -# ヘッダー
 .wrapper
   .header
-    = link_to image_tag('/assets/logo/logo.png', alt: 'text', height: '60', width: '200', class: 'icon'), root_path
+    = link_to image_tag(asset_path('logo/logo.png'), alt: 'text', height: '60', width: '200', class: 'icon'), root_path
     .header-logo
       %nav.progress-bar
         %ol.clearfix
