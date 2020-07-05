@@ -24,7 +24,7 @@
                 .icons
                   .like
                     = icon("far", "heart")
-                    1
+                    = item.liking_users.count
                   .comment
                     = icon("far", "comment-dots")
-                    3
+                    = item.comments.count
