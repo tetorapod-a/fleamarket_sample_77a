@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
+  before_action :set_item, except: [:search, :index, :new, :create, :get_category_children, :get_category_grandchildren]
   before_action :category_parent_array, only: [:new, :create, :edit]
 
   def index
@@ -55,6 +55,17 @@ class ItemsController < ApplicationController
   end
 
   def confirm
+  end
+
+  def search
+    @q = Item.search(search_params)
+    @items = @q.reset
+  end
+
+  private
+
+  def search_params
+    params.require(:q).permit
   end
 
   def get_category_children
