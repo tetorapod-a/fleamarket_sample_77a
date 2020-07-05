@@ -6,8 +6,8 @@
           = link_to "/" do
             = image_tag 'logo/logo.png'
         .header-inner__main__box
-          = form_with url: "/" do |form|
-            = form.text_field :key, id:"seach-input", class:"seach-box-input", placeholder:"キーワードから探す"
+          = form_with url: searches_path,method: :get, local: true do |form|
+            = form.text_field :search, placeholder:"キーワードから探す", class:"seach-box-input"
             %button{:type => "submit"}
               .search-icon
                 = image_tag 'icon/icon-search 1.png'

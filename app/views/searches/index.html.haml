@@ -1,0 +1,28 @@
+= render 'items/header'
+
+.wrapper
+  .search-result 検索結果
+  .main__pickupItems__productBox.search_box
+    .main__pickupItems__productBox__productLists
+      - @items.each do |item|
+        .main__pickupItems__productBox__productList
+          = link_to item_path(item.id) do
+            %figure.TP-main__pickupItems__productBox__productList__img
+              = image_tag item.images[0].image.url
+            .main__pickupItems__productBox__productList__body
+              %h3.TP-main__pickupItems__productBox__productList__name
+                = "#{item.name}"
+              .main__pickupItems__productBox__productList__details
+                %ul#pickupItemPriceLikeSpace
+                  %li
+                    = "#{item.price}円"
+                  %li 
+                  ★ 0
+                %p.main__pickupItems__productBox__productList__details--tax
+                  （税込）
+          -if item.buyer_id.present? 
+            .itemSold
+              .itemSold__inner
+                SOLD
+    = render 'items/footer'
+
