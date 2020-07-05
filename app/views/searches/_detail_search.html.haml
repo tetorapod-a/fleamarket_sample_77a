@@ -1,4 +1,5 @@
 .wrapper.detail_search
+  -# = search_form_for @q, url: search_items_path ,html: { method: :post } do |f|
   = search_form_for(@q,url: search_items_path) do |f|
     .detail_search_sort
       = f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' } , { onchange: 'this.form.submit()'} )
