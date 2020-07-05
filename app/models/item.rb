@@ -36,7 +36,7 @@ class Item < ApplicationRecord
       t.timestamps
     end
   end
-  
+
   def self.search(search)
     if search
       Item.where('name LIKE(?)', "%#{search}%")
@@ -44,10 +44,6 @@ class Item < ApplicationRecord
       Item.all
     end
   end
-  # def self.search(search)
-  #   return Item.all unless search
-  #   Item.where(['name LIKE ?', "%#{search}%"])
-  # end
 
 
 
