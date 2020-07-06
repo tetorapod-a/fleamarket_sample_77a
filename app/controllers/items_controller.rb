@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
   before_action :category_parent_array, only: [:new, :create, :edit]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
 
   def index
     @items = Item.includes(:images).order(created_at: "desc")
@@ -37,6 +38,11 @@ class ItemsController < ApplicationController
   def edit
     unless @item.buyer_id == nil
       redirect_to item_path(@item)
+    end
+    if current_user.id != @item.seller_id
+      redirect_to item_path
+    else
+      render 'edit'
     end
   end
 

@@ -183,7 +183,10 @@
                       %strong
                         = link_to comment.user.nickname, all_items_user_path(id: comment.user.id)
                         = link_to all_items_user_path(id: comment.user.id) do
-                          = image_tag comment.user.avter_url
+                          - if comment.user.avter.present?
+                            = image_tag comment.user.avter_url
+                          - else
+                            = image_tag 'icon/member_photo_noimage_thumb.png'
                     - if comment.user.id == @user.id
                       .user-seller
                         = link_to all_items_user_path(id: @user.id) do
