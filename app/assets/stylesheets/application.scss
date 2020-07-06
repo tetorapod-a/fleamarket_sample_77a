@@ -5,6 +5,7 @@
 @import "users/mypage_items";
 @import "users/purchase";
 @import "users/all_items";
+@import "users/like";
 @import "items/index";
 @import "registrations/new";
 @import "registrations/new_address";
@@ -12,9 +13,13 @@
 @import "registrations/edit";
 @import "registrations/edit_address";
 @import "sessions/new";
-@import "items/confirm";
 @import "items/new";
 @import "items/show";
-@import "cards/index";
+@import "cards/new";
 @import "items/edit";
-@import "items/simple_headder"
+@import "categories/show";
+@import "cards/show";
+@import "purchase/index";
+@import "purchase/pay";
+@import "items/simple_headder";
+@import "searches";

@@ -6,16 +6,22 @@
           = link_to "/" do
             = image_tag 'logo/logo.png'
         .header-inner__main__box
-          = form_with url: "/" do |form|
-            = form.text_field :key, id:"seach-input", class:"seach-box-input", placeholder:"キーワードから探す"
+          = form_with url: searches_path,method: :get, local: true do |form|
+            = form.text_field :search, placeholder:"キーワードから探す", class:"seach-box-input"
             %button{:type => "submit"}
               .search-icon
                 = image_tag 'icon/icon-search 1.png'
       .header-inner__nav
         %ul.lists-left
           %li.lists-left__first.lists-left__list
-            = link_to "/" do
-              = "カテゴリー"
+            %p5 カテゴリーから探す
+            .category
+              .category_list
+                .parents_list
+                  - @parents.each do |parent|
+                    = link_to "#{parent.name}", category_path(parent), class: "parent_category",id: "#{parent.id}"
+                .children_list
+                .grand_children_list              
           %li.lists-left__list
             = link_to "/" do
               = "ブランド"
@@ -164,7 +170,7 @@
         .pickup__box__lists
           - @item.each do |item|
             .pickup__box__lists__list
-              = link_to "/" do
+              = link_to item_path(id: item.id) do
                 .list__img
                   = image_tag item.images.first.image_url
                 .list__body

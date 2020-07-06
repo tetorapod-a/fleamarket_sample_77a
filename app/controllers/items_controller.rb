@@ -3,13 +3,18 @@ class ItemsController < ApplicationController
   before_action :category_parent_array, only: [:new, :create, :edit]
 
   def index
-    @items = Item.includes(:images).order(updated_at: "desc")
+    @items = Item.includes(:images).order(created_at: "desc")
     @item = @items.where(category_id: 131)
+    @parents = Categorie.where(ancestry: nil)
   end
 
   def new
-    @item = Item.new
-    @item.images.build
+    if user_signed_in?
+      @item = Item.new
+      @item.images.build
+    else
+      redirect_to user_session_path
+    end
   end
 
   def create
@@ -25,6 +30,8 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @user = User.find(@item.seller_id)
     @parents = Categorie.where(ancestry:nil)
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
   end
 
   def edit
@@ -39,6 +46,12 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    @item = Item.find(params[:id])
+    if @item.destroy
+      redirect_to root_path notice: '出品を取り消しました'
+    else
+      redirect_to item_path
+    end
   end
 
   def confirm
@@ -63,7 +76,7 @@ class ItemsController < ApplicationController
   end
 
   def category_parent_array
-    @category_parent_array = Categorie.where(ancestry: nil)        # ⑧ 親カテゴリーを全てインスタンス変数へ代入
+    @category_parent_array = Categorie.where(ancestry: nil) 
   end
 
 end

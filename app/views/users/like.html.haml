@@ -1,0 +1,34 @@
+.myheader
+  = render partial: 'items/header'
+
+.my__like
+  .mains
+    .left-box
+      = render partial: 'mypage_left'
+    .right-box
+      .right-box__title
+        %h2
+          商品一覧
+      .right-box__tab
+        .center
+          いいねした商品
+      .right-box__contents
+        - if current_user.like_items
+          - current_user.like_items.each do |item|
+            .right-box__contents__content
+              = link_to item_path(id: item.id) do
+                .image
+                  = image_tag item.images.first.image_url
+                .info
+                  .name
+                    = item.name
+                    = icon("fas","angle-double-right")
+                  .icons
+                    .like
+                      = icon("far", "heart")
+                      = item.liking_users.count
+                    .comment
+                      = icon("far", "comment-dots")
+                      = item.comments.count
+.myfooter
+  = render partial: 'items/footer'

@@ -10,7 +10,14 @@ class User < ApplicationRecord
   validates_format_of :first_name, :last_name, :with => /\A[一-龥ぁ-ん]/, :message => "は全角で入力してください"
   validates_format_of :first_name_kana, :last_name_kana, :with => /\A[ァ-ヶー－]+\z/, :message => "は全角カタカナで入力してください"
   has_one :address
-
-  has_one :credit_card, dependent: :destroy
+  has_one :cards, dependent: :destroy
+  has_many :comments
   has_many :likes, dependent: :destroy
+  has_many :like_items, through: :likes, source: :item
+
+  def already_liked?(item)
+    likes.exists?(item_id: item.id)
+  end
+
+
 end

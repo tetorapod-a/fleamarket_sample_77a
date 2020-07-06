@@ -9,7 +9,7 @@
   .left-list
     = link_to "出品する",new_item_path, class: '.link'
   .left-list
-    = link_to "いいね！一覧","#", class: '.link'
+    = link_to "いいね！一覧",like_user_path(id: current_user.id), class: '.link'
   .left-list
     = link_to "出品中の商品", listing_user_path(id: current_user.id) , class: '.link'
   .left-list

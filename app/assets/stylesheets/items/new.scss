@@ -87,7 +87,7 @@
               overflow-x:scroll;
             }
             .js-file{
-              // display: none;
+              display: none;
             }
             .check_box {
               display: none;
@@ -521,7 +521,6 @@
                 P{
                   display: flex;
                   margin-top: 15px;
-                  // margin-right: 200px;
                 }
   
               #item_price{
@@ -599,7 +598,7 @@
         font-size: 16px;
         color: rgb(133, 195, 245);
         padding-top: 16px;
-        
+        margin-bottom: 10px;
         a{
           text-decoration: none;
         }
