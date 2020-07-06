@@ -19,7 +19,7 @@ $(function(){
       $(".grand_child_category").remove();
       $.ajax({
         type: 'GET',
-        url: '/categories/new',//とりあえずここではnewアクションに飛ばす。
+        url: '/categories/new',
         data: {parent_id: id},
         dataType: 'json'
       }).done(function(children) {
