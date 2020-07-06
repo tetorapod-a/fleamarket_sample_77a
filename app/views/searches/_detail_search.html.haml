@@ -1,54 +1,42 @@
 .wrapper.detail_search
-  -# = search_form_for @q, url: search_items_path ,html: { method: :post } do |f|
-  = search_form_for(@q,url: search_items_path) do |f|
+  .detail_search_sorts
+    %h2 並べ替え
     .detail_search_sort
-      = f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' } , { onchange: 'this.form.submit()'} )
-    .detail_search_form
-      .detail_search__title
-        %h3 詳細検索
+      %tr
+        %th= sort_link(@q, :'price asc', '・価格の安い順')
+        %th= sort_link(@q, :'price desc', '・価格の高い順')
+        %th= sort_link(@q, :'updated_at asc', '・出品の古い順')
+        %th= sort_link(@q, :'updated_at desc', '・出品の新しい順')
+        %th{:colspan => "3"}
+  .detail_search_form
+    .detail_search__title
+      %h3 詳細検索
       .detail_search__group
-        .detail_search__group-label
-          %p キーワードを追加する
+        = search_form_for @q do |f|
+          = f.label :name, "キーワードを追加する", class: "search-name"
           = f.search_field :name_cont, placeholder: "例）値下げ", class: "search"
-      .detail_search__group
-        .detail_search__group-label
-          %p 価格
-        .detail_search__group-forms
-          = f.search_field :price_gteq, placeholder: "¥ Min", class: "search"
+          .detail_search__group__label
+          = f.label :価格, class: "search-name"
+          = f.number_field :price_gteq, placeholder: "¥ Min", class: "search"
           %p 〜
-          = f.search_field :price_lteq, placeholder: "¥ Max", class: "search"
-      .detail_search__group
-        .detail_search__group-label
-          %p 商品の状態
-        .detail_search__group--checkbox
-          %label
-            %input{type: "checkbox"}
-            = 'すべて'
-        .detail_search__group--checkbox
-          %label
-            = f.check_box :status_id_eq_any, { multiple: true }, 1, ''
-            = '新品、未使用'
-        .detail_search__group--checkbox
-          %label
-            = f.check_box :status_id_eq_any, { multiple: true }, 2, ''
-            = '未使用に近い'
-        .detail_search__group--checkbox
-          %label
-            = f.check_box :status_id_eq_any, { multiple: true }, 3, ''
-            = '目立った傷や汚れなし'
-        .detail_search__group--checkbox
-          %label
-            = f.check_box :status_id_eq_any, { multiple: true }, 4, ''
-            = 'やや傷や汚れあり'
-        .detail_search__group--checkbox
-          %label
-            = f.check_box :status_id_eq_any, { multiple: true }, 5, ''
-            = '傷や汚れあり'
-        .detail_search__group--checkbox
-          %label
-            = f.check_box :status_id_eq_any, { multiple: true }, 6, ''
-            = '全体的に状態が悪い'
-      .detail_search__btns
-        .detail_search__btn--grey
-          = link_to "クリア", "/searches",type: "button"
-        = f.submit "完了", class: "emerald-btn"
+          = f.number_field :price_lteq, placeholder: "¥ Max", class: "search" 
+          .detail_search__group__label
+          = f.label :商品状態, class: "search-name"
+          .radio_button
+            %ul
+              %li= f.radio_button :status_id_eq, '', {:checked => true}
+              指定なし
+              %li= f.radio_button :status_id_eq, 1
+              新品、未使用
+              %li= f.radio_button :status_id_eq, 2
+              未使用に近い
+              %li= f.radio_button :status_id_eq, 3
+              目立った傷や汚れなし
+              %li= f.radio_button :status_id_eq, 4
+              やや傷や汚れあり
+              %li= f.radio_button :status_id_eq, 5
+              傷や汚れあり
+              %li= f.radio_button :status_id_eq, 6
+              全体的に状態が悪い
+          = link_to "クリア", "/searches",type: "button", class: "detail_search__btn--grey"
+          = f.submit "検索", class: "emerald-btn"

@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :set_item, except: [:index, :new, :create,:search,  :get_category_children, :get_category_grandchildren]
+  before_action :set_item, except: [:index, :new, :create, :search, :get_category_children, :get_category_grandchildren]
   before_action :category_parent_array, only: [:new, :create, :edit]
-
 
   def index
     @items = Item.includes(:images).order(created_at: "desc")
@@ -58,35 +57,25 @@ class ItemsController < ApplicationController
   def confirm
   end
 
+  def search
+    
+  end
+
   # def search
+  #   # binding.pry
   #   sort = params[:q][:sorts] || "created_at DESC"
   #   @q = Item.ransack(params[:q])
   #   # jsから飛んできたパラーメーターが"likes_count_desc"の場合に、子モデルの多い順にソートする記述を  
-  #   if sort == "likes_count_desc"
-  #     @items = @q.result(distinct: true).select('items.*', 'count(likes.id) AS likes')
-  #       .left_joins(:likes)
-  #       .group('items.id')
-  #       .order('likes DESC').order('created_at DESC')
-  #   else
+  #   # if sort == "likes_count_desc"
+  #   #   @items = @q.result(distinct: true).select('items.*', 'count(likes.id) AS likes')
+  #   #     .left_joins(:likes)
+  #   #     .group('items.id')
+  #   #     .order('likes DESC').order('created_at DESC')
+  #   # else
   #     @items = @q.result(distinct: true).order(sort)
-  #   end
+  #   # end
   # end
 
-  def search
-    sort = params[:q][:sorts] || "created_at DESC" 
-    @q = Item.ransack(params[:q])
-    @items = @q.result(distinct: true).order(sort)
-  end
-
-  # def search_params
-  #   params.require(:q)
-  #   # 他のパラメーターもここに入れる
-  # end
-  # private
-
-  # def search_params
-  #   params.require(:q).permit!
-  # end
 
   def get_category_children
     @category_children = Categorie.where('ancestry = ?', "#{params[:parent_name]}")
