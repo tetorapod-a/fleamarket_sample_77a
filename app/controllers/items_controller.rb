@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, except: [:index, :new, :create, :search, :get_category_children, :get_category_grandchildren]
+  before_action :set_item, except: [:index, :new, :create,:search,  :get_category_children, :get_category_grandchildren]
   before_action :category_parent_array, only: [:new, :create, :edit]
 
 
@@ -77,9 +77,10 @@ class ItemsController < ApplicationController
     @q = Item.ransack(params[:q])
     @items = @q.result(distinct: true).order(sort)
     # 価格の範囲検索
-    @search = Item.ransack(params[:q])
-    @items = @q.result(:distinct => true)
-    @items = @item.where("status IS ?", true).order("price_type_id desc")
+    # binding.pry
+    # @search = Item.ransack(params[:q])
+    # @items = @q.result(distinct: true).order(sort)
+    # @search = Item.where(price_gteq: 100, price_lteq: 200).order("price_type_id desc")
   end
 
   # def search_params

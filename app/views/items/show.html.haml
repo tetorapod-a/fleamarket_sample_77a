@@ -50,7 +50,7 @@
                       = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/15/a003.png'
             .itemBox__price
               %span
-                = @item.price + "円"
+                = "￥#{@item.price}"
               .itemBox__price__detail
                 %span2
                   = "(税込)"
