@@ -35,6 +35,12 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    if user_signed_in? && @item.seller_id == current_user.id
+      @item = Item.edit
+      @item.images.build
+    else
+      redirect_to root_path
+    end
   end
 
   def update
