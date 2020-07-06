@@ -28,6 +28,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @items = Image.where(item_id: @item)
     @user = User.find(@item.seller_id)
     @parents = Categorie.where(ancestry:nil)
     @comment = Comment.new

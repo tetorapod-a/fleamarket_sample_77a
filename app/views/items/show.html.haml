@@ -42,12 +42,9 @@
                 %li
                   = image_tag @item.images[0].image_url
                   %ul
-                    %li
-                      = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png'
-                    %li
-                      = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/14/a001.png'
-                    %li
-                      = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/15/a003.png'
+                    - @items.each do |item|
+                      %li
+                        = image_tag item.image_url
             .itemBox__price
               %span
                 = @item.price + "円"
