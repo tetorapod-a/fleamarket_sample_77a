@@ -3,7 +3,6 @@ $(function(){
     var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
     return html;
   }
-
   function appendChidrenBox(insertHTML){
     var childSelectHtml = '';
     childSelectHtml = `<select required="required" class="listing-select-wrapper__box--select" id="child_category" name="item[category_id]">
@@ -12,7 +11,6 @@ $(function(){
                       </select>`;
     $('#parent_category').after(childSelectHtml);
   }
-
   // 孫カテゴリーの表示作成
   function appendGrandchidrenBox(insertHTML){
     var grandchildSelectHtml = '';
@@ -34,10 +32,10 @@ $(function(){
         dataType: 'json'
       })
       .done(function(children){
-        $('#children_wrapper').remove(); //親が変更された時、子以下を削除するする
-        $('#grandchildren_wrapper').remove();
-        $('#size_wrapper').remove();
-        $('#brand_wrapper').remove();
+        // $('#children_wrapper').remove(); //親が変更された時、子以下を削除する
+        $('#child_category').remove();
+        $('#grandchild_categoryr').remove();
+        // $('#brand_wrapper').remove();
         var insertHTML = '';
         children.forEach(function(child){
           insertHTML += appendOption(child);
@@ -48,8 +46,8 @@ $(function(){
         alert('カテゴリー取得に失敗しました');
       })
     }else{
-      $('#children_wrapper').remove(); //親カテゴリーが初期値になった時、子以下を削除するする
-      $('#grandchildren_wrapper').remove();
+      $('#child_categoryr').remove(); //親カテゴリーが初期値になった時、子以下を削除する
+      $('#grandchild_category').remove();
       $('#size_wrapper').remove();
       $('#brand_wrapper').remove();
     }
@@ -66,9 +64,7 @@ $(function(){
       })
       .done(function(grandchildren){
         if (grandchildren.length != 0) {
-          $('#grandchildren_wrapper').remove(); //子が変更された時、孫以下を削除するする
-          $('#size_wrapper').remove();
-          $('#brand_wrapper').remove();
+          $('#grandchild_category').remove(); //子が変更された時、孫以下を削除する
           var insertHTML = '';
           grandchildren.forEach(function(grandchild){
             insertHTML += appendOption(grandchild);
@@ -80,9 +76,7 @@ $(function(){
         alert('カテゴリー取得に失敗しました');
       })
     }else{
-      $('#grandchildren_wrapper').remove(); //子カテゴリーが初期値になった時、孫以下を削除する
-      $('#size_wrapper').remove();
-      $('#brand_wrapper').remove();
+      $('#grandchild_category').remove(); //子カテゴリーが初期値になった時、孫以下を削除する
     }
   });
 });
