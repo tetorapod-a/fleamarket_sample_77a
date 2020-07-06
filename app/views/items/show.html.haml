@@ -42,9 +42,9 @@
                 %li
                   = image_tag @item.images[0].image_url
                   %ul
-                    - @items.each do |item|
+                    - @img.each do |img|
                       %li
-                        = image_tag item.image_url
+                        = image_tag img.image_url
             .itemBox__price
               %span
                 = @item.price + "円"
