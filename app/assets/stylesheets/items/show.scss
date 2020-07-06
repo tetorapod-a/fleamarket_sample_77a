@@ -90,7 +90,7 @@ body {
             }
           }
           .buy {
-            a {
+            a, .soldout{
               display: block;
               margin-top: 16px;
               background: #3CCACE;

@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', ()=> {
+$(function(){
     function buildChildHTML(child){
       var html =`<a class="child_category" id="${child.id}" 
                   href="/categories/${child.id}">${child.name}</a>`;
@@ -19,7 +19,7 @@ $(document).on('turbolinks:load', ()=> {
       $(".grand_child_category").remove();
       $.ajax({
         type: 'GET',
-        url: '/categories/new',//とりあえずここではnewアクションに飛ばしてます
+        url: '/categories/new',//とりあえずここではnewアクションに飛ばす。
         data: {parent_id: id},
         dataType: 'json'
       }).done(function(children) {

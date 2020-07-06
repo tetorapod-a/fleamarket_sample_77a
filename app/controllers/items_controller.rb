@@ -35,6 +35,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    unless @item.buyer_id == nil
+      redirect_to item_path(@item)
+    end
   end
 
   def update
