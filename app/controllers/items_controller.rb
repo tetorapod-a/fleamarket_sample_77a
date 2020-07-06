@@ -76,11 +76,6 @@ class ItemsController < ApplicationController
     sort = params[:q][:sorts] || "created_at DESC" 
     @q = Item.ransack(params[:q])
     @items = @q.result(distinct: true).order(sort)
-    # 価格の範囲検索
-    # binding.pry
-    # @search = Item.ransack(params[:q])
-    # @items = @q.result(distinct: true).order(sort)
-    # @search = Item.where(price_gteq: 100, price_lteq: 200).order("price_type_id desc")
   end
 
   # def search_params
