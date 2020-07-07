@@ -72,6 +72,10 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :detail, :price, :status_id, :postage_id, :shipping_day_id, :shipping_method_id, :prefecture_id, :brand, :category_id, :buyre_id, :seller_id, images_attributes: [:image, :_destroy, :id]).merge(seller_id: current_user.id)
   end
 
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
   def category_parent_array
     @category_parent_array = Categorie.where(ancestry: nil) 
   end
