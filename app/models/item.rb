@@ -35,7 +35,6 @@ class Item < ApplicationRecord
       t.references :item, null: false
       t.timestamps
     end
-      # scope :published, lambda { where(:is_active => true) }
       create_table :items do |t|
         t.integer :price, null: false
         t.timestamps
