@@ -13,14 +13,14 @@
             = @item.name
           .price
             %p1 
-              = "¥" + @item.price
+              = "￥#{@item.price}"
             %p2 (税込) 送料込み
 
     .confirm__price
       .confirm__price__text
         %p 支払い金額
         %p1 
-          = "¥" + @item.price
+          = "￥#{@item.price}"
       .confirm__price__check
         = check_box_tag :check1
         = label_tag :check1, "ポイントを使用(所持ポイント:P100)"

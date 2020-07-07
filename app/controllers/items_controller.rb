@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
     @items = Item.includes(:images).order(created_at: "desc")
     @item = @items.where(category_id: 131)
     @parents = Categorie.where(ancestry: nil)
+
   end
 
   def new

@@ -47,7 +47,7 @@
                         = image_tag img.image_url
             .itemBox__price
               %span
-                = @item.price + "円"
+                = "￥#{@item.price}"
               .itemBox__price__detail
                 %span2
                   = "(税込)"
