@@ -1,7 +1,6 @@
 class PurchaseController < ApplicationController
   require 'payjp'
-  before_action :set_card
-  before_action :set_item
+  before_action :set_card, :set_item, :self_buy
 
   def index
     if @card.blank?
@@ -50,5 +49,12 @@ class PurchaseController < ApplicationController
 
   def set_item
     @item = Item.find(params[:item_id])
+  end
+
+  def self_buy
+    if @item.buyer_id == nil && @item.seller_id != current_user.id
+    else
+      redirect_to item_path(@item)
+    end
   end
 end

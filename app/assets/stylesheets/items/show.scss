@@ -47,7 +47,6 @@ body {
           &__body{
             margin: 16px 0 0;
             ul {
-              display: flex;
               position: relative;
               li {
                 display: flex;
@@ -64,6 +63,7 @@ body {
                 display: flex;
                 justify-content: center;
                 margin-top: 10px;
+                overflow: scroll;
                 li{
                   width: 25%;
                   margin: 0 10px 0 0;
@@ -90,7 +90,7 @@ body {
             }
           }
           .buy {
-            a {
+            a, .soldout{
               display: block;
               margin-top: 16px;
               background: #3CCACE;
@@ -284,67 +284,75 @@ body {
           }
         }
       }
-      .relatedItems {
-        a {
-          display: block;
-          margin: 24px 0 8px;
-          color: #3CCACE;
-          text-decoration: none;
+      .genre-item {
+        margin-top: 24px;
+        &__logo {
+          font-size: 24px;
+          color:#3CCACE;;
           font-weight: bold;
-          font-size: 22px;
-          position: relative;
+          margin-bottom: 15px;
         }
-        .productLists {
-          margin: 0;
-          padding: 0;
-          width: 220px;
-          .productList{
+        .genre-box {
+          display: flex;
+          overflow-x: scroll;
+          width: 660px;
+          margin: auto;
+          &__list {
             width: 220px;
-            a {
-              display: block;
-              margin: 24px 0 8px;
-              color: #3CCACE;
-              text-decoration: none;
-              font-weight: bold;
-              font-size: 22px;
-              .productList--img {
-                width: 220px;
+            display: inline-block;
+            float: left;
+            position: relative;
+            .genre__img {
+              width: 220px;
+              height: 150px;
+              position: relative;
+              overflow: hidden;
+              margin: 0;
+              z-index: auto;
+              img {
                 height: 150px;
-                position: relative;
-                overflow: hidden;
-                margin: 0;
-                z-index: auto;
-                img {
-                  position: absolute;
-                  top: 0;
-                  left: 0;
-                  right: 0;
-                  bottom: 0;
-                  width: 100%;
-                  z-index: auto;
-                  height: 150px;
-                  object-fit: cover;
+                object-fit: cover;
+                width: 100%;
+              }
+            }
+            .genre__body {
+              background-color: white;
+              padding: 16px;
+              &__name {
+                line-height: 1.5;
+              }
+              &__price {
+                font-size: 16px;
+                ul {
+                  display: flex;
+                  justify-content: space-between;
+                }
+                p {
+                  font-size: 10px;
                 }
               }
-              .productList--body {
-                padding: 16px;
-                background-color: white;
-                color: #333;
-                width: 220px;
-                // height: 150px;
-                h3 {
-                  overflow: hidden;
-                  line-height: 1.5;
-                  font-size: 16px;
-                  text-align: left
-                }
-                .details {
-                  font-size: 16px;
-                  ul {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                  }
+            }
+            .items-box_photo__sold {
+              width: 220px;
+              height: 150px;
+              border: 60px solid #ea352d ;
+              background-color: #ea352d;
+              display: flex;
+              align-items: center;
+              z-index:100;
+              position: absolute;
+              top: 0;
+              left: 0;
+              opacity: 0.6;
+              &__inner {
+                transform: rotate(-40deg);
+                font-size: 28px;
+                text-align: center;
+                color: #fff;
+                letter-spacing: 2px;
+                font-weight: 600;
+                a{
+                  text-decoration: none;
                 }
               }
             }

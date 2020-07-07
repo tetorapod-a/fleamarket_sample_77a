@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
   before_action :category_parent_array, only: [:new, :create, :edit]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
 
   def index
     @items = Item.includes(:images).order(created_at: "desc")
@@ -28,6 +29,10 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @img = Image.where(item_id: @item).drop(1)
+    @items = Item.includes(:images)
+    @image = @items.where(category_id: @item.category_id)
+    @category = Categorie.find(@item.category_id)
     @user = User.find(@item.seller_id)
     @parents = Categorie.where(ancestry:nil)
     @comment = Comment.new
@@ -35,11 +40,14 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if user_signed_in? && @item.seller_id == current_user.id
-      @item = Item.edit
-      @item.images.build
+
+    unless @item.buyer_id == nil
+      redirect_to item_path(@item)
+    end
+    if current_user.id != @item.seller_id
+      redirect_to item_path
     else
-      redirect_to root_path
+      render 'edit'
     end
   end
 
