@@ -1,47 +1,56 @@
-$(function(){
-  //DataTransferオブジェクトで、データを格納する箱を作る
-  var dataBox = new DataTransfer();
-  //querySelectorでfile_fieldを取得
-  var file_field = document.querySelector('input[type=file]')
-   //fileが選択された時に発火するイベント
-   $('#image-label').change(function(){
-    //選択したfileのオブジェクトをpropで取得
-    var files = $('input[type="file"]').prop('files')[0];
-
-    $.each(this.files, function(i, file){
-      //FileReaderのreadAsDataURLで指定したFileオブジェクトを読み込む
-      var fileReader = new FileReader();
-      //DataTransferオブジェクトに対して、fileを追加
-      dataBox.items.add(file)
-      //DataTransferオブジェクトに入ったfile一覧をfile_fieldの中に代入
-      file_field.files = dataBox.files
-
-      //Fileオブジェクトを読み込む
-      fileReader.readAsDataURL(file);
-
-      //読み込みが完了すると、srcにfileのURLを格納
-      fileReader.onloadend = function() {
-        var src = fileReader.result
-        var html =  `<li class="item-image-container__unit--preview" >
-                      <div class="item-image-container__unit--caption">
-                        <img src="${src}">
-                      </div>
-                      <div class="image-option">
-                        <div  class="image-option__list">
-                          <div class="image-option__list--tag">編集</div>
-                        </div>
-                        <div class="image-option__list">
-                          <a class="image-option__list--tag">削除</a>
-                        </div>
-                      </div>
-                    </li>`
-        //ulタグの下にhtmlをappendしています。
-        $(html).appendTo(".item-image-container__unit ul").trigger("build");
-
-      };
-      //DataTransfer構造のデバッグ
-      console.log(dataBox);
-    });
-
+$(function() {
+  function readURL(input) {
+      if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+  $("#img_prev").attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+      }
+  }
+  $("#image_label").change(function(){
+      readURL(this);
   });
 });
+
+// $(document).on('turbolinks:load', function () {
+//   $(function () {
+//     // 画像をプレビュー表示させる.prev-contentを作成
+//     function buildHTML(image) {
+//       var html =
+//         `
+//         <div class="prev-content">
+//           <img src="${image}", alt="preview" class="prev-image">
+//         </div>
+//         `
+//       return html;
+//     }
+
+//     // 画像が選択された時に発火します
+//     $(document).on('change', '.hidden_file', function () {
+//       // .file_filedからデータを取得して変数fileに代入します
+//       var file = this.files[0];
+//       // FileReaderオブジェクトを作成します
+//       var reader = new FileReader();
+//       // DataURIScheme文字列を取得します
+//       reader.readAsDataURL(file);
+//       // 読み込みが完了したら処理が実行されます
+//       reader.onload = function () {
+//         // 読み込んだファイルの内容を取得して変数imageに代入します
+//         var image = this.result;
+//         // プレビュー画像がなければ処理を実行します
+//         if ($('.prev-content').length == 0) {
+//           // 読み込んだ画像ファイルをbuildHTMLに渡します
+//           var html = buildHTML(image)
+//           // 作成した.prev-contentをiconの代わりに表示させます
+//           $('.prev-contents').prepend(html);
+//           // 画像が表示されるのでiconを隠します
+//           $('.photo-icon').hide();
+//         } else {
+//           // もし既に画像がプレビューされていれば画像データのみを入れ替えます
+//           $('.prev-content .prev-image').attr({ src: image });
+//         }
+//       }
+//     });
+//   });
+// });

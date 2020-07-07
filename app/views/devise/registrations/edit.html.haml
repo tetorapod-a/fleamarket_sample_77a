@@ -59,36 +59,18 @@
             .field-avter
               = f.label :マイアバター
               %br/
-              - if @user.avter.present?
-                = image_tag @user.avter, class: 'avter_present_img'
-                = f.label :画像を削除
-                %br/
-                = f.check_box :remove_avter
-              - else
-                  
-              -# .js-file_group{"data-index" => "#{image.index}"}
-              -#   = image.file_field :image, class: 'js-file'
+              = f.label :avter, id: 'image_label' do
+                .prev-contents
+                  -# 既に登録されている画像があれば表示をさせます
+                  - if current_user.avter.present?
+                    .prev-content
+                      = image_tag @user.avter.url, id: "img_prev"
+                      -# 既に登録されている画像がなければiconを表示させます
+                  - else
+                    = image_tag 'icon/member_photo_noimage_thumb.png',id: 'img_prev'
+                    -# file_fieldはdisplay: none;で隠します
+                = f.file_field :avter, class: 'hidden_file'
 
-              -#     = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-              -# - if @item.persisted?
-              -#   .js-file_group{"data-index": "#{@item.images.count}"}
-              -#     = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file', id: "item_images_attributes_#{@item.images.count}_image"
-              
-              -# = f.file_field :avter
-              -# = icon('fas', 'image', class: 'submit-icon')
-              -# %p#click-delete クリックしてファイルをアップロード
-
-
-            -# 下記はpasswordの入力フォーム
-            -# .field
-            -#   = f.label :password
-            -#   %i (leave blank if you don't want to change it)
-            -#   %br/
-            -#   = f.password_field :password, autocomplete: "new-password"
-            -# .field
-            -#   = f.label :password_confirmation
-            -#   %br/
-            -#   = f.password_field :password_confirmation, autocomplete: "new-password"
             .field
               = f.label :current_password
               %span.form-require 必須
