@@ -40,12 +40,14 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    unless @item.buyer_id == nil
+      redirect_to item_path(@item)
+    end
     if current_user.id != @item.seller_id
       redirect_to item_path
     else
       render 'edit'
     end
-
   end
 
   def update
