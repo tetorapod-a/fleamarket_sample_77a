@@ -30,7 +30,7 @@ Rails.application.routes.draw do
       get 'post_done'
       get 'delete_done'
       get 'detail_search1'
-      get 'update_done' 
+      get 'update_done'
     end
 
     resources :purchase, only: :index do
@@ -43,7 +43,11 @@ Rails.application.routes.draw do
   end
 
 
-  resources :searches, only: :index
+  resources :searches,only: :index do
+    collection do
+      get 'search', to: 'searches#search'
+    end
+  end
 
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

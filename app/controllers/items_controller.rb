@@ -1,11 +1,12 @@
 class ItemsController < ApplicationController
-  before_action :set_item, except: [:index, :new, :create, :search, :get_category_children, :get_category_grandchildren]
+  before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
   before_action :category_parent_array, only: [:new, :create, :edit]
 
   def index
     @items = Item.includes(:images).order(created_at: "desc")
     @item = @items.where(category_id: 131)
     @parents = Categorie.where(ancestry: nil)
+
   end
 
   def new
@@ -57,26 +58,6 @@ class ItemsController < ApplicationController
   def confirm
   end
 
-  def search
-    
-  end
-
-  # def search
-  #   # binding.pry
-  #   sort = params[:q][:sorts] || "created_at DESC"
-  #   @q = Item.ransack(params[:q])
-  #   # jsから飛んできたパラーメーターが"likes_count_desc"の場合に、子モデルの多い順にソートする記述を  
-  #   # if sort == "likes_count_desc"
-  #   #   @items = @q.result(distinct: true).select('items.*', 'count(likes.id) AS likes')
-  #   #     .left_joins(:likes)
-  #   #     .group('items.id')
-  #   #     .order('likes DESC').order('created_at DESC')
-  #   # else
-  #     @items = @q.result(distinct: true).order(sort)
-  #   # end
-  # end
-
-
   def get_category_children
     @category_children = Categorie.where('ancestry = ?', "#{params[:parent_name]}")
   end
@@ -89,10 +70,6 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :detail, :price, :status_id, :postage_id, :shipping_day_id, :shipping_method_id, :prefecture_id, :brand, :category_id, :buyre_id, :seller_id, images_attributes: [:image, :_destroy, :id]).merge(seller_id: current_user.id)
-  end
-
-  def set_item
-    @item = Item.find(params[:id])
   end
 
   def category_parent_array

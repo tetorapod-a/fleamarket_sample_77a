@@ -1,0 +1,30 @@
+= render 'items/header'
+
+
+
+.search-container
+  .search-result
+  = render 'searches/detail_search'
+  .l-content
+    %h1 検索結果
+    .main__pickupItems__productBox
+      - @items.each do |item|
+        .main__pickupItems__productBox__productList
+          = link_to item_path(item.id) do
+            %figure.main__pickupItems__productBox__productList__img
+              = image_tag item.images[0].image.url
+              .main__pickupItems__productBox__productList__body
+                %h3.main__pickupItems__productBox__productList__name
+                  = "#{item.name}"
+                .main__pickupItems__productBox__productList__details
+                  %ul#pickupItemPriceLikeSpace
+                    %li
+                      = "#{item.price}円"
+                    %li 
+                    ★ 0
+            -if item.buyer_id.present? 
+              .itemSold
+                .itemSold__inner
+                  SOLD
+= render 'items/footer'
+
