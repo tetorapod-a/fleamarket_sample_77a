@@ -1,6 +1,7 @@
 class CardsController < ApplicationController
   require "payjp"
   before_action :set_card, except: :new
+  before_action :set_ransack
   
   def new
     if Card.where(user_id: current_user.id).exists?
@@ -76,5 +77,9 @@ class CardsController < ApplicationController
 
   def set_card
     @card = Card.find_by(user_id: current_user.id)
+  end
+
+  def set_ransack
+    @q = Item.ransack(params[:q])
   end
 end

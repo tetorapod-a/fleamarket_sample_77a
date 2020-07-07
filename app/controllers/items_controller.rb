@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
   before_action :category_parent_array, only: [:new, :create, :edit]
   before_action :authenticate_user!, only: [:edit, :update, :destroy]
+  before_action :set_ransack
 
   def index
     @items = Item.includes(:images).order(created_at: "desc")
@@ -38,10 +39,10 @@ class ItemsController < ApplicationController
     @parents = Categorie.where(ancestry:nil)
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
+    # @q = @items.ransack(params[:q])
   end
 
   def edit
-
     unless @item.buyer_id == nil
       redirect_to item_path(@item)
     end
@@ -94,4 +95,7 @@ class ItemsController < ApplicationController
     @category_parent_array = Categorie.where(ancestry: nil) 
   end
 
+  def set_ransack
+    @q = Item.ransack(params[:q])
+  end
 end
