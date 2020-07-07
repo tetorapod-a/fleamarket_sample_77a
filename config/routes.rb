@@ -31,7 +31,6 @@ Rails.application.routes.draw do
       get 'delete_done'
       get 'detail_search1'
       get 'update_done' 
-      match 'search' => 'items#search', via: [:get, :post]
     end
 
     resources :purchase, only: :index do

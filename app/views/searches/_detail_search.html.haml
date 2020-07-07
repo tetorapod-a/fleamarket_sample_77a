@@ -14,29 +14,35 @@
       .detail_search__group
         = search_form_for @q do |f|
           = f.label :name, "キーワードを追加する", class: "search-name"
-          = f.search_field :name_cont, placeholder: "例）値下げ", class: "search"
+          = f.search_field :name_cont, placeholder: "例）値下げ", class: "search-keyword"
           .detail_search__group__label
           = f.label :価格, class: "search-name"
           = f.number_field :price_gteq, placeholder: "¥ Min", class: "search"
-          %p 〜
-          = f.number_field :price_lteq, placeholder: "¥ Max", class: "search" 
-          .detail_search__group__label
-          = f.label :商品状態, class: "search-name"
-          .radio_button
-            %ul
-              %li= f.radio_button :status_id_eq, '', {:checked => true}
+          〜
+          = f.number_field :price_lteq, placeholder: "¥ Max", class: "search-Max" 
+          .radio_buttons
+            = f.label :商品状態, class: "search-name-status"
+            .radio_button
+              .checkbox
+              = f.radio_button :status_id_eq, '', {:checked => true}
               指定なし
-              %li= f.radio_button :status_id_eq, 1
+              .checkbox
+              = f.radio_button :status_id_eq, 1
               新品、未使用
-              %li= f.radio_button :status_id_eq, 2
+              .checkbox
+              = f.radio_button :status_id_eq, 2
               未使用に近い
-              %li= f.radio_button :status_id_eq, 3
+              .checkbox
+              = f.radio_button :status_id_eq, 3
               目立った傷や汚れなし
-              %li= f.radio_button :status_id_eq, 4
+              .checkbox
+              = f.radio_button :status_id_eq, 4
               やや傷や汚れあり
-              %li= f.radio_button :status_id_eq, 5
+              .checkbox
+              = f.radio_button :status_id_eq, 5
               傷や汚れあり
-              %li= f.radio_button :status_id_eq, 6
+              .checkbox
+              = f.radio_button :status_id_eq, 6
               全体的に状態が悪い
-          = link_to "クリア", "/searches",type: "button", class: "detail_search__btn--grey"
-          = f.submit "検索", class: "emerald-btn"
+            = link_to "クリア", "/searches",type: "button", class: "detail_search__btn--grey"
+            = f.submit "検索", class: "emerald-btn"
