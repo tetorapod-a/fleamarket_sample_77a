@@ -39,7 +39,6 @@ class ItemsController < ApplicationController
     @parents = Categorie.where(ancestry:nil)
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
-    # @q = @items.ransack(params[:q])
   end
 
   def edit
