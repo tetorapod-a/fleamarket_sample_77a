@@ -59,8 +59,24 @@
             .field-avter
               = f.label :マイアバター
               %br/
-              = icon('fas', 'image', class: 'submit-icon')
-              = f.file_field :avter
+              - if @user.avter.present?
+                = image_tag @user.avter, class: 'avter_present_img'
+                = f.label :画像を削除
+                %br/
+                = f.check_box :remove_avter
+              - else
+                  
+              -# .js-file_group{"data-index" => "#{image.index}"}
+              -#   = image.file_field :image, class: 'js-file'
+
+              -#     = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+              -# - if @item.persisted?
+              -#   .js-file_group{"data-index": "#{@item.images.count}"}
+              -#     = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file', id: "item_images_attributes_#{@item.images.count}_image"
+              
+              -# = f.file_field :avter
+              -# = icon('fas', 'image', class: 'submit-icon')
+              -# %p#click-delete クリックしてファイルをアップロード
 
 
             -# 下記はpasswordの入力フォーム
