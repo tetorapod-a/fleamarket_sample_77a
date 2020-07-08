@@ -3,12 +3,12 @@ $(function() {
       if (input.files && input.files[0]) {
       var reader = new FileReader();
       reader.onload = function (e) {
-  $("#img_prev").attr('src', e.target.result);
+  $('#img_prev').attr('src', e.target.result);
       }
       reader.readAsDataURL(input.files[0]);
       }
   }
-  $("#image_label").change(function(){
+  $('#img_prev').change(function(){
       readURL(this);
   });
 });
