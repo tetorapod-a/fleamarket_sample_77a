@@ -34,11 +34,7 @@
                       .js-file_group{"data-index": "#{@item.images.count}"}
                         = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file', id: "item_images_attributes_#{@item.images.count}_image"
                     .icon-comment
-                      -# %p#text ドラッグアンドドロップ
                       %p#text カメラをクリックしてファイルをアップロード
-                    -if @item.errors.messages[:name].any?
-                      .error-message
-                      %p2 画像がありません
 
     
         .product-listing3
@@ -63,9 +59,6 @@
               %p 必須
           .input-form-detail
             = form.text_area :detail, placeholder: '商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。'
-            -if @item.errors.messages[:name].any?
-              .error-message
-                %p2 必ず入力してください
 
         .product-details-part
           %p1 商品の詳細
@@ -81,9 +74,7 @@
                   .listing-select-wrapper
                     .listing-select-wrapper__box
                       = form.collection_select :category_id, Categorie.roots, :id , :name, {include_blank: "---", selected: @item.categorie&.root_id}, class: "listing-select-wrapper__box--select", id: "parent_category"
-                      -if @item.errors.messages[:name].any?
-                        .error-message
-                        %p2 必ず入力してください
+
 
 
           .brand-category
@@ -102,9 +93,7 @@
                 %p 必須
             .input-form1
               = form.collection_select(:status_id, Status.all, :id, :name, {include_blank: "---"})
-              -if @item.errors.messages[:name].any?
-                .error-message
-                %p2 必ず入力してください
+
                 
         .Regarding-delivery
           %p 配送について
@@ -117,9 +106,7 @@
                 %p 必須
             .input-form
               = form.collection_select(:postage_id, Postage.all, :id, :name, {include_blank: "---"})
-              -if @item.errors.messages[:name].any?
-                .error-message
-                %p2 必ず入力してください
+
 
           .shipping-method
             .shipping-method-top
@@ -129,9 +116,7 @@
                 %p 必須
             .input-form
               = form.collection_select(:shipping_method_id, ShippingMethod.all, :id, :name, {include_blank: "---"})
-              -if @item.errors.messages[:name].any?
-                .error-message
-                %p2 必ず入力してください
+
 
           .shipping-region-category
             .shipping-region
@@ -141,9 +126,7 @@
                 %p 必須
             .input-form
               = form.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: "---"})
-              -if @item.errors.messages[:name].any?
-                .error-message
-                %p2 必ず入力してください
+
       
       
           .days-until-shipping-category
