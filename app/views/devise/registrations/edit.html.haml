@@ -2,14 +2,11 @@
 
 -# ヘッダー
 .wrapper
-
   = render '/layouts/simple_headder.html.haml'
-
   - breadcrumb :users_edit
   = render "layouts/breadcrumbs"
 
   .user-sign
-
     .user-sign__forms
       %h1.user-sign__forms__title 会員情報編集
       = form_for(resource, as: resource_name, url: users_update_path, html: { method: :patch }) do |f|
@@ -20,7 +17,7 @@
             .field
               = f.label :ニックネーム
               %br/
-              = f.text_field :nickname, placeholder:"例）フリーマ", required:"required", class:"input-form"
+              = f.text_field :nickname, placeholder:"例）フリーマ", class:"input-form"
             
             .field
               = f.label :email

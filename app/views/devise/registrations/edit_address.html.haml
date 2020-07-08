@@ -1,6 +1,6 @@
 -# 送付先住所情報編集画面
 
--# ヘッダーはここから
+
 .wrapper
   = render 'layouts/simple_headder.html.haml'
   - breadcrumb :address_user
@@ -36,22 +36,22 @@
             .field
               = f.label :郵便番号
               %br/
-              = f.text_field :postal_code, placeholder:"1235678", required:"required", class:"input-form"
+              = f.text_field :postal_code, placeholder:"1235678", class:"input-form"
         
             .field
               = f.label :都道府県
               %br/
-              = f.text_field :prefectur, placeholder:"東京都", required:"required", class:"input-form"
+              = f.text_field :prefectur, placeholder:"東京都", class:"input-form"
               
             .field
               = f.label :市区町村
               %br/
-              = f.text_field :city, placeholder:"渋谷区", required:"required", class:"input-form"
+              = f.text_field :city, placeholder:"渋谷区", class:"input-form"
         
             .field
               = f.label :番地
               %br/
-              = f.text_field :house_number, placeholder:"富ケ谷１丁目", required:"required", class:"input-form"
+              = f.text_field :house_number, placeholder:"富ケ谷１丁目",  class:"input-form"
         
             .field
               = f.label :マンション・ビル名※部屋番号は任意
@@ -60,17 +60,9 @@
             .field
               = f.label :電話番号※任意
               = f.text_field :phone, placeholder:"09012345678", class:"input-form"
-        
-            -# .field 現在addressテーブルにcurrent_passwordのカラムがないので、コメントアウト
-            -#   = f.label :current_password
-            -#   %span.form-require 必須
-            -#   %i (更新を完了するには現在のパスワードを入力してください)
-            -#   %br/
-            -#   = f.password_field :password, autocomplete: "current-password"
             
             .actions
               = f.submit "更新" , class:"emerald-btn"
 
     .main-product-footer
       = render 'layouts/registrations_footer'
-      -# フッターはここから
