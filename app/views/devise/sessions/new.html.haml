@@ -26,6 +26,8 @@
               = f.password_field :password, autocomplete: "current-password", placeholder:"登録したパスワード", class:"input-form"
             .actions
               = f.submit "ログイン", class:"emerald-btn"
-
+          - flash.each do |name, msg|
+            = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
+            
     .main-product-footer
       = render partial: 'layouts/registrations_footer'

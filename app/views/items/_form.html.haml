@@ -3,6 +3,7 @@
 
   .wrapper2
     = form_with(model: @item, local: true) do |form|
+      = render "devise/shared/error_messages", resource: @item
       .main-product2
         .product-listing-part
           .product-listing1
