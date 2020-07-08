@@ -60,17 +60,11 @@ ja:
         name: "商品名"
         detail: "商品の説明"
         price: "価格"
-      status:
         status: "商品の状態"
-      shipping_day:
         shipping day: "発送までの日数"
-      srefecture:
         srefecture: "発送元の地域"
-      shipping_method:
         shipping_method: "発送方法"
-      category:
         category: "カテゴリー"
-      postage:
         postage: "配送料の負担"
     models:
       nickname: "ニックネーム"
