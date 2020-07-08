@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :set_ransack
+
 
   def edit
   end
@@ -25,6 +27,12 @@ class UsersController < ApplicationController
   def all_items
     @user = User.find(params[:id])
     @items = Item.includes(:images).where(seller_id: @user.id)
+  end
+
+  private
+
+  def set_ransack
+    @q = Item.ransack(params[:q])
   end
 
 end

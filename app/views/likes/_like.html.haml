@@ -2,10 +2,9 @@
   = link_to(item_like_path(@item, item.id),method: :delete, remote: true) do
     %li.optionalBtn.already
       = icon('fa', 'star')
-      お気に入り済み
+      いいね済み
 -else
   = link_to(item_likes_path(@item), method: :post, remote: true) do
     %li.optionalBtn.none
       = icon('fa', 'star')
-      お気に入り
-
+      いいね

@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show]
+  before_action :set_ransack
 
   def new
     @children = Categorie.find(params[:parent_id]).children
@@ -15,8 +16,12 @@ class CategoriesController < ApplicationController
   end
 
   private
+  
   def set_category
     @category = Categorie.find(params[:id])
   end
 
+  def set_ransack
+    @q = Item.ransack(params[:q])
+  end
 end

@@ -2,16 +2,19 @@ class ItemsController < ApplicationController
   before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
   before_action :category_parent_array, only: [:new, :create, :edit]
   before_action :authenticate_user!, only: [:edit, :update, :destroy]
+  before_action :set_ransack
 
   def index
     @items = Item.includes(:images).order(created_at: "desc")
     @parents = Categorie.where(ancestry: nil)
+    
     if user_signed_in? && Item.find_by(seller_id: current_user.id).present?
       @user_item = Item.find_by(seller_id: current_user.id)
       @item = @items.where(category_id: @user_item.category_id)
     else
       @item = Item.where(category_id: 131)
     end
+    
   end
 
   def new
@@ -97,4 +100,7 @@ class ItemsController < ApplicationController
     @category_parent_array = Categorie.where(ancestry: nil) 
   end
 
+  def set_ransack
+    @q = Item.ransack(params[:q])
+  end
 end
