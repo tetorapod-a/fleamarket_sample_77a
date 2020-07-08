@@ -1,12 +1,17 @@
 class CardsController < ApplicationController
   require "payjp"
   before_action :set_card, except: :new
+  before_action :set_ransack
   
   def new
-    if Card.where(user_id: current_user.id).exists?
-      redirect_to card_path(current_user.id)
+    if user_signed_in?
+      if Card.where(user_id: current_user.id).exists?
+        redirect_to card_path(current_user.id)
+      else
+        @card = Card.new
+      end
     else
-      @card = Card.new
+      redirect_to root_path
     end
   end
 
@@ -76,5 +81,9 @@ class CardsController < ApplicationController
 
   def set_card
     @card = Card.find_by(user_id: current_user.id)
+  end
+
+  def set_ransack
+    @q = Item.ransack(params[:q])
   end
 end

@@ -35,6 +35,10 @@ class Item < ApplicationRecord
       t.references :item, null: false
       t.timestamps
     end
+      create_table :items do |t|
+        t.integer :price, null: false
+        t.timestamps
+      end
   end
 
   def self.search(search)
@@ -44,7 +48,4 @@ class Item < ApplicationRecord
       Item.all
     end
   end
-
-
-
 end

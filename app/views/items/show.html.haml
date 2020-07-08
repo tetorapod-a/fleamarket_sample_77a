@@ -47,7 +47,7 @@
                         = image_tag img.image_url
             .itemBox__price
               %span
-                = @item.price + "円"
+                = "￥#{@item.price}"
               .itemBox__price__detail
                 %span2
                   = "(税込)"
@@ -109,6 +109,7 @@
                     %th 
                       = "ブランド"
                     %td
+                      = @item.brand
                   -# %tr
                   -#   %th 
                   -#     = "商品のサイズ"
@@ -174,34 +175,65 @@
               .itiran
                 = "コメント一覧"
               - if @comments
-                - @comments.each do |comment|
-                  %li.clearfix
-                    .name_name
-                      %strong
-                        = link_to comment.user.nickname, all_items_user_path(id: comment.user.id)
-                        = link_to all_items_user_path(id: comment.user.id) do
-                          - if comment.user.avter.present?
-                            = image_tag comment.user.avter_url
-                          - else
-                            = image_tag 'icon/member_photo_noimage_thumb.png'
-                    - if comment.user.id == @user.id
-                      .user-seller
-                        = link_to all_items_user_path(id: @user.id) do
-                          = "出品者"
+                - if user_signed_in?
+                  - @comments.each do |comment|
+                    %li.clearfix
+                      .name_name
+                        %strong
+                          = link_to comment.user.nickname, all_items_user_path(id: comment.user.id)
+                          = link_to all_items_user_path(id: comment.user.id) do
+                            - if comment.user.avter.present?
+                              = image_tag comment.user.avter_url
+                            - else
+                              = image_tag 'icon/member_photo_noimage_thumb.png'
+                          - if comment.user.id == @user.id 
+                            .user-seller
+                              = link_to all_items_user_path(id: @user.id) do
+                                = "出品者"
+                      - if comment.user.id == @user.id && current_user.id == comment.user.id
+                        .message-body
+                          .text
+                            = comment.text
+                          .icons
+                            = link_to item_comment_path(comment.item.id,comment.id), method: :delete do
+                              = icon("fa", "trash-alt")
+                            .left_left
+                              = icon("fa", "clock") 
+                              %time(datetime="#{comment.created_at}")= time_ago_in_words(comment.created_at)
+                      - else
+                        .message-body
+                          .text
+                            = comment.text
+                          .icons
+                            - if comment.user.id == current_user.id
+                              = link_to item_comment_path(comment.item.id,comment.id), method: :delete do
+                                = icon("fa", "trash-alt")
+                              .left_left
+                                = icon("fa", "clock") 
+                                %time(datetime="#{comment.created_at}")= time_ago_in_words(comment.created_at)
+                            - else 
+                              .left_left
+                                = icon("fa", "clock") 
+                                %time(datetime="#{comment.created_at}")= time_ago_in_words(comment.created_at)
+                - else 
+                  - @comments.each do |comment|
+                    %li.clearfix
+                      .name_name
+                        %strong
+                          = link_to comment.user.nickname, all_items_user_path(id: comment.user.id)
+                          = link_to all_items_user_path(id: comment.user.id) do
+                            - if comment.user.avter.present?
+                              = image_tag comment.user.avter_url
+                            - else
+                              = image_tag 'icon/member_photo_noimage_thumb.png'
+                        - if comment.user.id == @user.id
+                          .user-seller
+                            = link_to all_items_user_path(id: @user.id) do
+                              = "出品者"
                       .message-body
                         .text
                           = comment.text
                         .icons
-                          .left_left
-                            = icon("fa", "clock") 
-                            %time(datetime="#{comment.created_at}")= time_ago_in_words(comment.created_at)
-                    - else
-                      .message-body
-                        .text
-                          = comment.text
-                        .icons
-                          = link_to item_comment_path(comment.item.id,comment.id), method: :delete do
-                            = icon("fa", "trash-alt")
                           .left_left
                             = icon("fa", "clock") 
                             %time(datetime="#{comment.created_at}")= time_ago_in_words(comment.created_at)

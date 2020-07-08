@@ -1,6 +1,7 @@
 class PurchaseController < ApplicationController
   require 'payjp'
   before_action :set_card, :set_item, :self_buy
+  before_action :set_ransack
 
   def index
     if @card.blank?
@@ -56,5 +57,9 @@ class PurchaseController < ApplicationController
     else
       redirect_to item_path(@item)
     end
+  end
+
+  def set_ransack
+    @q = Item.ransack(params[:q])
   end
 end

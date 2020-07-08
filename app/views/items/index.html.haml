@@ -6,8 +6,8 @@
           = link_to "/" do
             = image_tag 'logo/logo.png'
         .header-inner__main__box
-          = form_with url: searches_path,method: :get, local: true do |form|
-            = form.text_field :search, placeholder:"キーワードから探す", class:"seach-box-input"
+          = search_form_for @q, url:search_searches_path do |f|
+            = f.text_field :name_cont, placeholder:"キーワードから探す", class:"seach-box-input"
             %button{:type => "submit"}
               .search-icon
                 = image_tag 'icon/icon-search 1.png'
@@ -166,7 +166,7 @@
         .pickup__box__head
           = link_to "/" do
             %h3.subtitle
-              = "小物"
+              = "おすすめ"
         .pickup__box__lists
           - @item.each do |item|
             .pickup__box__lists__list

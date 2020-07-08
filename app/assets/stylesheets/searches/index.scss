@@ -1,0 +1,41 @@
+.search-container {
+  display: flex;
+  height: 100%;
+  background-color: #f8f6f6;
+  .l-content {
+    float: right;
+    height: 100%;
+    padding: 20px 40px 0 0;
+    width: 70vw;
+    h1 {
+      width: auto;
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .main__pickupItems__productBox {
+      display: flex;
+      flex-wrap : wrap;
+      padding: 0;
+      
+      .main__pickupItems__productBox__productList {
+        margin: 0 0 4% 4%;
+        background: #fff;
+        
+        .main__pickupItems__productBox__productList__img {
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          z-index: 1;
+          flex-basis: auto;
+          .main__pickupItems__productBox__productList__body {
+            padding: 8px 12px;
+            
+          }
+        }
+      }
+    }
+  }
+}

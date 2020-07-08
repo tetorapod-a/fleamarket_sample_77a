@@ -1,0 +1,48 @@
+.wrapper.detail_search
+  .detail_search_sorts
+    %h2 並べ替え
+    .detail_search_sort
+      %tr
+        %th= sort_link(@q, :'price asc', '・価格の安い順')
+        %th= sort_link(@q, :'price desc', '・価格の高い順')
+        %th= sort_link(@q, :'updated_at asc', '・出品の古い順')
+        %th= sort_link(@q, :'updated_at desc', '・出品の新しい順')
+        %th{:colspan => "3"}
+  .detail_search_form
+    .detail_search__title
+      %h3 詳細検索
+      .detail_search__group
+        = search_form_for @q, url:search_searches_path do |f|
+          = f.label :name, "キーワードを追加する", class: "search-name"
+          = f.search_field :name_cont, placeholder: "例）値下げ", class: "search-keyword"
+          .detail_search__group__label
+          = f.label :価格, class: "search-name"
+          = f.number_field :price_gteq, placeholder: "¥ Min", class: "search"
+          〜
+          = f.number_field :price_lteq, placeholder: "¥ Max", class: "search-Max" 
+          .radio_buttons
+            = f.label :商品状態, class: "search-name-status"
+            .radio_button
+              .checkbox
+              = f.radio_button :status_id_eq, '', {:checked => true}
+              指定なし
+              .checkbox
+              = f.radio_button :status_id_eq, 1
+              新品、未使用
+              .checkbox
+              = f.radio_button :status_id_eq, 2
+              未使用に近い
+              .checkbox
+              = f.radio_button :status_id_eq, 3
+              目立った傷や汚れなし
+              .checkbox
+              = f.radio_button :status_id_eq, 4
+              やや傷や汚れあり
+              .checkbox
+              = f.radio_button :status_id_eq, 5
+              傷や汚れあり
+              .checkbox
+              = f.radio_button :status_id_eq, 6
+              全体的に状態が悪い
+            = link_to "クリア", "/searches",type: "button", class: "detail_search__btn--grey"
+          = f.submit "検索", class: "emerald-btn"

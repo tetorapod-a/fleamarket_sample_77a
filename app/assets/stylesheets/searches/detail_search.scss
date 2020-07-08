@@ -1,0 +1,117 @@
+.wrapper.detail_search {
+  width: 300px;
+  flex-direction: column;
+  position: static;
+  display: block;
+  box-shadow: none;
+  padding: 16px;
+  .detail_search_sorts {
+    padding: 0 16px;
+    background: #fff;
+    h2 {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+    .detail_search_sort {
+      margin-bottom: 5px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  .detail_search_form {
+    margin-top: 40px;
+    padding: 16px 5%;
+    background: #fff;
+    .detail_search__title {
+      font-size: 20px;
+    }
+    .detail_search__group {
+      margin: 24px 0 0;
+      .search-name {
+        font-size: 16px;
+      }
+      .search-keyword {
+        width: 100%;
+        margin: 8px 0 0;
+        height: 48px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+        margin-bottom: 30px;
+      }
+      .search {
+        width: 100%;
+        margin: 8px 0 0;
+        height: 48px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+      }
+      .search-Max {
+        width: 100%;
+        margin: 8px 0 0;
+        height: 48px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+        margin-bottom: 30px;
+      }
+    }
+  }
+  .search-name-status {
+    padding-top: 40px;
+    padding-bottom: 15px;
+    font-size: 16px;
+  }
+  .radio_buttons {
+    margin-bottom: 15px;
+    .radio_button {
+      margin-top: 15px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      .checkbox {
+        display:block;
+        margin-bottom: 10px;
+        font-size: 10px;
+      }
+    }
+  }
+  .detail_search__btn--grey {
+    float: left;
+    width: 45%;
+    background: #aaa;
+    display: block;
+    line-height: 48px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+    margin-right: 15px;
+  }
+  .emerald-btn {
+    width: 45%;
+    background: #3CCACE;
+    color: #fff;
+    display: block;
+    line-height: 48px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+  }
+}
+
