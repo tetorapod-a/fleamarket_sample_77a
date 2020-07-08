@@ -5,16 +5,16 @@ $(function(){
   }
   function appendChidrenBox(insertHTML){
     var childSelectHtml = '';
-    childSelectHtml = `<select required="required" class="listing-select-wrapper__box--select" id="child_category" name="item[category_id]">
+    childSelectHtml = `<select class="listing-select-wrapper__box--select" id="child_category" name="item[category_id]">
                         <option value="">---</option>
                         ${insertHTML}
                       </select>`;
     $('#parent_category').after(childSelectHtml);
   }
-  // 孫カテゴリーの表示作成
+  // 孫カテゴリーの表示作成             
   function appendGrandchidrenBox(insertHTML){
     var grandchildSelectHtml = '';
-    grandchildSelectHtml = `<select required="required" class="listing-select-wrapper__box--select" id="grandchild_category" name="item[category_id]">
+    grandchildSelectHtml = `<select class="listing-select-wrapper__box--select" id="grandchild_category" name="item[category_id]">
                               <option value="">---</option>
                               ${insertHTML}
                             </select>`;

@@ -79,7 +79,7 @@
                 .listing-product-detail__category
                   .listing-select-wrapper
                     .listing-select-wrapper__box
-                      = form.collection_select :category_id, Categorie.roots, :id , :name, {include_blank: "---", selected: @item.categorie&.root_id}, required: true, class: "listing-select-wrapper__box--select", id: "parent_category"
+                      = form.collection_select :category_id, Categorie.roots, :id , :name, {include_blank: "---", selected: @item.categorie&.root_id}, class: "listing-select-wrapper__box--select", id: "parent_category"
                       -if @item.errors.messages[:name].any?
                         .error-message
                         %p2 必ず入力してください

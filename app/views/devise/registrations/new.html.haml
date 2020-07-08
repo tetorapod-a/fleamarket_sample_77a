@@ -31,12 +31,12 @@
               = f.label :ニックネーム
               %span.form-require 必須
               %br/
-              = f.text_field :nickname, placeholder:"例）フリーマ", required:"required", class:"input-form"
+              = f.text_field :nickname, placeholder:"例）フリーマ", class:"input-form"
             .field
               = f.label :メールアドレス
               %span.form-require 必須
               %br/
-              = f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"PC・携帯どちらでも可", required:"required", class:"input-form"
+              = f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"PC・携帯どちらでも可", class:"input-form"
             - if @sns_id.present?
               = hidden_field_tag :sns_auth, true
             - else
@@ -46,14 +46,14 @@
               %br/
               - if @minimum_password_length
                 %em
-              = f.password_field :password, autocomplete: "new-password", placeholder:"7文字以上の半角英数字", required:"required", class:"input-form"
+              = f.password_field :password, autocomplete: "new-password", placeholder:"7文字以上の半角英数字", class:"input-form"
               %p.note ※英字と数字の両方を含めて設定してください
             
             .field
               = f.label :確認用パスワード
               %span.form-require 必須
               %br/
-              = f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"7文字以上の半角英数字", required:"required", class:"input-form"
+              = f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"7文字以上の半角英数字", class:"input-form"
             %div
               %p#identification 本人確認
               %p.single-text 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
