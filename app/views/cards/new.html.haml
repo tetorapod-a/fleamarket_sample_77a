@@ -5,23 +5,23 @@
       .my-plof
         %p プロフィール
         .left-list
-          = link_to "マイアカウント情報","#", class: '.link'
+          = link_to "マイアカウント情報",user_path(current_user), class: '.link'
         .left-list
-          = link_to "支払い方法の確認","#", class: '.link'
+          = link_to "支払い方法の確認",new_card_path, class: '.link'
       .my-business
         %p マイページメニュー
         .left-list
-          = link_to "出品する","#", class: '.link'
+          = link_to "出品する",new_item_path, class: '.link'
         .left-list
-          = link_to "いいね！一覧","#", class: '.link'
+          = link_to "いいね！一覧",like_user_path(id: current_user.id), class: '.link'
         .left-list
-          = link_to "出品中の商品","#", class: '.link'
+          = link_to "出品中の商品",listing_user_path(id: current_user.id), class: '.link'
         .left-list
-          = link_to "売却した商品","#", class: '.link'
+          = link_to "売却した商品",completed_user_path(id: current_user.id), class: '.link'
         .left-list
-          = link_to "購入した商品","#", class: '.link'
+          = link_to "購入した商品",purchase_user_path(id: current_user.id), class: '.link'
         .left-list
-          = link_to "ログアウトする","#", class: '.link'
+          = link_to "ログアウトする",destroy_user_session_path, method: :delete, class: '.link'
     .right-box
       %p支払い方法の確認
       .credit-info
@@ -103,7 +103,7 @@
           = image_tag 'http://furima.tokyo/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg'
 
   = render partial: 'items/footer'
-  = link_to "/" do
+  = link_to new_item_path do
     .pur-btn
       %span.pur-btn__text
         = "出品する"
