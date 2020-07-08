@@ -192,19 +192,31 @@
                         .text
                           = comment.text
                         .icons
-                          .left_left
-                            = icon("fa", "clock") 
-                            %time(datetime="#{comment.created_at}")= time_ago_in_words(comment.created_at)
+                          -if comment.user.id == current_user.id
+                            = link_to item_comment_path(comment.item.id,comment.id), method: :delete do
+                              = icon("fa", "trash-alt")
+                            .left_left
+                              = icon("fa", "clock") 
+                              %time(datetime="#{comment.created_at}")= time_ago_in_words(comment.created_at)
+                          - else
+                            .left_left
+                              = icon("fa", "clock") 
+                              %time(datetime="#{comment.created_at}")= time_ago_in_words(comment.created_at)
                     - else
                       .message-body
                         .text
                           = comment.text
                         .icons
-                          = link_to item_comment_path(comment.item.id,comment.id), method: :delete do
-                            = icon("fa", "trash-alt")
-                          .left_left
-                            = icon("fa", "clock") 
-                            %time(datetime="#{comment.created_at}")= time_ago_in_words(comment.created_at)
+                          -if comment.user.id == current_user.id
+                            = link_to item_comment_path(comment.item.id,comment.id), method: :delete do
+                              = icon("fa", "trash-alt")
+                            .left_left
+                              = icon("fa", "clock") 
+                              %time(datetime="#{comment.created_at}")= time_ago_in_words(comment.created_at)
+                          - else
+                            .left_left
+                              = icon("fa", "clock") 
+                              %time(datetime="#{comment.created_at}")= time_ago_in_words(comment.created_at)
         %ul.links
           %li
             = link_to "/" do
