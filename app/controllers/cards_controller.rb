@@ -4,10 +4,14 @@ class CardsController < ApplicationController
   before_action :set_ransack
   
   def new
-    if Card.where(user_id: current_user.id).exists?
-      redirect_to card_path(current_user.id)
+    if user_signed_in?
+      if Card.where(user_id: current_user.id).exists?
+        redirect_to card_path(current_user.id)
+      else
+        @card = Card.new
+      end
     else
-      @card = Card.new
+      redirect_to root_path
     end
   end
 
