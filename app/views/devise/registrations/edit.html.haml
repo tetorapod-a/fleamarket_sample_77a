@@ -59,20 +59,18 @@
             .field-avter
               = f.label :マイアバター
               %br/
-              = icon('fas', 'image', class: 'submit-icon')
-              = f.file_field :avter
+              = f.label :avter, id: 'image_label' do
+                .prev-contents
+                  -# 既に登録されている画像があれば表示をさせます
+                  - if current_user.avter.present?
+                    .prev-content
+                      = image_tag @user.avter.url, id: "img_prev"
+                      -# 既に登録されている画像がなければiconを表示させます
+                  - else
+                    = image_tag 'icon/member_photo_noimage_thumb.png',id: 'img_prev'
+                    -# file_fieldはdisplay: none;で隠します
+                = f.file_field :avter, class: 'hidden_file'
 
-
-            -# 下記はpasswordの入力フォーム
-            -# .field
-            -#   = f.label :password
-            -#   %i (leave blank if you don't want to change it)
-            -#   %br/
-            -#   = f.password_field :password, autocomplete: "new-password"
-            -# .field
-            -#   = f.label :password_confirmation
-            -#   %br/
-            -#   = f.password_field :password_confirmation, autocomplete: "new-password"
             .field
               = f.label :current_password
               %span.form-require 必須
