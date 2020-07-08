@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :user, optional: true
-  belongs_to :categorie, optional: true
+  belongs_to :category, optional: true
   has_many :like, dependent: :destroy
   has_many :images, dependent: :destroy
   has_many :likes, dependent: :destroy
