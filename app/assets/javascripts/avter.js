@@ -1,18 +1,22 @@
-$(function() {
-  function readURL(input) {
-      if (input.files && input.files[0]) {
-      var reader = new FileReader();
-      reader.onload = function (e) {
-  $('#img_prev').attr('src', e.target.result);
-      }
-      reader.readAsDataURL(input.files[0]);
-      }
-  }
-  $('#img_prev').change(function(){
-      readURL(this);
-  });
-});
+// NOTE:JS実装準備中です
+//
+// $(function() {
+//   function readURL(input) {
+//       if (input.files && input.files[0]) {
+//       var reader = new FileReader();
+//       reader.onload = function (e) {
+//   $('#img_prev').attr('src', e.target.result);
+//       }
+//       reader.readAsDataURL(input.files[0]);
+//       }
+//   }
+//   $('#img_prev').change(function(){
+//       readURL(this);
+//   });
+// });
 
+// NOTE:JS実装準備中です
+//
 // $(document).on('turbolinks:load', function () {
 //   $(function () {
 //     // 画像をプレビュー表示させる.prev-contentを作成
