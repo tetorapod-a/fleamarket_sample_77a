@@ -5,8 +5,13 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.includes(:images).order(created_at: "desc")
-    @item = @items.where(category_id: 131)
     @parents = Categorie.where(ancestry: nil)
+    if user_signed_in? && Item.find_by(seller_id: current_user.id).present?
+      @user_item = Item.find_by(seller_id: current_user.id)
+      @item = @items.where(category_id: @user_item.category_id)
+    else
+      @item = Item.where(category_id: 131)
+    end
   end
 
   def new
