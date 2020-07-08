@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.includes(:images).order(created_at: "desc")
-    @parents = Categorie.where(ancestry: nil)
+    @parents = Category.where(ancestry: nil)
     
     if user_signed_in? && Item.find_by(seller_id: current_user.id).present?
       @user_item = Item.find_by(seller_id: current_user.id)
@@ -40,9 +40,9 @@ class ItemsController < ApplicationController
     @img = Image.where(item_id: @item).drop(1)
     @items = Item.includes(:images)
     @image = @items.where(category_id: @item.category_id)
-    @category = Categorie.find(@item.category_id)
+    @category = Category.find(@item.category_id)
     @user = User.find(@item.seller_id)
-    @parents = Categorie.where(ancestry:nil)
+    @parents = Category.where(ancestry:nil)
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
   end
@@ -79,11 +79,11 @@ class ItemsController < ApplicationController
   end
 
   def get_category_children
-    @category_children = Categorie.where('ancestry = ?', "#{params[:parent_name]}")
+    @category_children = Category.where('ancestry = ?', "#{params[:parent_name]}")
   end
 
   def get_category_grandchildren
-    @category_grandchildren = Categorie.where('ancestry LIKE ?', "%/#{params[:child_id]}")
+    @category_grandchildren = Category.where('ancestry LIKE ?', "%/#{params[:child_id]}")
   end
 
   private
@@ -97,7 +97,7 @@ class ItemsController < ApplicationController
   end
 
   def category_parent_array
-    @category_parent_array = Categorie.where(ancestry: nil) 
+    @category_parent_array = Category.where(ancestry: nil) 
   end
 
   def set_ransack

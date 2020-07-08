@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
   before_action :set_ransack
 
   def new
-    @children = Categorie.find(params[:parent_id]).children
+    @children = Category.find(params[:parent_id]).children
     respond_to do |format|
       format.html
       format.json
@@ -18,7 +18,7 @@ class CategoriesController < ApplicationController
   private
   
   def set_category
-    @category = Categorie.find(params[:id])
+    @category = Category.find(params[:id])
   end
 
   def set_ransack
