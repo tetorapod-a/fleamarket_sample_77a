@@ -24,6 +24,7 @@ $(function(){
   $('#parent_category').change(function(e){
     e.preventDefault();
     var parentCategory = document.getElementById('parent_category').value; //選択された親カテゴリーの名前を取得
+    $('.category-attention').hide();
     if (parentCategory != "---"){ //親カテゴリーが初期値でないことを確認
       $.ajax({
         url: '/items/get_category_children',
@@ -34,7 +35,7 @@ $(function(){
       .done(function(children){
         // $('#children_wrapper').remove(); //親が変更された時、子以下を削除する
         $('#child_category').remove();
-        $('#grandchild_categoryr').remove();
+        $('#grandchild_category').remove();
         // $('#brand_wrapper').remove();
         var insertHTML = '';
         children.forEach(function(child){
@@ -46,7 +47,7 @@ $(function(){
         alert('カテゴリー取得に失敗しました');
       })
     }else{
-      $('#child_categoryr').remove(); //親カテゴリーが初期値になった時、子以下を削除する
+      $('#child_category').remove(); //親カテゴリーが初期値になった時、子以下を削除する
       $('#grandchild_category').remove();
       $('#size_wrapper').remove();
       $('#brand_wrapper').remove();
@@ -55,7 +56,7 @@ $(function(){
   // 子カテゴリー選択後のイベント
   $(document).on('change', '#child_category', function(){
     var childId = $('#child_category option:selected').data('category'); //選択された子カテゴリーのidを取得
-    if (childId != "-----"){ //子カテゴリーが初期値でないことを確認
+    if (childId != "---"){ //子カテゴリーが初期値でないことを確認
       $.ajax({
         url: '/items/get_category_grandchildren',
         type: 'GET',
