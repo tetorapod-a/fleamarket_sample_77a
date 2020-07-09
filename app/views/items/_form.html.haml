@@ -73,13 +73,22 @@
               %p カテゴリー 
             .product-details-required
               %p 必須
+          .category-attention
+            -if @item.category_id?
+              %p ※カテゴリー編集の際は一番上から選択してください。
           .input-form1
             .input-form-comment
               .listing-form-box
                 .listing-product-detail__category
                   .listing-select-wrapper
                     .listing-select-wrapper__box
-                      = form.collection_select :category_id, Category.roots, :id , :name, {include_blank: "---", selected: @item.category&.root_id}, class: "listing-select-wrapper__box--select", id: "parent_category"
+                      -if @item.category_id?
+                        = form.collection_select :category_id, Category.roots, :id , :name, {include_blank: "---", selected: @item.category&.root_id}, class: "listing-select-wrapper__box--select", id: "parent_category"
+                        = form.collection_select :category_id, @item.category.parent.parent.children, :id , :name, {include_blank: "---",selected:  @item.category.parent_id}, class: "listing-select-wrapper__box--select", id: "child_category"
+                        = form.collection_select :category_id, @item.category.parent.children, :id , :name, {include_blank: "---",selected: @item.category.id}, class: "listing-select-wrapper__box--select", id: "grandchild_category"
+                      - else
+                        = form.collection_select :category_id, Category.roots, :id , :name, {include_blank: "---", selected: @item.category&.root_id}, class: "listing-select-wrapper__box--select", id: "parent_category"
+
                       -if @item.errors.messages[:name].any?
                         .error-message
                         %p2 必ず入力してください
