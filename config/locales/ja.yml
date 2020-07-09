@@ -56,12 +56,28 @@ ja:
         last_name_kana: "名前のフリガナ"
         birthday: "生年月日"
       item:
-        images: "画像がありません"
+        images: "画像"
+        name: "商品名"
+        detail: "商品の説明"
+        price: "価格"
+        status_id: "商品の状態"
+        shipping_day_id: "発送までの日数"
+        prefecture_id: "発送元の地域"
+        shipping_method_id: "発送方法"
+        category_id: "カテゴリー"
+        postage_id: "配送料の負担"
     models:
       nickname: "ニックネーム"
       user: "会員情報"
       address: "商品送付先住所"
       current_password: "現在のパスワード"
+      item: "商品情報"
+      status: "商品の状態"
+      shipping_day: "発送までの日数"
+      shipping_method: "発送方法"
+      prefecture_id: "発送元の地域"
+      category: "カテゴリー"
+      postage: "配送料の負担"
   devise:
     confirmations:
       new:
