@@ -124,4 +124,3 @@
 |provider|string||
 ### Association
 - belongs_to :user, optional: true
-
